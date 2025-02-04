@@ -1,6 +1,6 @@
 # CODERS - Website Research Project
 
-Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college..
 
 ## About CODERS Club
 
