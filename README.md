@@ -46,9 +46,8 @@ Meet our founders, leaders, executive members, and faculty advisors. Connect wit
 
 Our website is built using the following technologies:
 - HTML for structure
-- CSS for styling
+- CSS, SCSS for styling
 - JavaScript/TypeScript for interactivity
-- DOM manipulation, AJAX, and jQuery for dynamic content
 - Angular Service for Dynamic Website Creation
 
 We are CODERS: Coders for Outreach, Diversity, Engagement and Retention Studies
