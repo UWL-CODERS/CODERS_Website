@@ -1,3 +1,5 @@
+// Research-projects spec: Testing component logic and functionality
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResearchProjectsComponent } from './research-projects.component';
