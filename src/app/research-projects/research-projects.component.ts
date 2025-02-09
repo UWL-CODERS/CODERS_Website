@@ -1,3 +1,5 @@
+// Research-projects logic: Project data management
+
 import { Component } from '@angular/core';
 
 @Component({
