@@ -12,7 +12,7 @@ I highly suggest you learn about or at least get a feel for:
 - JavaScript/TypeScript for interactivity
 - Angular Service for Dynamic Website Modification and Deployment
 
-If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through Snapchat!
+### If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through Snapchat!
 
 # Cool Angular Tips and Tricks
 
