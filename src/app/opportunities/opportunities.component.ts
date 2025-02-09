@@ -1,3 +1,5 @@
+// Opportunities logic: Filtering and display of listings
+
 import { Component } from '@angular/core';
 
 @Component({
