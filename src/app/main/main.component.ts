@@ -1,3 +1,5 @@
+// Main component logic: User interactions and data flow
+
 import { Component } from '@angular/core';
 
 @Component({
