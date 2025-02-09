@@ -2,14 +2,6 @@
 
 Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
 
-## Website Structure
-
-Our website is built using the following technologies:
-- HTML for structure
-- CSS, SCSS for styling
-- JavaScript/TypeScript for interactivity
-- Angular Service for Dynamic Website Modification and Deployment
-
 ## Website Structure & What To Know to Contribute:
 
 Nothing! Our website is built using the following technologies
@@ -19,7 +11,8 @@ I highly suggest you learn about or at least get a feel for:
 - CSS, SCSS for styling
 - JavaScript/TypeScript for interactivity
 - Angular Service for Dynamic Website Modification and Deployment
-  
+
+If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through Snapchat!
 
 # Cool Angular Tips and Tricks
 
