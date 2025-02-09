@@ -1,3 +1,5 @@
+// Pictures functionality: Image loading and transitions
+
 import { Component } from '@angular/core';
 
 @Component({
