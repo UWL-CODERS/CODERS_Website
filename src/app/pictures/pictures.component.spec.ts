@@ -1,3 +1,5 @@
+// Pictures spec: Testing component logic and functionality
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PicturesComponent } from './pictures.component';
