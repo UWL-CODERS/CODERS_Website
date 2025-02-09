@@ -1,3 +1,5 @@
+// About-us functionality: Managing dynamic content
+
 import { Component } from '@angular/core';
 
 @Component({
