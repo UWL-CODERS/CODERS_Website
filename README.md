@@ -2,18 +2,6 @@
 
 Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
 
-## About CODERS Club
-
-CODERS Club is a student-led organization dedicated to fostering a passion for programming, software development, and computer science. We provide a supportive environment for students to enhance their coding skills, collaborate on projects, and explore cutting-edge technologies.
-
-## What We Do
-
-- Organize weekly coding sessions and workshops
-- Host CS Lightning Talks on research projects
-- Facilitate group and individual coding projects
-- Arrange industry guest speaker events
-- Participate in hackathons and coding competitions
-
 ## Website Structure
 
 Our website is built using the following technologies:
@@ -21,11 +9,21 @@ Our website is built using the following technologies:
 - CSS, SCSS for styling
 - JavaScript/TypeScript for interactivity
 - Angular Service for Dynamic Website Modification and Deployment
+
+## Website Structure & What To Know to Contribute:
+
+Nothing! Our website is built using the following technologies
+I highly suggest you learn about or at least get a feel for:
+
+- HTML for structure
+- CSS, SCSS for styling
+- JavaScript/TypeScript for interactivity
+- Angular Service for Dynamic Website Modification and Deployment
   
 
-# Angular Tips and Tricks
+# Cool Angular Tips and Tricks
 
-# CODERSWebsite
+# CODERS_Website
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
