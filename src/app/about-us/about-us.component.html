@@ -1,1 +1,207 @@
 <!-- About-Us component: Information about the organization and team members contributing to the website -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .about {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* container now fits only one large card */
+        .cards-container {
+            width: 600px; 
+            overflow: hidden; 
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* the slider strip */
+        .cards {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* cards */
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 600px; 
+            height: 500px; 
+            flex-shrink: 0; /* this will prevent any image from be too small */
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%; /* adjusted for better layout  */
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin: 0 15px 15px 15px;
+            color: #555;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .carousel-controls button {
+            background-color: #888;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        footer img {
+            height: 30px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="a2a1c9f5-5299-4b12-893d-d8df3d23399f95fcbf82-d70f-4fc8-97d7-8ed2ba69ae5d.png" alt="Logo">
+        <nav>
+            <a href="#">Research and Projects</a>
+            <a href="#">Opportunities & Volunteering</a>
+            <a href="#">Pictures</a>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h1>About Us</h1>
+    </section>
+
+    <section class="cards-container">
+        <div class="cards">
+            <div class="card">
+                <img src="" alt="Image 1">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 2">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 3">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 4">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 5">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 6">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="card">
+                <img src="" alt="Image 7">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-controls">
+        <button id="prev">&#60;</button>
+        <button id="next">&#62;</button>
+    </div>
+
+    <footer>
+        <img src="uwl_logo.png" alt="University Logo">
+    </footer>
+    <script>
+        const cardsContainer = document.querySelector('.cards');
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+        const cardWidth = 600; // Updated to match bigger card
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const offset = currentIndex * cardWidth;
+            cardsContainer.style.transform = `translateX(-${offset}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < cardsContainer.children.length - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+        updateSlider();
+    </script>
+</body>
+</html>
