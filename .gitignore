@@ -1,0 +1,27 @@
+# Ignore Angular cache folder
+.angular/cache
+
+# Node modules - should always be ignored
+node_modules/
+
+# Build output
+dist/
+out-tsc/
+
+# Environment files
+*.env
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
