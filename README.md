@@ -75,3 +75,119 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+# Git Commands Demo for Beginners
+
+This section provides a simple guide to commonly used Git commands. Each command is explained with its purpose and usage, making it beginner-friendly.
+If possible, use Visual Studio Code or an IDE with an easy-to-understand interface with git functionality unless you have mastered it.
+---
+
+## **1. Initialize a Repository**
+### Command: `git init`
+- **What it does**: Creates a new Git repository in your project folder.
+- **Example**:
+git init
+text
+This initializes a `.git` directory to track your project's changes.
+
+---
+
+## **2. Check Repository Status**
+### Command: `git status`
+- **What it does**: Displays the current state of your working directory and staging area.
+- **Example**:
+git status
+text
+Use this to see which files are modified, added, or ready to commit.
+
+---
+
+## **3. Stage Changes**
+### Command: `git add`
+- **What it does**: Moves changes to the staging area, preparing them for a commit.
+- **Examples**:
+- Stage a single file:
+  ```
+  git add file1.txt
+  ```
+- Stage all changes:
+  ```
+  git add .
+  ```
+
+---
+
+## **4. Commit Changes**
+### Command: `git commit`
+- **What it does**: Saves changes from the staging area to the repository's history.
+- **Example**:
+git commit -m "Add feature X"
+text
+Use meaningful messages to describe your changes.
+
+---
+
+## **5. Push Changes**
+### Command: `git push`
+- **What it does**: Uploads your local commits to a remote repository (e.g., GitHub).
+- **Example**:
+git push origin main
+text
+This sends changes from your local `main` branch to the remote repository.
+
+---
+
+## **6. Pull Updates**
+### Command: `git pull`
+- **What it does**: Fetches and merges updates from a remote repository into your local branch.
+- **Example**:
+git pull origin main
+text
+Keeps your local branch synchronized with the remote.
+
+---
+
+## **7. View Commit History**
+### Command: `git log`
+- **What it does**: Displays a list of past commits.
+- **Example**:
+git log
+text
+Add options like `--oneline` for a concise view:
+git log --oneline
+text
+
+---
+
+## **8. Create and Switch Branches**
+### Commands:
+1. Create a new branch:
+git branch feature-x
+text
+2. Switch to the branch:
+git checkout feature-x
+text
+3. Combine both steps:
+git checkout -b feature-x
+text
+
+---
+
+## **9. Merge Branches**
+### Command: `git merge`
+- **What it does**: Combines changes from one branch into another.
+- **Example**:
+git merge feature-x
+text
+Merges `feature-x` into the current branch.
+
+---
+
+## **10. Clone a Repository**
+### Command: `git clone`
+- **What it does**: Creates a local copy of a remote repository.
+- **Example**:
+
+
