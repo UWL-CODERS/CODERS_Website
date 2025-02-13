@@ -152,7 +152,7 @@ Keeps your local branch synchronized with the remote.
 - **What it does**: Displays a list of past commits.
 - **Example**:
 git log
-text
+text | 
 Add options like `--oneline` for a concise view:
 git log --oneline
 text
@@ -163,13 +163,13 @@ text
 ### Commands:
 1. Create a new branch:
 git branch feature-x
-text
+text | 
 2. Switch to the branch:
 git checkout feature-x
-text
+text | 
 3. Combine both steps:
 git checkout -b feature-x
-text
+text | 
 
 ---
 
@@ -178,7 +178,7 @@ text
 - **What it does**: Combines changes from one branch into another.
 - **Example**:
 git merge feature-x
-text
+text | 
 Merges `feature-x` into the current branch.
 
 ---
@@ -187,5 +187,8 @@ Merges `feature-x` into the current branch.
 ### Command: `git clone`
 - **What it does**: Creates a local copy of a remote repository.
 - **Example**:
+git clone
+RepositoryPath |
+Clones a repository from the remote server to your local computer
 
 
