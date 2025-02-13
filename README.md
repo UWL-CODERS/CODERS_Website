@@ -87,7 +87,7 @@ If possible, use Visual Studio Code or an IDE with an easy-to-understand interfa
 - **What it does**: Creates a new Git repository in your project folder.
 - **Example**:
 git init
-text
+text |
 This initializes a `.git` directory to track your project's changes.
 
 ---
@@ -97,7 +97,7 @@ This initializes a `.git` directory to track your project's changes.
 - **What it does**: Displays the current state of your working directory and staging area.
 - **Example**:
 git status
-text
+text |
 Use this to see which files are modified, added, or ready to commit.
 
 ---
@@ -122,7 +122,7 @@ Use this to see which files are modified, added, or ready to commit.
 - **What it does**: Saves changes from the staging area to the repository's history.
 - **Example**:
 git commit -m "Add feature X"
-text
+text | 
 Use meaningful messages to describe your changes.
 
 ---
@@ -132,7 +132,7 @@ Use meaningful messages to describe your changes.
 - **What it does**: Uploads your local commits to a remote repository (e.g., GitHub).
 - **Example**:
 git push origin main
-text
+text | 
 This sends changes from your local `main` branch to the remote repository.
 
 ---
@@ -142,7 +142,7 @@ This sends changes from your local `main` branch to the remote repository.
 - **What it does**: Fetches and merges updates from a remote repository into your local branch.
 - **Example**:
 git pull origin main
-text
+text | 
 Keeps your local branch synchronized with the remote.
 
 ---
