@@ -1,3 +1,5 @@
+## Do not Modify this File Unless an important local file (your own) is on the commit list!!!
+
 # Ignore Angular cache folder
 .angular/cache
 
