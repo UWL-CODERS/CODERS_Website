@@ -1,5 +1,3 @@
-// Do Not Modify Yet. To Include Page Routing for Website!
-
 import { Routes } from '@angular/router';
 //import { NgModule } from '@angular/core';
 //import { RouterModule } from '@angular/router';
@@ -13,7 +11,9 @@ import { LayoutComponent } from './shared/layout/layout.component';
 
 export const routes: Routes = [
     {
-    path: '',component: LayoutComponent,children: [
+    path: '',component: LayoutComponent,
+    runGuardsAndResolvers: 'always', 
+    children: [
     { path: '', component: MainComponent },
     { path: 'home', component: MainComponent },
     { path: 'opportunities', component: OpportunitiesComponent },

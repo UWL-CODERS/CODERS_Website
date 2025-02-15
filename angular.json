@@ -35,7 +35,9 @@
               "src/styles.scss",
                "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "/Users/brendanlambrecht/CodingProjects/CODERS_Website/src/app/Assets/Img.js"
+            ],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -99,7 +101,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "/Users/brendanlambrecht/CodingProjects/CODERS_Website/src/app/Assets/Img.js"
+            ]
           }
         }
       }
