@@ -1,6 +1,11 @@
-# CODERS - Website Research Project
+<h1 align="center">CODERS Club - Website Research Project</h1>
 
-Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+<p align="center">
+<img src="src/assets/images/logo.png" alt="CODERS logo">
+  <br>
+  <em>Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.</em>
+  <br>
+</p>
 
 ## Website Structure & What To Know to Contribute:
 
@@ -78,62 +83,110 @@ For more information on using the Angular CLI, including detailed command refere
 This section provides a simple guide to commonly used Git commands. Each command is explained with its purpose and usage, making it beginner-friendly.
 If possible, use Visual Studio Code or an IDE with an easy-to-understand interface with git functionality unless you have mastered it.
 
-## 1. Initialize a Repository
-Command: `git init`
-- **Description**: Creates a new Git repository in your project folder.
-- **Example Usage**: `git init text` *This initializes a `.git` directory to track your project's changes.*
+## Initializing a Repository
 
-## 2. Check Repository Status
-Command: `git status`
-- **Description**: Displays the current state of your working directory and staging area.
-- **Example Usage**: `git status text` *Use this to see which files are modified, added, or ready to commit.*
+Create a new Git repository in your project folder.
 
-## 3. Stage Changes
-Command: `git add`
-- **Description**: Moves changes to the staging area, preparing them for a commit.
-- **Examples**:
-  - Stage a single file:
-  ```
-  git add file1.txt
-  ```
-  - Stage all changes:
-  ```
-  git add .
-  ```
+```bash
+git init
+```
 
-## 4. Commit Changes
-Command: `git commit`
-- **Description**: Saves changes from the staging area to the repository's history.
-- **Example Usage**: `git commit -m "Add feature X"` *Use meaningful messages to describe your changes.*
+This command creates a `.git` directory in your project folder, which is used by Git to track changes to your project.
 
-## 5. Push Changes
-Command: `git push`
-- **Description**: Uploads your local commits to a remote repository (e.g., GitHub).
-- **Example Usage**: `git push origin main` *This sends changes from your local `main` branch to the remote repository.*
+**Example Usage:**
 
-## 6. Pull Updates
-Command: `git pull`
-- **Description**: Fetches and merges updates from a remote repository into your local branch.
-- **Example Usage**: `git pull origin main` *Keeps your local branch synchronized with the remote.*
+```bash
+git init .  # Initializes in the current directory
+git init my-project  # Initializes in the "my-project" subdirectory
+```
 
-## 7. View Commit History
-Command: `git log`
-- **Description**: Displays a list of past commits.
-- **Example Usage**: `git log`
-  - Add options like `--oneline` for a concise view: `git log --oneline`
+## Checking Repository Status
 
-## 8. Create and Switch Branches
+Display the current state of your working directory and staging area.
+
+```bash
+git status
+```
+
+Use this command to see which files are modified, added, or ready to commit.
+
+## Staging Changes
+
+Move changes to the staging area, preparing them for a commit.
+
+```bash
+git add file1.txt  # Stage a single file
+git add .          # Stage all changes
+```
+
+## Committing Changes
+
+Save changes from the staging area to the repository's history.
+
+```bash
+git commit -m "Add feature X"
+```
+
+Please use meaningful messages to describe your changes!
+
+## Pushing Changes
+
+Uploads your local commits to a remote repository (e.g., GitHub).
+
+```bash
+git push origin main  # Sends changes from your local "main" branch to the remote
+```
+
+## Pulling Updates
+
+Fetches and merges updates from a remote repository into your local branch.
+
+```bash
+git pull origin main  # Keeps your local branch synchronized with the remote
+```
+
+## Viewing Commit History
+
+Displays a list of past commits.
+
+```bash
+git log
+git log --oneline  # Concise view
+```
+
+## Creating and Switching Branches
+
 Commands:
-1. Create a new branch: `git branch feature-x`
-2. Switch to the branch: `git checkout feature-x`
-3. Combine both steps: `git checkout -b feature-x`
 
-## 9. Merge Branches
-Command: `git merge`
-- **Description**: Combines changes from one branch into another.
-- **Example Usage**: `git merge feature-x text` *Merges `feature-x` into the current branch.*
+```bash
+git branch feature-x  # Create a new branch
+```
 
-## 10. Clone a Repository
-Command: `git clone`
-- **Description**: Creates a local copy of a remote repository.
-- **Example Usage**: `git clone RepositoryPath` *Clones a repository from the remote server to your local computer.*
+```bash
+git checkout feature-x  # Switch to the branch
+```
+
+```bash
+git checkout -b feature-x`  # Combine both steps
+```
+
+## Merging Branches
+Combines changes from one branch into another.
+
+```bash
+git merge feature-x  # Merges "feature-x" into the current branch
+```
+
+## Cloning a Repository
+
+Creates a local copy of a remote repository.
+
+```bash
+git clone <repository_url>
+```
+
+Clone this repository using the following command:
+
+```bash
+git clone https://github.com/UWL-CODERS/CODERS_Website.git
+```
