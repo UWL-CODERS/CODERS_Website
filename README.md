@@ -4,17 +4,16 @@ Welcome to the CODERS Club Website GitHub repository! This website serves as the
 
 ## Website Structure & What To Know to Contribute:
 
-Nothing! Our website is built using the following technologies
-I highly suggest you learn about or at least get a feel for:
+Our website is built using the following technologies. I highly suggest you learn about or at least get a feel for:
 
 - HTML for structure
 - CSS, SCSS for styling
 - JavaScript/TypeScript for interactivity
 - Angular Service for Dynamic Website Modification and Deployment
 
-### If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through Snapchat!
+If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through [Snapchat](https://snapchat.com/add/bren-dog2020)!
 
-# Cool Angular Tips and Tricks
+# Angular Usage
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
 
@@ -74,121 +73,67 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-
-
-# Git Commands Demo for Beginners
+# Git Demonstration for Beginners
 
 This section provides a simple guide to commonly used Git commands. Each command is explained with its purpose and usage, making it beginner-friendly.
 If possible, use Visual Studio Code or an IDE with an easy-to-understand interface with git functionality unless you have mastered it.
----
 
-## **1. Initialize a Repository**
-### Command: `git init`
-- **What it does**: Creates a new Git repository in your project folder.
-- **Example**:
-git init
-text |
-This initializes a `.git` directory to track your project's changes.
+## 1. Initialize a Repository
+Command: `git init`
+- **Description**: Creates a new Git repository in your project folder.
+- **Example Usage**: `git init text` *This initializes a `.git` directory to track your project's changes.*
 
----
+## 2. Check Repository Status
+Command: `git status`
+- **Description**: Displays the current state of your working directory and staging area.
+- **Example Usage**: `git status text` *Use this to see which files are modified, added, or ready to commit.*
 
-## **2. Check Repository Status**
-### Command: `git status`
-- **What it does**: Displays the current state of your working directory and staging area.
-- **Example**:
-git status
-text |
-Use this to see which files are modified, added, or ready to commit.
-
----
-
-## **3. Stage Changes**
-### Command: `git add`
-- **What it does**: Moves changes to the staging area, preparing them for a commit.
+## 3. Stage Changes
+Command: `git add`
+- **Description**: Moves changes to the staging area, preparing them for a commit.
 - **Examples**:
-- Stage a single file:
+  - Stage a single file:
   ```
   git add file1.txt
   ```
-- Stage all changes:
+  - Stage all changes:
   ```
   git add .
   ```
 
----
+## 4. Commit Changes
+Command: `git commit`
+- **Description**: Saves changes from the staging area to the repository's history.
+- **Example Usage**: `git commit -m "Add feature X"` *Use meaningful messages to describe your changes.*
 
-## **4. Commit Changes**
-### Command: `git commit`
-- **What it does**: Saves changes from the staging area to the repository's history.
-- **Example**:
-git commit -m "Add feature X"
-text | 
-Use meaningful messages to describe your changes.
+## 5. Push Changes
+Command: `git push`
+- **Description**: Uploads your local commits to a remote repository (e.g., GitHub).
+- **Example Usage**: `git push origin main` *This sends changes from your local `main` branch to the remote repository.*
 
----
+## 6. Pull Updates
+Command: `git pull`
+- **Description**: Fetches and merges updates from a remote repository into your local branch.
+- **Example Usage**: `git pull origin main` *Keeps your local branch synchronized with the remote.*
 
-## **5. Push Changes**
-### Command: `git push`
-- **What it does**: Uploads your local commits to a remote repository (e.g., GitHub).
-- **Example**:
-git push origin main
-text | 
-This sends changes from your local `main` branch to the remote repository.
+## 7. View Commit History
+Command: `git log`
+- **Description**: Displays a list of past commits.
+- **Example Usage**: `git log`
+  - Add options like `--oneline` for a concise view: `git log --oneline`
 
----
+## 8. Create and Switch Branches
+Commands:
+1. Create a new branch: `git branch feature-x`
+2. Switch to the branch: `git checkout feature-x`
+3. Combine both steps: `git checkout -b feature-x`
 
-## **6. Pull Updates**
-### Command: `git pull`
-- **What it does**: Fetches and merges updates from a remote repository into your local branch.
-- **Example**:
-git pull origin main
-text | 
-Keeps your local branch synchronized with the remote.
+## 9. Merge Branches
+Command: `git merge`
+- **Description**: Combines changes from one branch into another.
+- **Example Usage**: `git merge feature-x text` *Merges `feature-x` into the current branch.*
 
----
-
-## **7. View Commit History**
-### Command: `git log`
-- **What it does**: Displays a list of past commits.
-- **Example**:
-git log
-text | 
-Add options like `--oneline` for a concise view:
-git log --oneline
-text
-
----
-
-## **8. Create and Switch Branches**
-### Commands:
-1. Create a new branch:
-git branch feature-x
-text | 
-2. Switch to the branch:
-git checkout feature-x
-text | 
-3. Combine both steps:
-git checkout -b feature-x
-text | 
-
----
-
-## **9. Merge Branches**
-### Command: `git merge`
-- **What it does**: Combines changes from one branch into another.
-- **Example**:
-git merge feature-x
-text | 
-Merges `feature-x` into the current branch.
-
----
-
-## **10. Clone a Repository**
-### Command: `git clone`
-- **What it does**: Creates a local copy of a remote repository.
-- **Example**:
-git clone
-RepositoryPath |
-Clones a repository from the remote server to your local computer
-
-
+## 10. Clone a Repository
+Command: `git clone`
+- **Description**: Creates a local copy of a remote repository.
+- **Example Usage**: `git clone RepositoryPath` *Clones a repository from the remote server to your local computer.*
