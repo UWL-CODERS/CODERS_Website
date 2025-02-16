@@ -1,9 +1,11 @@
+// Reset default styles
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+// Hide elements visually but keep them accessible for screen readers
 .visuallyhidden {
   position: absolute;
   z-index: -1;
@@ -11,12 +13,14 @@
   opacity: 0;
 }
 
+// Styles for the main heading
 h1 {
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   margin-top: 1em;
 }
 
+// Container for the carousel
 .container {
   overflow: hidden;
   padding: 20px;
@@ -24,6 +28,7 @@ h1 {
   background: rgba(0,0,0,.1)
 }
 
+// Main carousel styles
 .card-carousel {
   --card-width: 80%;
   --card-max-width: 280px;
@@ -38,16 +43,19 @@ h1 {
   transition: filter .3s ease;
 }
 
+// Responsive adjustment for smaller screens
 @media screen and (max-width: 640px) {
   .card-carousel {
     margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2)
   }
 }
 
+// Smooth transition for carousel
 .card-carousel.smooth-return {
   transition: all .2s ease;
 }
 
+// Individual card styles
 .card-carousel .card {
   background: whitesmoke;
   width: var(--card-width);
@@ -71,10 +79,12 @@ h1 {
   justify-content: center;
 }
 
+// Highlight effect for the active card
 .card.highlight {
   filter: brightness(1)
 }
 
+// Background images for each card (TO BE CHANGED FOR RELEVANCE)
 .card:nth-of-type(1) .image-container {
     background-image: url("https://static.addtoany.com/images/dracaena-cinnabari.jpg");
 }
@@ -93,6 +103,7 @@ h1 {
   background-image: url("https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg")
 }
 
+// Styles for the image container within each card
 .image-container {
   width: 8em;
   height: 8em;
@@ -106,6 +117,7 @@ h1 {
   box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
 }
 
+// Pseudo-element for creating a border around the image
 .image-container::after {
   content: "";
   display: block;
@@ -118,6 +130,7 @@ h1 {
   left: calc(-10% - 3px);
 }
 
+// Styles for secondary headings
 h2 {
   padding: 1em;
   margin-top: 1em;

@@ -1,14 +1,19 @@
-const cardsContainer = document.querySelector(".card-carousel");
-const cardsController = document.querySelector(".card-carousel + .card-controller")
-// alert('Page loaded from external file!');
+// Select all elements with class "card-carousel"
+const cardsContainers = document.querySelectorAll(".card-carousel");
+// Select all elements with class "card-controller" that come right after a "card-carousel"
+const cardsControllers = document.querySelectorAll(".card-carousel + .card-controller");
+
+// Class to handle dragging events
 class DraggingEvent {
   constructor(target = undefined) {
     this.target = target;
   }
   
+  // Method to set up event listeners for mouse and touch events
   event(callback) {
     let handler;
     
+    // Mouse events
     this.target.addEventListener("mousedown", e => {
       e.preventDefault()
       
@@ -20,6 +25,7 @@ class DraggingEvent {
       
       window.addEventListener("mouseup", clearDraggingEvent)
       
+      // Function to remove event listeners when dragging ends
       function clearDraggingEvent() {
         window.removeEventListener("mousemove", handler)
         window.removeEventListener("mouseup", clearDraggingEvent)
@@ -30,6 +36,7 @@ class DraggingEvent {
       }
     })
     
+    // Touch events
     this.target.addEventListener("touchstart", e => {
       handler = callback(e)
       
@@ -39,6 +46,7 @@ class DraggingEvent {
       
       document.body.addEventListener("mouseleave", clearDraggingEvent)
       
+      // Function to remove event listeners when touch ends
       function clearDraggingEvent() {
         window.removeEventListener("touchmove", handler)
         window.removeEventListener("touchend", clearDraggingEvent)
@@ -48,11 +56,12 @@ class DraggingEvent {
     })
   }
   
-  // Get the distance that the user has dragged
+  // Method to calculate the distance dragged
   getDistance(callback) {
     function distanceInit(e1) {
       let startingX, startingY;
       
+      // Get initial touch or mouse position
       if ("touches" in e1) {
         startingX = e1.touches[0].clientX
         startingY = e1.touches[0].clientY
@@ -61,7 +70,7 @@ class DraggingEvent {
         startingY = e1.clientY
       }
       
-
+      // Return function to calculate distance moved
       return function(e2) {
         if (e2 === null) {
           return callback(null)
@@ -86,7 +95,7 @@ class DraggingEvent {
   }
 }
 
-
+// Class for the card carousel, extends DraggingEvent
 class CardCarousel extends DraggingEvent {
   constructor(container, controller = undefined) {
     super(container)
@@ -101,27 +110,28 @@ class CardCarousel extends DraggingEvent {
     this.cardWidth = this.cards[0].offsetWidth / this.container.offsetWidth * 100
     this.xScale = {};
     
-    // Resizing
+    // Event listeners
     window.addEventListener("resize", this.updateCardWidth.bind(this))
     
     if (this.controllerElement) {
       this.controllerElement.addEventListener("keydown", this.controller.bind(this))      
     }
 
-    
-    // Initializers
+    // Initialize
     this.build()
     
     // Bind dragging event
     super.getDistance(this.moveCards.bind(this))
   }
   
+  // Method to update card width on window resize
   updateCardWidth() {
     this.cardWidth = this.cards[0].offsetWidth / this.container.offsetWidth * 100
     
     this.build()
   }
   
+  // Method to build the carousel
   build(fix = 0) {
     for (let i = 0; i < this.cards.length; i++) {
       const x = i - this.centerIndex;
@@ -143,7 +153,7 @@ class CardCarousel extends DraggingEvent {
     }
   }
   
-  
+  // Method to handle keyboard controls
   controller(e) {
     const temp = {...this.xScale};
       
@@ -182,6 +192,7 @@ class CardCarousel extends DraggingEvent {
       }
   }
   
+  // Method to calculate card position
   calcPos(x, scale) {
     let formula;
     
@@ -201,6 +212,7 @@ class CardCarousel extends DraggingEvent {
     }
   }
   
+  // Method to update card styles
   updateCards(card, data) {
     if (data.x || data.x == 0) {
       card.setAttribute("data-x", data.x)
@@ -231,6 +243,7 @@ class CardCarousel extends DraggingEvent {
     }
   }
   
+  // Methods to calculate card scale
   calcScale2(x) {
     let formula;
    
@@ -255,6 +268,7 @@ class CardCarousel extends DraggingEvent {
     }
   }
   
+  // Method to check and update card ordering
   checkOrdering(card, x, xDist) {    
     const original = parseInt(card.dataset.x)
     const rounded = Math.round(xDist)
@@ -283,6 +297,7 @@ class CardCarousel extends DraggingEvent {
     return newX;
   }
   
+  // Method to move cards based on drag distance
   moveCards(data) {
     let xDist;
     
@@ -290,7 +305,6 @@ class CardCarousel extends DraggingEvent {
       this.container.classList.remove("smooth-return")
       xDist = data.x / 250;
     } else {
-
       
       this.container.classList.add("smooth-return")
       xDist = 0;
@@ -318,4 +332,12 @@ class CardCarousel extends DraggingEvent {
   }
 }
 
-const carousel = new CardCarousel(cardsContainer)
+// Function to initialize a new CardCarousel
+function initializeCarousel(container, controller) {
+  return new CardCarousel(container, controller);
+}
+
+// Initialize CardCarousel for each container
+cardsContainers.forEach((container, index) => {
+  initializeCarousel(container, cardsControllers[index]);
+})
