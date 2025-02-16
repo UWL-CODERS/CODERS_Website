@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="public/logo.png" alt="CODERS logo">
+<img src="src/assets/images/logo.png" alt="CODERS logo">
 
 # CODERS - Website Research Project
 
