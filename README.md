@@ -1,6 +1,12 @@
+<div align="center">
+
+<img src="public/logo.png" alt="CODERS logo">
+
 # CODERS - Website Research Project
 
 Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+
+</div>
 
 ## Website Structure & What To Know to Contribute:
 

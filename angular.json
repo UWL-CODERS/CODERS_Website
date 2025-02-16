@@ -28,7 +28,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
@@ -36,7 +37,7 @@
                "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
-              "src/app/Assets/Img.js"
+              "src/assets/Img.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -95,14 +96,15 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": [
-              "src/app/Assets/Img.js"
+              "src/assets/Img.js"
             ]
           }
         }
