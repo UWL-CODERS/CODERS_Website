@@ -9,7 +9,6 @@
   z-index: -1;
   right: 0;
   opacity: 0;
-  
 }
 
 h1 {
@@ -94,8 +93,6 @@ h1 {
   background-image: url("https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg")
 }
 
-
-
 .image-container {
   width: 8em;
   height: 8em;
@@ -105,9 +102,8 @@ h1 {
   border-radius: 100%;
   padding: 1em;
   -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
--moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
-  
+  -moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
 }
 
 .image-container::after {
