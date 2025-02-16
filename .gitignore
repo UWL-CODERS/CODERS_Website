@@ -1,26 +1,41 @@
-## Do not Modify this File Unless an important local file (your own) is on the commit list!!!
+# Do not modify this file unless an important local file (your own) is on the commit list!!!
 
-# Ignore Angular cache folder
-.angular/cache
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# Node modules - should always be ignored
-node_modules/
+# Node.js and package managers
+/node_modules
+npm-debug.log
+yarn-error.log
 
-# Build output
-dist/
-out-tsc/
-
-# Environment files
-*.env
-
-# IDE and editor settings
-.vscode/
+# IDEs and editors
 .idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
-# Log files
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+*.env
 *.log
-
-# Temporary files
 *.tmp
 *.temp
 
