@@ -2,7 +2,7 @@
 
 ### What is a Vulnerability?
 
-A vulnerability is a flaw or weakness in a system, software, or process that can be exploited by malicious actors to gain unauthorized access, disrupt operations, or compromise sensitive data. These vulnerabilities can arise from coding errors, misconfigurations, or weaknesses in design and implementation. Exploiting vulnerabilities may allow attackers to install malware, steal data, or perform unauthorized actions on a system149.
+A vulnerability is a flaw or weakness in a system, software, or process that can be exploited by malicious actors to gain unauthorized access, disrupt operations, or compromise sensitive data. These vulnerabilities can arise from coding errors, misconfigurations, or weaknesses in design and implementation. Exploiting vulnerabilities may allow attackers to install malware, steal data, or perform unauthorized actions on a system.
 
 ### Reporting Vulnerabilities
 
