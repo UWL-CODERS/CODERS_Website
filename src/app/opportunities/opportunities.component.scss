@@ -84,7 +84,7 @@ h1 {
   filter: brightness(1)
 }
 
-
+// BACKGROUND IMAGES FOR CARDS
 
 // Background images for each card in the first carousel
 #carousel1-card1 .image-container {
@@ -104,18 +104,16 @@ h1 {
 }
 
 #carousel1-card5 .image-container {
-  background-image: url("../../assets/images/87f7d4bd-c2fb-425c-a2cb-d45d574c0d99d9ae46d2-be2c-4712-8a4c-37ee816f54e7.png");
+  background-image: url("../../assets/images/RealEstateClub.png");
 }
-
-
 
 // Background images for each card in the second carousel
 #carousel2-card1 .image-container {
-  background-image: url("../../assets/images/Screenshot\ 2025-02-17\ at\ 1.25.04\ PM.png");
+  background-image: url("../../assets/images/KidsCollege.png");
 }
 
 #carousel2-card2 .image-container {
-  background-image: url("../../assets/images/385868602_330099782862283_8848651465686389433_n.jpg");
+  background-image: url("../../assets/images/enchantedForest.jpg");
 }
 
 #carousel2-card3 .image-container {
@@ -123,12 +121,13 @@ h1 {
 }
 
 #carousel2-card4 .image-container {
-  background-image: url("../../assets/images/Medium.png");
+  background-image: url("../../assets/images/UWL_Logo.png");
 }
 
 #carousel2-card5 .image-container {
-  background-image: url("../../assets/images/4968770.png");
+  background-image: url("../../assets/images/stem.png");
 }
+
 
 // Styles for the image container within each card
 .image-container {
