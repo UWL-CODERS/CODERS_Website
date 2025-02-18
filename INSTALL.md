@@ -1,16 +1,18 @@
 # Installation Guide
 
-This guide will walk you through setting up the development environment for the CODERS Club Website project. Using an IDE (Integrated Development Environment) is highly recommended as it provides features like code completion, local testing, and simplified Git usage. [VS Code](https://code.visualstudio.com/) is a popular and powerful option that we recommend.
+This guide provides instructions for setting up the development environment for the CODERS Club Website project. An IDE (Integrated Development Environment) is highly recommended for web development as it provides features such as code completion, local testing, and simplified Git usage. [VS Code](https://code.visualstudio.com/) is a popular and powerful option.
+
+For those who prefer in-person assistance, please contact Brendan Lambrecht at lambrecht5083@uwlax.edu or via [Snapchat](https://snapchat.com/add/bren-dog2020).
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
-- **Git**: Enables you to track code changes, collaborate effectively, and manage different versions of your project. Download and install from https://git-scm.com/.
-- **Node.js**: JavaScript runtime environment. We recommend using the LTS (Long Term Support) version. Download from https://nodejs.org/.
-  - *Optional*: If you plan to work on multiple Node.js projects in the future, using a version manager is highly recommended. This will allow you to easily switch between different Node.js versions as needed. [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) and [nvm-sh](https://github.com/nvm-sh/nvm) (Mac/Linux) are popular choices. For this project, using the LTS version of Node.js is sufficient.
-- **npm (Node Package Manager)**: Comes bundled with Node.js. It's generally a good idea to keep npm updated: `npm install -g npm@latest`
-- **Angular CLI (Command Line Interface)**: Essential for Angular development. Install it after installing Node.js and npm: `npm install -g @angular/cli`.
+* **Git**: Enables you to track code changes, collaborate effectively, and manage different versions of your project. Download and install from https://git-scm.com/.
+* **Node.js**: JavaScript runtime environment. We recommend using the LTS (Long Term Support) version. Download from https://nodejs.org/.
+  * *Optional*: If you plan to work on multiple Node.js projects in the future, using a version manager is highly recommended. This will allow you to easily switch between different Node.js versions as needed. [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) and [nvm-sh](https://github.com/nvm-sh/nvm) (Mac/Linux) are popular choices. For this project, using the LTS version of Node.js is sufficient.
+* **npm (Node Package Manager)**: Comes bundled with Node.js. It's generally a good idea to keep npm updated: `npm install -g npm@latest`
+* **Angular CLI (Command Line Interface)**: Essential for Angular development. Install it after installing Node.js and npm: `npm install -g @angular/cli`.
 
 ## Project Setup
 
@@ -38,10 +40,6 @@ ng serve
 
 This will compile the project and start a local development server. You should be able to access the application in your browser at `http://localhost:4200`.
 
-## Troubleshooting
+## Further Reading & Resources
 
-If you encounter any issues during the installation process, please reach out to me at lambrecht5083@uwlax.edu or through [Snapchat](https://snapchat.com/add/bren-dog2020)!
-
-## Further Reading
-
-- [Angular Documentation](https://angular.io/docs)
+To learn more about the technologies used in this website project, view [here](./README.md/#further-reading--resources)

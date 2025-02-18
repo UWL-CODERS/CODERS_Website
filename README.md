@@ -15,12 +15,37 @@
 
 Our website is built using the following technologies. I highly suggest you learn about or at least get a feel for:
 
-- HTML for structure
-- CSS, SCSS for styling
-- JavaScript/TypeScript for interactivity
-- Angular Service for Dynamic Website Modification and Deployment
+* HTML for structure
+* CSS, SCSS for styling
+* JavaScript/TypeScript for interactivity
+* Angular Service for Dynamic Website Modification and Deployment
 
 To get started, set up your development environment using the [Installation Guide](./INSTALL.md) and once you are ready to contribute, see the [Development Guide](./DEVELOPMENT.md) for details.
 
+## Further Reading & Resources
+
+### HTML
+
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [freeCodeCamp](https://www.freecodecamp.org/)
+
+### CSS
+
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [freeCodeCamp](https://www.freecodecamp.org/)
+
+### JavaScript
+
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Eloquent JavaScript](https://eloquentjavascript.net/)
+
+### TypeScript
+
+* [Official Documentation](https://www.typescriptlang.org/)
+
+### Angular
+
+* [Official Documentation](https://angular.io/docs)
+
 ## Need help?
-If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through [Snapchat](https://snapchat.com/add/bren-dog2020)!
+If you have any questions, concerns, or need anything, please contact Brendan Lambrecht at lambrecht5083@uwlax.edu or via [Snapchat](https://snapchat.com/add/bren-dog2020).

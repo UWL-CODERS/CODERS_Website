@@ -68,8 +68,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Git Demonstration for Beginners
 
-This section provides a simple guide to commonly used Git commands. Each command is explained with its purpose and usage, making it beginner-friendly.
-If possible, use Visual Studio Code or an IDE with an easy-to-understand interface with git functionality unless you have mastered it.
+This section provides a simple guide to commonly used Git commands. Each command is explained with its purpose and usage, making it beginner-friendly. If possible, use Visual Studio Code or an IDE with an easy-to-understand interface with git functionality unless you have mastered it.
 
 ### Initializing a Repository
 
@@ -178,3 +177,7 @@ Clone this repository using the following command:
 ```bash
 git clone https://github.com/UWL-CODERS/CODERS_Website.git
 ```
+
+## Further Reading & Resources
+
+To learn more about the technologies used in this website project, view [here](./README.md/#further-reading--resources)
