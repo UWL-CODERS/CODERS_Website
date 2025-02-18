@@ -1,77 +1,51 @@
-# CODERS - Website Research Project
+<h1 align="center">CODERS Club - Website Research Project</h1>
 
-Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+<p align="center">
+<img src="src/assets/images/logo.png" alt="CODERS logo">
+  <br>
+  <em>Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.</em>
+  <br>
+</p>
+
+<p align="center">
+ <a href="./INSTALL.md">Installation</a> &bull; <a href="./DEVELOPMENT.md">Development</a> &bull; <a href="./SECURITY.md">Security</a> &bull; <a href="#need-help">Contact</a>
+</p>
 
 ## Website Structure & What To Know to Contribute:
 
-Nothing! Our website is built using the following technologies
-I highly suggest you learn about or at least get a feel for:
+Our website is built using the following technologies. I highly suggest you learn about or at least get a feel for:
 
-- HTML for structure
-- CSS, SCSS for styling
-- JavaScript/TypeScript for interactivity
-- Angular Service for Dynamic Website Modification and Deployment
+* HTML for structure
+* CSS, SCSS for styling
+* JavaScript/TypeScript for interactivity
+* Angular Service for Dynamic Website Modification and Deployment
 
-### If you have any questions, concerns, or need anything, please reach out to me at lambrecht5083@uwlax.edu or through Snapchat!
+To get started, set up your development environment using the [Installation Guide](./INSTALL.md) and once you are ready to contribute, see the [Development Guide](./DEVELOPMENT.md) for details.
 
-# Cool Angular Tips and Tricks
+## Further Reading & Resources
 
-# CODERS_Website
+### HTML
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [freeCodeCamp](https://www.freecodecamp.org/)
 
-## Development server
+### CSS
 
-To start a local development server, run:
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [freeCodeCamp](https://www.freecodecamp.org/)
 
-```bash
-ng serve
-```
+### JavaScript
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Eloquent JavaScript](https://eloquentjavascript.net/)
 
-## Code scaffolding
+### TypeScript
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* [Official Documentation](https://www.typescriptlang.org/)
 
-```bash
-ng generate component component-name
-```
+### Angular
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+* [Official Documentation](https://angular.io/docs)
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Need help?
+If you have any questions, concerns, or need anything, please contact Brendan Lambrecht at lambrecht5083@uwlax.edu or via [Snapchat](https://snapchat.com/add/bren-dog2020).

@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-<h3>Test about</h3>
-=======
+// CORRECTIONAL NOTE: Be sure to modify this code for Angular Syntax (if needed) and transfer this code
+// to the proper component location (Path: main/src/app/about-us/about-us.component.html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +14,17 @@
             padding: 0;
         }
 
-        
+        header {
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 50px;
+        }
 
         nav {
             display: flex;
@@ -95,11 +104,27 @@
             cursor: pointer;
         }
 
-        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        footer img {
+            height: 30px;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
-   
+    <header>
+        <img src="a2a1c9f5-5299-4b12-893d-d8df3d23399f95fcbf82-d70f-4fc8-97d7-8ed2ba69ae5d.png" alt="Logo">
+        <nav>
+            <a href="#">Research and Projects</a>
+            <a href="#">Opportunities & Volunteering</a>
+            <a href="#">Pictures</a>
+        </nav>
+    </header>
 
     <section class="about">
         <h1>About Us</h1>
@@ -150,6 +175,9 @@
         <button id="next">&#62;</button>
     </div>
 
+    <footer>
+        <img src="uwl_logo.png" alt="University Logo">
+    </footer>
     <script>
         const cardsContainer = document.querySelector('.cards');
         const nextButton = document.getElementById('next');
@@ -178,4 +206,3 @@
     </script>
 </body>
 </html>
->>>>>>> main

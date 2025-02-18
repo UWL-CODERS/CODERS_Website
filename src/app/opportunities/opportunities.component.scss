@@ -1,2 +1,170 @@
-// Styles for opportunities: Layout of Opportunities
-// WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
+// Reset default styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Hide elements visually but keep them accessible for screen readers
+.visuallyhidden {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  opacity: 0;
+}
+
+// Styles for the main heading
+h1 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 1em;
+}
+
+// Container for the carousel
+.container {
+  overflow: hidden;
+  padding: 20px;
+  margin-top: 2em;
+  background: rgba(0,0,0,.1)
+}
+
+// Main carousel styles
+.card-carousel {
+  --card-width: 80%;
+  --card-max-width: 280px;
+  --card-height: 350px;
+  --carousel-min-width: 600px;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--card-height);
+  min-width: var(--carousel-min-width);
+  transition: filter .3s ease;
+}
+
+// Responsive adjustment for smaller screens
+@media screen and (max-width: 640px) {
+  .card-carousel {
+    margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2)
+  }
+}
+
+// Smooth transition for carousel
+.card-carousel.smooth-return {
+  transition: all .2s ease;
+}
+
+// Individual card styles
+.card-carousel .card {
+  background: whitesmoke;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  text-align: center;
+  padding: 1em;
+  min-width: 250px;
+  height: var(--card-height);
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(0,0,0,.5);
+  transition: inherit;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+  border-radius: 1em;
+  filter: brightness(.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Highlight effect for the active card
+.card.highlight {
+  filter: brightness(1)
+}
+
+// BACKGROUND IMAGES FOR CARDS
+
+// Background images for each card in the first carousel
+#carousel1-card1 .image-container {
+  background-image: url("../../assets/images/BGCNAL-Official-Symbol.png.avif");
+}
+
+#carousel1-card2 .image-container {
+  background-image: url("../../assets/images/ieee-logo-png_seeklogo-69961.png");
+}
+
+#carousel1-card3 .image-container {
+  background-image: url("../../assets/images/BSU.jpg");
+}
+
+#carousel1-card4 .image-container {
+  background-image: url("../../assets/images/distem-logo-885x900.jpg");
+}
+
+#carousel1-card5 .image-container {
+  background-image: url("../../assets/images/RealEstateClub.png");
+}
+
+// Background images for each card in the second carousel
+#carousel2-card1 .image-container {
+  background-image: url("../../assets/images/KidsCollege.png");
+}
+
+#carousel2-card2 .image-container {
+  background-image: url("../../assets/images/enchantedForest.jpg");
+}
+
+#carousel2-card3 .image-container {
+  background-image: url("../../assets/images/logo.png");
+}
+
+#carousel2-card4 .image-container {
+  background-image: url("../../assets/images/UWL_Logo.png");
+}
+
+#carousel2-card5 .image-container {
+  background-image: url("../../assets/images/stem.png");
+}
+
+
+// Styles for the image container within each card
+.image-container {
+  width: 8em;
+  height: 8em;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2em;
+  border-radius: 100%;
+  padding: 1em;
+  -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+}
+
+// Pseudo-element for creating a border around the image
+.image-container::after {
+  content: "";
+  display: block;
+  width: 120%;
+  height: 120%;
+  border: solid 3px rgba(0,0,0,.1);
+  border-radius: 100%;
+  position: absolute;
+  top: calc(-10% - 3px);
+  left: calc(-10% - 3px);
+}
+
+// Styles for secondary headings
+h2 {
+  padding: 1em;
+  margin-top: 1em;
+  background: rgba(0,0,0,.3);
+  text-align: center;
+  color: white;
+  border-radius: .2em;
+  display: inline-block;
+  transform: translateX(calc((100vw - 100%) / 2))
+}
