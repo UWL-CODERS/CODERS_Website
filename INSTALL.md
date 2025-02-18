@@ -42,4 +42,4 @@ This will compile the project and start a local development server. You should b
 
 ## Further Reading & Resources
 
-To learn more about the technologies used in this website project, view [here](./README.md/#further-reading--resources)
+See the [Further Reading & Resources](#further-reading--resources) section in the main README for a comprehensive list of learning materials.
