@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 .top-bar {
-    background-color: #0983ff;
+    background-color: #95a0fe;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
     
@@ -32,6 +34,11 @@
       font-size: 14px;
     }
   }
+<<<<<<< HEAD
+
+  @media (max-width: 445px) {
+    .top-bar {
+=======
   
   .main-header {
     background-color: #ffffff;
@@ -93,6 +100,26 @@
   
   @media (max-width: 768px) {
     .main-nav {
+>>>>>>> main
       display: none;
     }
+    .navbar-brand img{
+      height: 80px;
+      width: 100%;
+    }
   }
+
+.nav-link{
+    margin-right: 28px;
+    font-weight: 600;
+    color: #646464;
+  }
+.navbar-nav{
+  margin-left: 120px;
+}
+.navbar-brand img{
+  height: 80px;
+  width: 100%;
+  
+}
+
