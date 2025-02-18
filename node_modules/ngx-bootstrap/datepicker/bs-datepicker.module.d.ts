@@ -1,0 +1,30 @@
+import { ModuleWithProviders } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/common";
+import * as i2 from "ngx-bootstrap/tooltip";
+import * as i3 from "ngx-bootstrap/timepicker";
+import * as i4 from "./themes/bs/bs-calendar-layout.component";
+import * as i5 from "./themes/bs/bs-current-date-view.component";
+import * as i6 from "./themes/bs/bs-custom-dates-view.component";
+import * as i7 from "./themes/bs/bs-datepicker-day-decorator.directive";
+import * as i8 from "./themes/bs/bs-datepicker-navigation-view.component";
+import * as i9 from "./themes/bs/bs-days-calendar-view.component";
+import * as i10 from "./themes/bs/bs-months-calendar-view.component";
+import * as i11 from "./themes/bs/bs-timepicker-view.component";
+import * as i12 from "./themes/bs/bs-years-calendar-view.component";
+import * as i13 from "./themes/bs/bs-datepicker-container.component";
+import * as i14 from "./bs-datepicker.component";
+import * as i15 from "./themes/bs/bs-datepicker-inline-container.component";
+import * as i16 from "./bs-datepicker-inline.component";
+import * as i17 from "./bs-datepicker-input.directive";
+import * as i18 from "./themes/bs/bs-daterangepicker-container.component";
+import * as i19 from "./bs-daterangepicker.component";
+import * as i20 from "./themes/bs/bs-daterangepicker-inline-container.component";
+import * as i21 from "./bs-daterangepicker-inline.component";
+import * as i22 from "./bs-daterangepicker-input.directive";
+export declare class BsDatepickerModule {
+    static forRoot(): ModuleWithProviders<BsDatepickerModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<BsDatepickerModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<BsDatepickerModule, never, [typeof i1.CommonModule, typeof i2.TooltipModule, typeof i3.TimepickerModule, typeof i4.BsCalendarLayoutComponent, typeof i5.BsCurrentDateViewComponent, typeof i6.BsCustomDatesViewComponent, typeof i7.BsDatepickerDayDecoratorComponent, typeof i8.BsDatepickerNavigationViewComponent, typeof i9.BsDaysCalendarViewComponent, typeof i10.BsMonthCalendarViewComponent, typeof i11.BsTimepickerViewComponent, typeof i12.BsYearsCalendarViewComponent, typeof i13.BsDatepickerContainerComponent, typeof i14.BsDatepickerDirective, typeof i15.BsDatepickerInlineContainerComponent, typeof i16.BsDatepickerInlineDirective, typeof i17.BsDatepickerInputDirective, typeof i18.BsDaterangepickerContainerComponent, typeof i19.BsDaterangepickerDirective, typeof i20.BsDaterangepickerInlineContainerComponent, typeof i21.BsDaterangepickerInlineDirective, typeof i22.BsDaterangepickerInputDirective], [typeof i13.BsDatepickerContainerComponent, typeof i14.BsDatepickerDirective, typeof i15.BsDatepickerInlineContainerComponent, typeof i16.BsDatepickerInlineDirective, typeof i17.BsDatepickerInputDirective, typeof i18.BsDaterangepickerContainerComponent, typeof i19.BsDaterangepickerDirective, typeof i20.BsDaterangepickerInlineContainerComponent, typeof i21.BsDaterangepickerInlineDirective, typeof i22.BsDaterangepickerInputDirective]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<BsDatepickerModule>;
+}
