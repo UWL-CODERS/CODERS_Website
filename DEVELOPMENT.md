@@ -180,4 +180,4 @@ git clone https://github.com/UWL-CODERS/CODERS_Website.git
 
 ## Further Reading & Resources
 
-See the [Further Reading & Resources](#further-reading--resources) section in the main README for a comprehensive list of learning materials.
+See the [Further Reading & Resources](README.md/#further-reading--resources) section in the main README for a comprehensive list of learning materials.
