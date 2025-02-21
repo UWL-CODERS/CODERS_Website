@@ -1,1 +1,132 @@
-// Add the GLOBAL SCSS Website Theme Here!
+/* app.component.scss */
+
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-family: "Bagoss Standard TRIAL", sans-serif;
+    /* Ensure font is available */
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Transition Styles */
+.transition {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.transition-row {
+    flex: 1;
+    display: flex;
+}
+
+.transition-row.row-1 .block {
+    transform-origin: top;
+}
+
+.transition-row.row-2 .block {
+    transform-origin: bottom;
+}
+
+.block {
+    flex: 1;
+    background-color: rgb(58, 129, 247);
+    transform: scaleY(1);
+    will-change: transform;
+    min-width: 50px;
+    /* Adjust as needed */
+}
+
+/* App Styles */
+.app {
+    position: relative;
+    /* Ensure positioning context for absolute elements */
+    width: 100%;
+    min-height: 100vh;
+    /* Use min-height to ensure it covers the viewport */
+    display: flex;
+    flex-direction: column;
+    /* Stack header, content, and footer */
+}
+
+/* Header Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    background-color: white;
+    /* Add a background color to ensure contrast */
+}
+
+.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+/* Hero Section Styles */
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the content */
+}
+
+.hero h1 {
+    font-family: "VTC Carrie", sans-serif;
+    /* Ensure font is available */
+    font-size: 15vw;
+    line-height: 90%;
+    /* Reset default margins */
+}
+
+/* Layout Styles */
+app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure layout covers viewport */
+}
+
+/* Ensure header and router-outlet are within the layout */
+app-header {
+    width: 100%;
+    /* Take full width */
+    order: 1;
+    /* Ensure correct order */
+}
+
+router-outlet {
+    flex: 1;
+    /* Allow content to grow and take available space */
+    order: 2;
+}

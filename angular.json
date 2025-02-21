@@ -34,11 +34,11 @@
             ],
             "styles": [
               "src/styles.scss",
-               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
-              "src/app/opportunities/Img.js"
+              "src/app/opportunities/Img.js",
+              "node_modules/gsap/dist/gsap.min.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -105,7 +105,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/app/opportunities/Img.js"
+              "src/app/opportunities/Img.js",
+              "node_modules/gsap/dist/gsap.min.js"
             ]
           }
         }
