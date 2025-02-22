@@ -36,7 +36,7 @@ ng generate --help
 
 ### Building
 
-To build the project run:
+To build the project, run:
 
 ```bash
 ng build
@@ -154,10 +154,11 @@ git checkout feature-x  # Switch to the branch
 ```
 
 ```bash
-git checkout -b feature-x`  # Combine both steps
+git checkout -b feature-x  # Combine both steps
 ```
 
 ### Merging Branches
+
 Combines changes from one branch into another.
 
 ```bash
