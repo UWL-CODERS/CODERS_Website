@@ -1,14 +1,15 @@
 <div class="top-bar">
   <div class="container">
     <div class="social-links">
-      Follow Us
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-pinterest"></i></a>
+      Follow us on
+      <a href="#"><fa-icon [icon]="faFacebook" /></a>
+      <a href="#"><fa-icon [icon]="faTwitter" /></a>
+      <a href="#"><fa-icon [icon]="faInstagram" /></a>
+      <a href="#"><fa-icon [icon]="faDiscord" /></a>
     </div>
     <div class="contact-info">
-      Email: {{ email }}
+      <fa-icon [icon]="faEnvelope"></fa-icon>
+      Contact us at <a href="mailto:{{ email }}">{{ email }}</a>
     </div>
   </div>
 </div>
