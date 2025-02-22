@@ -1,2 +1,86 @@
 // Styles for about-us: Formatting of team/organization info
 // WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.about {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* container now fits only one large card */
+.cards-container {
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* the slider strip */
+.cards {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 600px;
+    height: 500px;
+    flex-shrink: 0;
+    text-align: center; /* Center text horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.card img {
+    display: block;
+    height: 50%;
+    margin: 0 auto;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin: 15px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 0 15px 15px 15px;
+    color: #555;
+    text-align: center;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.carousel-controls button {
+    background-color: #888;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
