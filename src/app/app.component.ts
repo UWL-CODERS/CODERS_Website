@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
-import { gsap } from 'gsap';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { gsap } from 'gsap';
 
 @Component({
     selector: 'app-root',
@@ -17,7 +17,7 @@ import { filter } from 'rxjs/operators';
     standalone: true,
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
-    title = 'CODERS_Website';
+    title = 'CODERS Website';
 
     // OPTIONS: https://editor.p5js.org/shibomb/sketches/c4zVvFz8k
     private ease = "power1.inOut"
