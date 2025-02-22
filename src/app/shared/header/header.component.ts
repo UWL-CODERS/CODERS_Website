@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,6 @@ export class HeaderComponent {
     this.navigateAndReload('/home');
   }
 
-
   navigateAndReload(route: string) {
     // Use the transition service to handle the animation before navigation
     // This ensures the transition occurs before page reload
@@ -36,8 +36,6 @@ export class HeaderComponent {
         // OPTIONS: https://editor.p5js.org/shibomb/sketches/c4zVvFz8k
         const ease = "power4.inOut"
 
-        const gsap = (window as any).gsap; // Assuming GSAP is loaded globally, or import properly
-        
         gsap.set(".block", { visibility: "visible", scaleY: 0 });
         
         // Animate all blocks in row 1
@@ -70,6 +68,5 @@ export class HeaderComponent {
         window.location.reload();
       });
     });
-    
   }
 }

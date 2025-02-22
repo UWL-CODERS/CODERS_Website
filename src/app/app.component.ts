@@ -1,18 +1,5 @@
-import {
-    Component,
-    OnInit,
-    AfterViewInit,
-    OnDestroy,
-    Inject,
-    PLATFORM_ID,
-    NgZone
-} from '@angular/core';
-import {
-    RouterOutlet,
-    Router,
-    NavigationEnd,
-
-} from '@angular/router';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { gsap } from 'gsap';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';

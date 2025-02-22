@@ -37,8 +37,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
-              "src/app/opportunities/Img.js",
-              "node_modules/gsap/dist/gsap.min.js"
+              "src/app/opportunities/Img.js"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -105,8 +104,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/app/opportunities/Img.js",
-              "node_modules/gsap/dist/gsap.min.js"
+              "src/app/opportunities/Img.js"
             ]
           }
         }
