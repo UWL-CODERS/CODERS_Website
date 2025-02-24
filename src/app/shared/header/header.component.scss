@@ -1,7 +1,8 @@
 .top-bar {
-  background-color: #0983ff;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  background-color: #1864ab;
+  font-size: 14px;
+  padding: 10px;
+  color: #ddd;
 
   .container {
     max-width: 1200px;
@@ -12,38 +13,28 @@
     align-items: center;
   }
 
-  .social-links {
-    color: #000000;
-    font-size: 14px;
-    a {
-      color: #000000;
-      padding: 5px;
-      text-decoration: none;
-
-      &:hover {
-        color: #ffffff;
-      }
-    }
+  .icon {
+    margin: 5px;
   }
 
+  .social-links,
   .contact-info {
-    color: #000000;
-    font-size: 14px;
     a {
-      color: #000000;
+      color: #eee;
       text-decoration: none;
 
       &:hover {
-        color: #ffffff;
+        color: #fff;
       }
     }
   }
 }
 
 .main-header {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 15px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
 
   .container {
     max-width: 1200px;
@@ -52,42 +43,42 @@
     display: flex;
     align-items: center;
   }
-}
 
-.logo {
-  img {
-    height: 55px;
+  .logo {
     display: flex;
-  }
-  display: flex;
-  gap: 10px;
-  font-size: 24px;
-  font-weight: 500;
-  cursor: pointer;
-}
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
 
-.main-nav {
-  margin-left: auto;
-  margin-right: 30px;
-
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 25px;
+    img {
+      height: 55px;
+      display: flex;
+    }
   }
 
-  li {
-    a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      font-weight: 500;
-      cursor: pointer;
+  .main-nav {
+    margin-left: auto;
+    margin-right: 30px;
 
-      &:hover {
-        color: #0983ff;
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 25px;
+    }
+
+    li {
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        cursor: pointer;
+
+        &:hover {
+          color: #0983ff;
+        }
       }
     }
   }
@@ -97,6 +88,7 @@
   .main-nav {
     display: none;
   }
+
   .logo {
     display: block;
     margin: 0 auto;
