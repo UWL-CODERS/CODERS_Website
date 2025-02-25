@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
@@ -9,7 +9,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, FontAwesomeModule],
+  imports: [RouterModule, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
