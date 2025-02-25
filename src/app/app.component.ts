@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -17,18 +17,16 @@ import { gsap } from 'gsap';
     standalone: true,
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+    private router = inject(Router);
+    private platformId = inject<Object>(PLATFORM_ID);
+    private ngZone = inject(NgZone);
+
     title = 'CODERS Website';
 
     // OPTIONS: https://editor.p5js.org/shibomb/sketches/c4zVvFz8k
     private ease = "power1.inOut"
 
     private routerEventsSubscription: Subscription | null = null;
-
-    constructor(
-        private router: Router,
-        @Inject(PLATFORM_ID) private platformId: Object,
-        private ngZone: NgZone
-    ) {}
 
     private lastNavigation: string | null = null;
 

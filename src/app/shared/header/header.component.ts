@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,16 +14,14 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  private router = inject(Router);
+
   email: string = 'info@codersclub.com';
   faFacebook = faFacebook;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
   faDiscord = faDiscord;
   faEnvelope = faEnvelope;
-  
-  constructor(
-    private router: Router,
-  ) {}
   
   handleBackNavigation() {
     // Navigate to home or handle as needed
