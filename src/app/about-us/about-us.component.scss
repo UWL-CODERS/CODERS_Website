@@ -1,20 +1,10 @@
 // Styles for about-us: Formatting of team/organization info
 // WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
 
-nav {
-    display: flex;
-    gap: 15px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
-
 .about {
     text-align: center;
-    margin: 30px 0;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
 /* container now fits only one large card */
@@ -62,8 +52,7 @@ nav a {
 
 .card p {
     font-size: 16px;
-    margin: 0 15px 15px 15px;
-    color: #555;
+    margin: 15px;
     text-align: center;
 }
 
