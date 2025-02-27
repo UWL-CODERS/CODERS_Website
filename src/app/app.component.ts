@@ -65,6 +65,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private handleNormalNavigation(event: NavigationEnd) {
         document.body.style.pointerEvents = 'none';
         document.querySelector('.app')?.classList.add('is-transitioning');
+        window.location.reload();
         this.transitionIn().then(() => {
             document.querySelector('.app')?.classList.remove('is-transitioning');
             document.body.style.pointerEvents = 'auto';
