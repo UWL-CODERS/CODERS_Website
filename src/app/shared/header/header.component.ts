@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFacebook, faTwitter, faInstagram, faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter, faInstagram, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -21,6 +21,7 @@ export class HeaderComponent {
   faTwitter = faTwitter;
   faInstagram = faInstagram;
   faDiscord = faDiscord;
+  faGithub = faGithub;
   faEnvelope = faEnvelope;
   
   handleBackNavigation() {

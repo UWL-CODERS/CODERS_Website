@@ -2,13 +2,14 @@
     <section class="about">
         <h1>About Us</h1>
     </section>
-
     <section class="cards-container">
         <div class="cards">
             <div class="card">
                 <img src="assets/images/logo.png" alt="Image 1">
                 <h3>Image 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, expedita? Est nisi quidem eum odit laborum neque totam magnam. Enim perferendis vel harum nisi ea sapiente et veniam officiis rerum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, expedita? Est nisi quidem eum odit
+                    laborum neque totam magnam. Enim perferendis vel harum nisi ea sapiente et veniam officiis rerum.
+                </p>
             </div>
             <div class="card">
                 <img src="" alt="Image 2">
@@ -42,36 +43,34 @@
             </div>
         </div>
     </section>
-
     <div class="carousel-controls">
         <button id="prev">&#60;</button>
         <button id="next">&#62;</button>
     </div>
-
-    <script>
-        const cardsContainer = document.querySelector('.cards');
-        const nextButton = document.getElementById('next');
-        const prevButton = document.getElementById('prev');
-        const cardWidth = 600; // Updated to match bigger card
-        let currentIndex = 0;
-
-        function updateSlider() {
-            const offset = currentIndex * cardWidth;
-            cardsContainer.style.transform = `translateX(-${offset}px)`;
-        }
-
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < cardsContainer.children.length - 1) {
-                currentIndex++;
-                updateSlider();
-            }
-        });
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateSlider();
-            }
-        });
-        updateSlider();
-    </script>
 </body>
+<script defer>
+    const cardsContainer = document.querySelector('.cards');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+    const cardWidth = 600; // Updated to match bigger card
+    let currentIndex = 0;
+
+    function updateSlider() {
+        const offset = currentIndex * cardWidth;
+        cardsContainer.style.transform = `translateX(-${offset}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < cardsContainer.children.length - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+    updateSlider();
+</script>
