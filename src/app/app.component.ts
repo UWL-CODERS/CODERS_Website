@@ -10,10 +10,6 @@ import { gsap } from 'gsap';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [RouterOutlet],
-    template: `
-    <app-transition></app-transition>
-    <router-outlet></router-outlet>
-  `,
     standalone: true,
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -65,7 +61,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private handleNormalNavigation(event: NavigationEnd) {
         document.body.style.pointerEvents = 'none';
         document.querySelector('.app')?.classList.add('is-transitioning');
-        // window.location.reload(); This is causing the page to reload infinitely
+        // window.location.reload(); // This is causing the page to reload infinitely
         this.transitionIn().then(() => {
             document.querySelector('.app')?.classList.remove('is-transitioning');
             document.body.style.pointerEvents = 'auto';
