@@ -1,2 +1,41 @@
 // Styles for main component: Layout and appearance of home page
 // WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+.main-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.whatclub{
+    text-align: justify;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #007bff;
+}
+
+section {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-child {
+    border-bottom: none;
+}
