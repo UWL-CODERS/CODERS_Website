@@ -5,7 +5,7 @@ import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-layout',
-  imports: [HeaderComponent, FooterComponent,RouterModule],
+  imports: [HeaderComponent, FooterComponent, RouterModule],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })

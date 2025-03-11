@@ -1,2 +1,12 @@
-// Styles for research-projects: Display of project information
-// WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
+.research-projects {
+    text-align: center;
+    padding: 20px;
+    h1 {
+        border-bottom: 1px solid #aaa;
+        padding: 10px;
+        display: inline-block;
+    }
+    p {
+        font-style: italic;
+    }
+}
