@@ -4,7 +4,7 @@
   [![Forks][forks-shield]][forks-url]
   [![Stargazers][stars-shield]][stars-url]
   [![Issues][issues-shield]][issues-url]
-  [![project_license][license-shield]][license-url]
+  [![License][license-shield]][license-url]
 
   <h1>CODERS Club - Website Research Project</h1>
   <img src="src/assets/images/logo.png" alt="CODERS logo">
@@ -59,17 +59,17 @@ If you have any questions, concerns, or need anything, please contact Brendan La
 ## Top Contributors
 
 <a href="https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=UWL-CODERS/CODERS_Website" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=UWL-CODERS/CODERS_Website" />
 </a>
 
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/UWL-CODERS/CODERS_Website.svg
+[contributors-shield]: https://img.shields.io/github/contributors/UWL-CODERS/CODERS_Website?style=for-the-badge
 [contributors-url]: https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/UWL-CODERS/CODERS_Website.svg
+[forks-shield]: https://img.shields.io/github/forks/UWL-CODERS/CODERS_Website?style=for-the-badge
 [forks-url]: https://github.com/UWL-CODERS/CODERS_Website/network/members
-[stars-shield]: https://img.shields.io/github/stars/UWL-CODERS/CODERS_Website.svg
+[stars-shield]: https://img.shields.io/github/stars/UWL-CODERS/CODERS_Website?style=for-the-badge
 [stars-url]: https://github.com/UWL-CODERS/CODERS_Website/stargazers
-[issues-shield]: https://img.shields.io/github/issues/UWL-CODERS/CODERS_Website.svg
+[issues-shield]: https://img.shields.io/github/issues/UWL-CODERS/CODERS_Website?style=for-the-badge
 [issues-url]: https://github.com/UWL-CODERS/CODERS_Website/issues
-[license-shield]: https://img.shields.io/github/license/UWL-CODERS/CODERS_Website.svg
-[license-url]: https://github.com/UWL-CODERS/CODERS_Website/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/UWL-CODERS/CODERS_Website?style=for-the-badge
+[license-url]: https://github.com/UWL-CODERS/CODERS_Website/blob/master/LICENSE
