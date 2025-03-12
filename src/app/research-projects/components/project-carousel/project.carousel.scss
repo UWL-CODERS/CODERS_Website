@@ -1,0 +1,42 @@
+.project-item {
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-img-box {
+    margin: 10px;
+}
+
+.project-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.project-name {
+    font-weight: bold;
+    font-size: large;
+    margin: 5px;
+}
+
+.project-desc {
+    font-size: normal;
+    margin: 5px;
+}
+
+.project-tech {
+    color: #666;
+    font-size: small;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    span {
+        margin: 0 5px;
+    }
+}
