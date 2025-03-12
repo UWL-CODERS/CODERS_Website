@@ -1,0 +1,18 @@
+<p-carousel [value]="projects" [numVisible]="3" [numScroll]="2" [circular]="true" [responsiveOptions]="responsiveOptions" autoplayInterval="3500">
+  <ng-template let-project #item>
+    <div class="project-item">
+      <div class="project-img-box">
+        <a [href]="project.html_url" target="_blank">
+          <img [src]="project.owner.avatar_url" [alt]="project.name" class="project-img" />
+        </a>
+      </div>
+      <div class="project-name">{{ project.name }}</div>
+      <div class="project-desc">{{ project.description }}</div>
+      <div class="project-tech">
+        @for (tech of project.technologies; track tech) {
+          <span>{{ tech }}</span>
+        }
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
