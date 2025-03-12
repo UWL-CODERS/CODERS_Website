@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,8 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements AfterViewInit {
+  private platformId = inject<Object>(PLATFORM_ID);
+
   @ViewChild('slider') slider!: ElementRef<HTMLElement>;
   @ViewChild('prevSlideBtn') prevSlideBtn!: ElementRef<HTMLButtonElement>;
   @ViewChild('nextSlideBtn') nextSlideBtn!: ElementRef<HTMLButtonElement>;
@@ -20,8 +22,6 @@ export class AboutUsComponent implements AfterViewInit {
 
   private currentSlide = 0;
   private slideInterval: any;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
