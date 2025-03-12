@@ -6,14 +6,15 @@ import { CommonModule } from '@angular/common';
     selector: 'project-carousel',
     templateUrl: './project.carousel.html',
     styleUrls: ['./project.carousel.scss'],
-    imports: [CarouselModule, CommonModule]
+    imports: [CarouselModule, CommonModule],
+    host: { ngSkipHydration: 'true' }
 })
 export class ProjectCarousel {
     projects = [
         {
             name: 'CODERS Website',
             owner: { avatar_url: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/56a83a94350d87b3a679728f08517d91ff1509d0/src/assets/images/logo.png' },
-            description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
+            description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt ultricies. Nullam nec purus nec nunc tincidunt ultricies.',
             html_url: 'https://github.com/UWL-CODERS/CODERS_Website',
             technologies: ['Angular', 'TypeScript', 'SCSS']
         },
