@@ -1,15 +1,25 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
 .about {
     text-align: center;
     padding: 20px;
     background-color: #1864ab;
     color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    font-size: 24px;
+    color: #555;
+}
+
+.social-links a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #000;
 }
 
 .content-container {
@@ -18,20 +28,23 @@ body {
     padding: 20px;
 }
 
-.professors-section, .exec-team-section {
+.professors-section,
+.exec-team-section {
     padding: 20px;
     background: white;
     margin-bottom: 20px;
 }
 
-.professor-cards, .exec-cards {
+.professor-cards,
+.exec-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
 }
 
-.professor-card, .exec-card {
+.professor-card,
+.exec-card {
     text-align: center;
     padding: 10px;
     background: white;
@@ -40,14 +53,14 @@ body {
     width: 200px;
 }
 
-.professor-card img, .exec-card img {
+.professor-card img,
+.exec-card img {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-/* New Slider Carousel Styles */
 .slider-container {
     position: relative;
     width: 100%;
@@ -57,7 +70,6 @@ body {
 }
 
 .slider-wrapper {
-    position: relative;
     width: 100%;
     height: 400px;
     overflow: hidden;
@@ -139,7 +151,6 @@ body {
     background-color: #333;
 }
 
-/* Layout adjustments */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -150,13 +161,9 @@ body {
     flex-wrap: wrap;
 }
 
-.slider-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px;
-}
-
-.calendar-section {
+.slider-section,
+.calendar-section,
+.carousel-section {
     flex: 1;
     min-width: 300px;
     padding: 20px;
@@ -164,14 +171,8 @@ body {
 
 .lower-section {
     display: flex;
-    flex-direction: column; /* Changed to column to stack sections vertically */
+    flex-direction: column;
     padding: 0 20px;
-}
-
-.carousel-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px;
 }
 
 .carousel-wrapper {
@@ -182,6 +183,7 @@ body {
 .cards {
     display: flex;
     transition: transform 0.5s ease;
+    height: 100%;
 }
 
 .card {
