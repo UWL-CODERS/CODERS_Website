@@ -6,6 +6,9 @@
     padding: 10px;
     margin: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
 }
 
 .project-img-box {
@@ -26,17 +29,23 @@
 }
 
 .project-desc {
-    font-size: normal;
     margin: 5px;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .project-tech {
-    color: #666;
+    color: #777;
     font-size: small;
     margin: 5px;
     display: flex;
     justify-content: center;
-    span {
-        margin: 0 5px;
-    }
+}
+
+.project-tech span {
+    margin: 0 5px;
 }
