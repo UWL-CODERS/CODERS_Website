@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
     selector: 'project-carousel',
     templateUrl: './project.carousel.html',
     styleUrls: ['./project.carousel.scss'],
-    imports: [CarouselModule, CommonModule],
+    imports: [CarouselModule],
     host: { ngSkipHydration: 'true' }
 })
 export class ProjectCarousel {
