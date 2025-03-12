@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, PLATFORM_ID, inject } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, PLATFORM_ID, inject, viewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -12,10 +12,10 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 export class AboutUsComponent implements AfterViewInit {
   private platformId = inject<Object>(PLATFORM_ID);
 
-  @ViewChild('slider') slider!: ElementRef<HTMLElement>;
-  @ViewChild('prevSlideBtn') prevSlideBtn!: ElementRef<HTMLButtonElement>;
-  @ViewChild('nextSlideBtn') nextSlideBtn!: ElementRef<HTMLButtonElement>;
-  @ViewChild('sliderDots') sliderDots!: ElementRef<HTMLElement>;
+  readonly slider = viewChild.required<ElementRef<HTMLElement>>('slider');
+  readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevSlideBtn');
+  readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextSlideBtn');
+  readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
 
   faLinkedin = faLinkedin;
   faGithub = faGithub;
@@ -31,13 +31,15 @@ export class AboutUsComponent implements AfterViewInit {
 
   initSlider(): void {
     if (isPlatformBrowser(this.platformId)) {
-      if (!this.slider || !this.prevSlideBtn || !this.nextSlideBtn || !this.sliderDots) {
+      const sliderValue = this.slider();
+      const sliderDots = this.sliderDots();
+      if (!sliderValue || !this.prevSlideBtn() || !this.nextSlideBtn() || !sliderDots) {
         console.error('Required elements not found');
         return;
       }
   
-      const slider = this.slider.nativeElement;
-      const dotsContainer = this.sliderDots.nativeElement;
+      const slider = sliderValue.nativeElement;
+      const dotsContainer = sliderDots.nativeElement;
   
       const slides = slider.querySelectorAll('.slide');
       const totalSlides = slides.length;
@@ -71,9 +73,11 @@ export class AboutUsComponent implements AfterViewInit {
   }
 
   private updateSlider(): void {
-    if (this.slider && this.sliderDots) {
-      const slider = this.slider.nativeElement;
-      const dotsContainer = this.sliderDots.nativeElement;
+    const sliderValue = this.slider();
+    const sliderDots = this.sliderDots();
+    if (sliderValue && sliderDots) {
+      const slider = sliderValue.nativeElement;
+      const dotsContainer = sliderDots.nativeElement;
       
       slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
 
@@ -89,16 +93,18 @@ export class AboutUsComponent implements AfterViewInit {
   }
 
   public nextSlide(): void {
-    if (this.slider) {
-      const totalSlides = this.slider.nativeElement.querySelectorAll('.slide').length;
+    const slider = this.slider();
+    if (slider) {
+      const totalSlides = slider.nativeElement.querySelectorAll('.slide').length;
       this.currentSlide = (this.currentSlide + 1) % totalSlides;
       this.updateSlider();
     }
   }
   
   public prevSlide(): void {
-    if (this.slider) {
-      const totalSlides = this.slider.nativeElement.querySelectorAll('.slide').length;
+    const slider = this.slider();
+    if (slider) {
+      const totalSlides = slider.nativeElement.querySelectorAll('.slide').length;
       this.currentSlide = (this.currentSlide - 1 + totalSlides) % totalSlides;
       this.updateSlider();
     }
