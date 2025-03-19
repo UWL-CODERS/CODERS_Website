@@ -223,7 +223,7 @@ h1 {
   width: 100%;
   height: var(--card-height);
   min-width: var(--carousel-min-width);
-  transition: filter .3s ease;
+  transition: filter .5s ease;
 }
 
 /* Responsive Carousel Adjustments */
@@ -235,7 +235,7 @@ h1 {
 
 /* Carousel Smooth Return */
 .card-carousel.smooth-return {
-  transition: all .2s ease;
+  transition: all .5s ease;
 }
 
 /* Individual Card Styles */
