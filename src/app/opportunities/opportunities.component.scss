@@ -1,4 +1,4 @@
-// Hide elements visually but keep them accessible for screen readers
+/* Visually Hide Elements */
 .visuallyhidden {
   position: absolute;
   z-index: -1;
@@ -6,6 +6,172 @@
   opacity: 0;
 }
 
+/* Stats and Featured Sections */
+.stats-and-featured {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* Statistics Container */
+.stats-container {
+  flex: 1;
+  margin-right: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Statistics Table */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  flex-grow: 1;
+}
+
+.stats-table th {
+  background-color: #007bff;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+}
+
+.stats-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.stats-table tr:last-child td {
+  border-bottom: none;
+}
+
+.stats-table td:last-child {
+  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+}
+
+/* Featured Section */
+#featured {
+  flex: 1;
+}
+
+#featured h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Featured Cards Layout */
+.featured-cards {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Featured Card Styling */
+.featured-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Blue Header Style */
+.blue-header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+}
+
+.blue-header h3 {
+  text-align: center;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+/* Centered Title Style */
+.centered-title {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.centered-title h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Card Content Styling */
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-content p {
+  margin-bottom: 10px;
+}
+
+/* Learn More Link */
+.learn-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+  background-color: #0056b3;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.featured-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Media Query for Responsive Layout */
+@media (max-width: 768px) {
+  .stats-and-featured {
+    flex-direction: column;
+  }
+
+  .stats-container {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* About Section */
 .about {
   text-align: center;
   padding: 20px;
@@ -25,22 +191,19 @@
   margin-top: 0;
 }
 
-
 .about:hover {
   background-color: #145a9d;
   transition: background-color 0.3s ease;
 }
 
-
-// Styles for the main heading
+/* Main Heading Styles */
 h1 {
   color: rgb(0, 0, 0);
   text-align: center;
   margin-top: 1em;
 }
 
-
-// Container for the carousel
+/* Carousel Container */
 .container {
   overflow: hidden;
   padding: 20px;
@@ -48,7 +211,7 @@ h1 {
   background: rgba(0,0,0,.1)
 }
 
-// Main carousel styles
+/* Main Carousel Styles */
 .card-carousel {
   --card-width: 80%;
   --card-max-width: 280px;
@@ -60,22 +223,22 @@ h1 {
   width: 100%;
   height: var(--card-height);
   min-width: var(--carousel-min-width);
-  transition: filter .3s ease;
+  transition: filter .5s ease;
 }
 
-// Responsive adjustment for smaller screens
+/* Responsive Carousel Adjustments */
 @media screen and (max-width: 640px) {
   .card-carousel {
     margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2)
   }
 }
 
-// Smooth transition for carousel
+/* Carousel Smooth Return */
 .card-carousel.smooth-return {
-  transition: all .2s ease;
+  transition: all .5s ease;
 }
 
-// Individual card styles
+/* Individual Card Styles */
 .card-carousel .card {
   background: whitesmoke;
   width: var(--card-width);
@@ -99,14 +262,18 @@ h1 {
   justify-content: center;
 }
 
-// Highlight effect for the active card
+.card-carousel .card:hover {
+  transform: translateY(-15px);
+  filter: brightness(1.05);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Highlight Effect for Active Card */
 .card.highlight {
   filter: brightness(1)
 }
 
-// BACKGROUND IMAGES FOR CARDS
-
-// Background images for each card in the first carousel
+/* Background Images for Carousel 1 */
 #carousel1-card1 .image-container {
   background-image: url("../../assets/images/BGCNAL-Official-Symbol.png");
 }
@@ -127,7 +294,7 @@ h1 {
   background-image: url("../../assets/images/RealEstateClub.png");
 }
 
-// Background images for each card in the second carousel
+/* Background Images for Carousel 2 */
 #carousel2-card1 .image-container {
   background-image: url("../../assets/images/KidsCollege.png");
 }
@@ -148,8 +315,7 @@ h1 {
   background-image: url("../../assets/images/stem.png");
 }
 
-
-// Styles for the image container within each card
+/* Image Container Styles */
 .image-container {
   width: 8em;
   height: 8em;
@@ -157,14 +323,22 @@ h1 {
   background-size: cover;
   background-position: center;
   margin-bottom: 2em;
-  border-radius: 100%;
+  border-radius: 50%;
   padding: 1em;
   -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
   -moz-box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
   box-shadow: inset 0px 0px 17px 0px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
-// Pseudo-element for creating a border around the image
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  object-position: center; /* Centers the image within the container */
+}
+
+/* Pseudo-element for Image Border */
 .image-container::after {
   content: "";
   display: block;
@@ -177,20 +351,140 @@ h1 {
   left: calc(-10% - 3px);
 }
 
-// Styles for secondary headings
+/* Secondary Heading Styles */
 h2 {
   padding: 1em;
-  margin-top: 1em;
+  margin: 1em auto; /* Changed from margin-top to margin */
   background: rgba(0,0,0,.3);
   text-align: center;
   color: white;
   border-radius: .2em;
-  display: inline-block;
-  transform: translateX(calc((100vw - 100%) / 2))
+  display: block; /* Changed from inline-block to block */
+  max-width: 80%; /* Added max-width for responsiveness */
+  width: fit-content; /* Added to make the element only as wide as its content */
 }
 
-// Transition for Lines Below Header 
+/* Resources and Contact Sections */
+#resources, #contact {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  text-align: center;
+  color: #333;
+}
 
+/* Section Titles */
+.section-title, .section-subtitle {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title::after, .section-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #007bff;
+  transition: all 0.5s ease;
+}
+
+.section-title:hover::after, .section-subtitle:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Resource Grid Layout */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Resource Item Styling */
+.resource-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+  color: #333;
+}
+
+.resource-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Resource Icon Styling */
+.resource-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Resource Text Styling */
+.resource-text {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Contact Text */
+.contact-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Call to Action Button */
+.cta-button {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Link Underline Transition */
 a {
   color: #18272F;
   position: relative;
@@ -212,4 +506,10 @@ a::after {
 
 a:hover::after {
   transform: scaleX(1);
+}
+
+/* Contact Description */
+.contact-description {
+  font-weight: bold;
+  font-size: 1.25rem; // Adjust the size as needed (e.g., 1.5rem for larger text)
 }
