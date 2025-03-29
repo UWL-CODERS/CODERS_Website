@@ -1,0 +1,60 @@
+.cookies-consent {
+  position: fixed;
+  bottom: 20px; /* Add some spacing from the bottom */
+  left: -350px; /* Start off-screen */
+  background-color: #ffffff; /* White background for a clean look */
+  color: #333; /* Dark text for contrast */
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 0.9rem;
+  width: 300px; /* Fixed width */
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Smooth animation */
+  transform: translateX(0); /* Default position */
+  opacity: 0; /* Initially hidden */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.cookies-consent.show {
+  transform: translateX(350px); /* Slide in from the left */
+  opacity: 1; /* Make it visible */
+}
+
+.cookies-consent p {
+  margin: 0;
+  display: inline-block;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.cookies-consent a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cookies-consent a:hover {
+  text-decoration: underline;
+}
+
+.cookies-consent button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff; /* Primary button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cookies-consent button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.cookies-consent button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus ring */
+}
