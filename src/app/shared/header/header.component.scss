@@ -57,23 +57,51 @@
   }
 
   .main-nav {
-    margin-left: auto;
-    margin-right: 30px;
+    position: fixed;
+    top: 120px; /* Keep this consistent */
+    left: 5%; /* Center the menu horizontally */
+    right: 5%; /* Center the menu horizontally */
+    width: 90%; /* Make the menu slightly smaller than the screen width */
+    height: 25%; /* Adjust height as needed */
+    background-color: white;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 0; /* Add padding for spacing */
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(0); /* Ensure no vertical shift */
+
+    &.menu-open {
+      opacity: 1;
+      transform: translateY(0); /* No shift */
+    }
+
+    &.menu-closing {
+      opacity: 0;
+      transform: translateY(0); /* Prevent shifting */
+    }
 
     ul {
       display: flex;
+      flex-direction: column; /* Stack menu items vertically */
+      justify-content: center; /* Center items vertically */
+      align-items: center; /* Center items horizontally */
       list-style: none;
       margin: 0;
       padding: 0;
-      gap: 25px;
+      height: 100%; /* Ensure the menu items take up the full height */
+      gap: 15px; /* Add spacing between menu items */
     }
 
     li {
+      width: 100%; /* Make each menu item take up full width */
+      text-align: center;
+
       a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
         text-decoration: none;
         color: #333;
-        font-size: 18px;
-        cursor: pointer;
 
         &:hover {
           color: #0983ff;
@@ -131,9 +159,10 @@
 
     .main-nav {
       position: fixed;
-      top: 120px; /* Ensure this value is consistent */
-      right: 0;
-      width: 768px;
+      top: 120px; /* Keep this consistent */
+      left: 5%; /* Center the menu horizontally */
+      right: 5%; /* Center the menu horizontally */
+      width: 90%; /* Make the menu slightly smaller than the screen width */
       height: 25%;
       background-color: white;
       box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
