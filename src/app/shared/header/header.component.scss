@@ -130,29 +130,26 @@
     }
 
     .main-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
+      position: fixed;
+      top: 120px; /* Ensure this value is consistent */
       right: 0;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      padding: 30px 0;
-      z-index: 1000;
+      width: 768px;
+      height: 25%;
+      background-color: white;
+      box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+      padding-top: 20px;
+      z-index: 999;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  
+      transform: translateY(0); /* Ensure no vertical shift */
+
       &.menu-open {
-        display: block;
         opacity: 1;
-        transform: translateY(10px);
+        transform: translateY(0); /* No shift */
       }
 
       &.menu-closing {
-        display: block; /* Keep display block during fade out */
-        opacity: 0; /* Fade out to invisible */
-        transform: translateY(-10px); /* Slide up while fading out */
+        opacity: 0;
+        transform: translateY(0); /* Prevent shifting */
       }
 
       ul {
