@@ -57,51 +57,23 @@
   }
 
   .main-nav {
-    position: fixed;
-    top: 120px; /* Keep this consistent */
-    left: 5%; /* Center the menu horizontally */
-    right: 5%; /* Center the menu horizontally */
-    width: 90%; /* Make the menu slightly smaller than the screen width */
-    height: 25%; /* Adjust height as needed */
-    background-color: white;
-    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px 0; /* Add padding for spacing */
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(0); /* Ensure no vertical shift */
-
-    &.menu-open {
-      opacity: 1;
-      transform: translateY(0); /* No shift */
-    }
-
-    &.menu-closing {
-      opacity: 0;
-      transform: translateY(0); /* Prevent shifting */
-    }
+    margin-left: auto;
+    margin-right: 30px;
 
     ul {
       display: flex;
-      flex-direction: column; /* Stack menu items vertically */
-      justify-content: center; /* Center items vertically */
-      align-items: center; /* Center items horizontally */
       list-style: none;
       margin: 0;
       padding: 0;
-      height: 100%; /* Ensure the menu items take up the full height */
-      gap: 15px; /* Add spacing between menu items */
+      gap: 25px;
     }
 
     li {
-      width: 100%; /* Make each menu item take up full width */
-      text-align: center;
-
       a {
-        display: block;
-        padding: 10px;
-        font-size: 16px;
         text-decoration: none;
         color: #333;
+        font-size: 18px;
+        cursor: pointer;
 
         &:hover {
           color: #0983ff;
@@ -158,33 +130,38 @@
     }
 
     .main-nav {
-      position: fixed;
-      top: 120px; /* Keep this consistent */
-      left: 5%; /* Center the menu horizontally */
-      right: 5%; /* Center the menu horizontally */
-      width: 90%; /* Make the menu slightly smaller than the screen width */
-      height: 25%;
-      background-color: white;
-      box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
-      padding-top: 20px;
-      z-index: 999;
-      opacity: 0;
-      transform: translateY(0); /* Ensure no vertical shift */
+      position: absolute; /* Position relative to the .main-header */
+      top: 415%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for centering */
+      width: 90%; /* Make it span 90% of the screen width */
+      height: auto; /* Adjust height as needed */
+      background-color: white; /* Keep the background color */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+      padding: 20px; /* Add padding for spacing */
+      z-index: 999; /* Ensure it stays above other elements */
+      opacity: 0; /* Default to hidden */
 
       &.menu-open {
+        display: block;
         opacity: 1;
-        transform: translateY(0); /* No shift */
+        transform: translate(-50%, -50%); /* No shift */
       }
 
       &.menu-closing {
-        opacity: 0;
-        transform: translateY(0); /* Prevent shifting */
+        display: block; /* Keep display block during fade out */
+        opacity: 0; /* Fade out to invisible */
+        transform: translate(-50%, -50%); /* Slide up slightly while fading out */
       }
 
       ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        display: flex;
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center; /* Center items horizontally */
+        gap: 15px; /* Add spacing between menu items */
+        margin: 0;
+        padding: 0;
+        list-style: none;
       }
 
       li {
@@ -195,6 +172,12 @@
           display: block;
           padding: 10px;
           font-size: 16px;
+          text-decoration: none;
+          color: #333;
+
+          &:hover {
+            color: #0983ff;
+          }
         }
       }
     }
