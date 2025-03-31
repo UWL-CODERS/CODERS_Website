@@ -1,10 +1,9 @@
-
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { gsap } from 'gsap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFacebook, faTwitter, faInstagram, faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faDiscord, faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +22,9 @@ export class HeaderComponent {
   faDiscord = faDiscord;
   faGithub = faGithub;
   faEnvelope = faEnvelope;
+  faBars = faBars;
+  faTimes = faTimes;
+  isMenuOpen = false;
   
   handleBackNavigation() {
     // Navigate to home or handle as needed
@@ -75,5 +77,9 @@ export class HeaderComponent {
         window.location.reload();
       });
     });
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
