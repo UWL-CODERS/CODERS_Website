@@ -26,6 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
+            this.preloadStandaloneComponents(); // Preload standalone components
             this.routerEventsSubscription = this.router.events.pipe(
                 filter(
                     (event): event is NavigationStart | NavigationEnd =>
@@ -56,6 +57,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             });
         }
+    }
+
+    private preloadStandaloneComponents(): void {
+        import('./main/main.component').then(() => console.log('MainComponent preloaded'));
+        import('./about-us/about-us.component').then(() => console.log('AboutUsComponent preloaded'));
+        import('./opportunities/opportunities.component').then(() => console.log('OpportunitiesComponent preloaded'));
+        import('./pictures/pictures.component').then(() => console.log('PicturesComponent preloaded'));
+        import('./research-projects/research-projects.component').then(() => console.log('ResearchProjectsComponent preloaded'));
     }
 
     private startTransitionOut() {
