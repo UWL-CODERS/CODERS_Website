@@ -41,6 +41,8 @@
     padding: 0 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
   }
 
   .logo {
@@ -185,6 +187,13 @@
     .logo {
       display: block;
       margin: 0 auto;
+      display: flex;
+      justify-content: center; /* Center the logo horizontally */
+      align-items: center; /* Center the logo vertically */
+      margin: 0 auto; /* Push the logo to the center dynamically */
+      position: absolute; /* Allow it to overlap other elements */
+      left: 50%; /* Start at the horizontal center of the container */
+      transform: translateX(-50%); /* Adjust for perfect centering */
     }
   }
 }
