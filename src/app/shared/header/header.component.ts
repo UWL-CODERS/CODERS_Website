@@ -1,4 +1,3 @@
-
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
@@ -23,56 +22,56 @@ export class HeaderComponent {
   faDiscord = faDiscord;
   faGithub = faGithub;
   faEnvelope = faEnvelope;
-  
-  handleBackNavigation() {
-    // Navigate to home or handle as needed
-    this.navigateAndReload('/home');
+
+  private ease = "bounce.out"; // Match the easing option from app.component.ts
+
+  handleNavigation(route: string) {
+    this.navigateWithTransition(route);
   }
 
-  handleForwardNavigation() {
-    // Navigate to home or handle as needed
-    this.navigateAndReload('/home');
-  }
-
-  navigateAndReload(route: string) {
-    // Use the transition service to handle the animation before navigation
-    // This ensures the transition occurs before page reload
-    const transitionOut = () => {
-      return new Promise<void>((resolve) => {
-        
-        // OPTIONS: https://editor.p5js.org/shibomb/sketches/c4zVvFz8k
-        const ease = "power4.inOut"
-
-        gsap.set(".block", { visibility: "visible", scaleY: 0 });
-        
-        // Animate all blocks in row 1
-        gsap.to(".transition-row.row-1 .block", {
-          scaleY: 1,
-          duration: 1,
-          stagger: {
-            each: 0.1,
-            from: "end",
-          },
-          ease: ease,
-        });
-        
-        // Animate all blocks in row 2
-        gsap.to(".transition-row.row-2 .block", {
-          scaleY: 1,
-          duration: 1,
-          stagger: {
-            each: 0.1,
-            from: "end",
-          },
-          ease: ease,
-          onComplete: resolve,
-        });
-      });
-    };
-
-    transitionOut().then(() => {
+  private navigateWithTransition(route: string) {
+    this.transitionOut().then(() => {
       this.router.navigate([route]).then(() => {
-        window.location.reload();
+        this.transitionIn();
+      });
+    });
+  }
+
+  private transitionOut() {
+    return this.animateTransition(0, 1);
+  }
+
+  private transitionIn() {
+    return this.animateTransition(1, 0);
+  }
+
+  private animateTransition(fromScale: number, toScale: number) {
+    return new Promise<void>((resolve) => {
+      gsap.set(".block", { visibility: "visible", scaleY: fromScale });
+
+      const duration = 0.7; // Unified duration for both transitions
+
+      // Animate blocks in row 1
+      gsap.to(".transition-row.row-1 .block", {
+        scaleY: toScale,
+        duration: duration,
+        stagger: {
+          each: 0.1,
+          from: "start",
+        },
+        ease: this.ease, // Use bounce easing for all transitions
+      });
+
+      // Animate blocks in row 2
+      gsap.to(".transition-row.row-2 .block", {
+        scaleY: toScale,
+        duration: duration,
+        stagger: {
+          each: 0.1,
+          from: "start",
+        },
+        ease: this.ease, // Use bounce easing for all transitions
+        onComplete: resolve,
       });
     });
   }
