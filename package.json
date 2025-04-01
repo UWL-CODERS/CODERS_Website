@@ -48,8 +48,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.4"
-  },
-  "overrides": {
-    "vite": "6.2.4"
   }
 }
