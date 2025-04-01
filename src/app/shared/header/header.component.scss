@@ -59,6 +59,9 @@
   }
 
   .main-nav {
+    display: flex; /* Default: visible on larger screens */
+    opacity: 1; /* Fully visible */
+    pointer-events: auto; /* Fully interactive */
     margin-left: auto;
     margin-right: 30px;
 
@@ -85,8 +88,9 @@
   }
 
   .mobile-menu-toggle {
-    opacity: 0; /* Default to hidden */
-    display: none;
+    display: none; /* Default: hidden on larger screens */
+    opacity: 0; /* Ensure it's not visible */
+    pointer-events: none; /* Disable interaction */
     background: none;
     border: none;
     font-size: 24px;
@@ -97,16 +101,20 @@
     transition: color 0.3s ease;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
     &:hover {
       background-color: #f0f0f0;
     }
+
     &:focus {
       outline: none;
       box-shadow: 0 0 0 2px rgba(9, 131, 255, 0.5);
     }
+
     &:active {
       background-color: #e0e0e0;
     }
+
     &:disabled {
       cursor: not-allowed;
       color: #ccc;
@@ -117,10 +125,8 @@
       color: #0983ff;
     }
   }
-}
 
-@media (max-width: 768px) {
-  .main-header {
+  @media (max-width: 768px) {
     .container {
       position: relative;
     }
@@ -165,7 +171,9 @@
     }
 
     .main-nav {
-      opacity: 0; /* Default to hidden */
+      display: none; /* Hide main-nav on smaller screens */
+      opacity: 0; /* Ensure it's not visible */
+      pointer-events: none; /* Disable interaction */
       position: absolute; /* Position relative to the .main-header */
       top: 415%; /* Center vertically */
       left: 50%; /* Center horizontally */
@@ -178,14 +186,16 @@
       z-index: 999; /* Ensure it stays above other elements */
 
       &.menu-open {
-        display: block;
-        opacity: 1;
+        display: block; /* Show when menu is open */
+        opacity: 1; /* Make it visible */
+        pointer-events: auto; /* Enable interaction */
         transform: translate(-50%, -50%); /* No shift */
       }
 
       &.menu-closing {
         display: block; /* Keep display block during fade out */
         opacity: 0; /* Fade out to invisible */
+        pointer-events: none; /* Disable interaction when closing */
         transform: translate(-50%, -50%); /* Slide up slightly while fading out */
       }
 
