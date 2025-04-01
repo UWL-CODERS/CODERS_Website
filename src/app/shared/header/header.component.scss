@@ -85,6 +85,7 @@
   }
 
   .mobile-menu-toggle {
+    opacity: 0; /* Default to hidden */
     display: none;
     background: none;
     border: none;
@@ -125,13 +126,46 @@
     }
 
     .mobile-menu-toggle {
-      display: block;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      opacity: 1;
-      transform: translateY(0);
+      display: block; /* Show toggle button on smaller screens */
+      opacity: 1; /* Make it visible */
+      pointer-events: auto; /* Enable interaction */
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      margin-left: auto;
+      transition: color 0.3s ease;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(9, 131, 255, 0.5);
+      }
+
+      &:active {
+        background-color: #e0e0e0;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: #ccc;
+        background-color: #f9f9f9;
+      }
+
+      &:hover {
+        color: #0983ff;
+      }
     }
 
     .main-nav {
+      opacity: 0; /* Default to hidden */
       position: absolute; /* Position relative to the .main-header */
       top: 415%; /* Center vertically */
       left: 50%; /* Center horizontally */
@@ -142,7 +176,6 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
       padding: 20px; /* Add padding for spacing */
       z-index: 999; /* Ensure it stays above other elements */
-      opacity: 0; /* Default to hidden */
 
       &.menu-open {
         display: block;
