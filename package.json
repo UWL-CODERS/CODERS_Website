@@ -24,6 +24,7 @@
     "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@nguniversal/express-engine": "^7.0.2",
     "@primeng/themes": "^19.0.9",
     "express": "^5.1.0",
     "gsap": "^3.12.7",
@@ -45,6 +46,10 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "vite": "^6.2.4"
+  },
+  "overrides": {
+    "vite": "6.2.4"
   }
 }

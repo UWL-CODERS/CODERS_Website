@@ -28,69 +28,58 @@ export class HeaderComponent {
   isMenuOpen = false;
   isMenuClosing = false;
 
-  handleBackNavigation() {
-    this.navigateAndReload('/home');
+  private ease = "bounce.out"; // Match the easing option from app.component.ts
+
+  handleNavigation(route: string) {
+    this.navigateWithTransition(route);
   }
 
-  handleForwardNavigation() {
-    this.navigateAndReload('/home');
+  private navigateWithTransition(route: string) {
+    this.transitionOut().then(() => {
+      this.router.navigate([route]).then(() => {
+        this.transitionIn();
+      });
+    });
   }
 
-  navigateAndReload(route: string) {
-    this.isMenuOpen = false; // Close the menu
-    this.isMenuClosing = true; // Set the closing flag
+  private transitionOut() {
+    return this.animateTransition(0, 1);
+  }
 
-    
-    setTimeout(() => {
+  private transitionIn() {
+    return this.animateTransition(1, 0);
+  }
 
-      // Fade-out animation for the menu
-      gsap.to(".main-nav", {
-        opacity: 0,
-        duration: 0.4,
-        onComplete: () => {
-          console.log("Menu fade-out complete");
+  private animateTransition(fromScale: number, toScale: number) {
+    return new Promise<void>((resolve) => {
+      gsap.set(".block", { visibility: "visible", scaleY: fromScale });
+
+      const duration = 0.7; // Unified duration for both transitions
+
+      // Animate blocks in row 1
+      gsap.to(".transition-row.row-1 .block", {
+        scaleY: toScale,
+        duration: duration,
+        stagger: {
+          each: 0.1,
+          from: "start",
         },
+        ease: this.ease, // Use bounce easing for all transitions
       });
 
-
-      const transitionOut = () => {
-        return new Promise<void>((resolve) => {
-          const ease = "power4.inOut";
-
-          gsap.set(".block", { visibility: "visible", scaleY: 0 });
-
-          gsap.to(".transition-row.row-1 .block", {
-            scaleY: 1,
-            duration: 1,
-            stagger: {
-              each: 0.1,
-              from: "end",
-            },
-            ease: ease,
-          });
-
-          gsap.to(".transition-row.row-2 .block", {
-            scaleY: 1,
-            duration: 1,
-            stagger: {
-              each: 0.1,
-              from: "end",
-            },
-            ease: ease,
-            onComplete: resolve,
-          });
-        });
-      };
-
-      transitionOut().then(() => {
-        this.router.navigate([route]).then(() => {
-          window.location.reload();
-          this.isMenuClosing = false; // Reset the closing flag after reload
-        });
+      // Animate blocks in row 2
+      gsap.to(".transition-row.row-2 .block", {
+        scaleY: toScale,
+        duration: duration,
+        stagger: {
+          each: 0.1,
+          from: "start",
+        },
+        ease: this.ease, // Use bounce easing for all transitions
+        onComplete: resolve,
       });
-    }, 300); // Adjust the timeout to match your SCSS transition duration
+    });
   }
-
   toggleMenu() {
     if (this.isMenuOpen) {
       // Menu is currently open -> Apply fade-out animation

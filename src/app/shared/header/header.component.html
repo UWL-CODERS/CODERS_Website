@@ -19,7 +19,7 @@
   <section class="main-header">
     <div class="container">
       <div class="logo">
-        <a (click)="navigateAndReload('/home')">
+        <a (click)="handleNavigation('/home')">
           <img src="assets/images/headerlogo.png" alt="CODERS Club logo">
         </a>
       </div>
@@ -28,11 +28,11 @@
       </button>
       <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
         <ul>
-          <li><a (click)="navigateAndReload('/home')">Home</a></li>
-          <li><a (click)="navigateAndReload('/research')">Research & Projects</a></li>
-          <li><a (click)="navigateAndReload('/opportunities')">Opportunities</a></li>
-          <li><a (click)="navigateAndReload('/pictures')">Pictures</a></li>
-          <li><a (click)="navigateAndReload('/aboutus')">About Us</a></li>
+          <li><a (click)="handleNavigation('/home')">Home</a></li>
+          <li><a (click)="handleNavigation('/research')">Research & Projects</a></li>
+          <li><a (click)="handleNavigation('/opportunities')">Opportunities</a></li>
+          <li><a (click)="handleNavigation('/pictures')">Pictures</a></li>
+          <li><a (click)="handleNavigation('/aboutus')">About Us</a></li>
         </ul>
       </nav>
     </div>
