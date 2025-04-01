@@ -141,6 +141,13 @@ min-height: 100vh;
     }
   }
 }
+/* Add media query for screens smaller than 768px */
+@media (max-width: 950px) {
+  .container .box span {
+    font-size: 2.5em; /* Shrink font size */
+    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(80px); /* Adjust translateZ for smaller screens */
+  }
+}
 
 @keyframes spin {
     0% {
