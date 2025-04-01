@@ -17,13 +17,16 @@
 
 <div>
   <section class="main-header">
-    <div class="container">    
+    <div class="container">
       <div class="logo">
         <a (click)="navigateAndReload('/home')">
           <img src="assets/images/headerlogo.png" alt="CODERS Club logo">
         </a>
-      </div>      
-      <nav class="main-nav">
+      </div>
+      <button class="mobile-menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+        <fa-icon [icon]="isMenuOpen ? faTimes : faBars"></fa-icon>
+      </button>
+      <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
         <ul>
           <li><a (click)="navigateAndReload('/home')">Home</a></li>
           <li><a (click)="navigateAndReload('/research')">Research & Projects</a></li>

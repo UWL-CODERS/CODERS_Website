@@ -41,6 +41,8 @@
     padding: 0 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
   }
 
   .logo {
@@ -57,6 +59,9 @@
   }
 
   .main-nav {
+    display: flex; /* Default: visible on larger screens */
+    opacity: 1; /* Fully visible */
+    pointer-events: auto; /* Fully interactive */
     margin-left: auto;
     margin-right: 30px;
 
@@ -81,20 +86,162 @@
       }
     }
   }
-}
 
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
+  .mobile-menu-toggle {
+    display: none; /* Default: hidden on larger screens */
+    opacity: 0; /* Ensure it's not visible */
+    pointer-events: none; /* Disable interaction */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: auto;
+    transition: color 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(9, 131, 255, 0.5);
+    }
+
+    &:active {
+      background-color: #e0e0e0;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: #ccc;
+      background-color: #f9f9f9;
+    }
+
+    &:hover {
+      color: #0983ff;
+    }
   }
 
-  .logo {
-    display: block;
-    margin: 0 auto;
+  @media (max-width: 768px) {
+    .container {
+      position: relative;
+    }
+
+    .mobile-menu-toggle {
+      display: block; /* Show toggle button on smaller screens */
+      opacity: 1; /* Make it visible */
+      pointer-events: auto; /* Enable interaction */
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      margin-left: auto;
+      transition: color 0.3s ease;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(9, 131, 255, 0.5);
+      }
+
+      &:active {
+        background-color: #e0e0e0;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: #ccc;
+        background-color: #f9f9f9;
+      }
+
+      &:hover {
+        color: #0983ff;
+      }
+    }
+
+    .main-nav {
+      display: none; /* Hide main-nav on smaller screens */
+      opacity: 0; /* Ensure it's not visible */
+      pointer-events: none; /* Disable interaction */
+      position: absolute; /* Position relative to the .main-header */
+      top: 415%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for centering */
+      width: 90%; /* Make it span 90% of the screen width */
+      height: auto; /* Adjust height as needed */
+      background-color: white; /* Keep the background color */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+      padding: 20px; /* Add padding for spacing */
+      z-index: 999; /* Ensure it stays above other elements */
+
+      &.menu-open {
+        display: block; /* Show when menu is open */
+        opacity: 1; /* Make it visible */
+        pointer-events: auto; /* Enable interaction */
+        transform: translate(-50%, -50%); /* No shift */
+      }
+
+      &.menu-closing {
+        display: block; /* Keep display block during fade out */
+        opacity: 0; /* Fade out to invisible */
+        pointer-events: none; /* Disable interaction when closing */
+        transform: translate(-50%, -50%); /* Slide up slightly while fading out */
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center; /* Center items horizontally */
+        gap: 15px; /* Add spacing between menu items */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: block;
+          padding: 10px;
+          font-size: 16px;
+          text-decoration: none;
+          color: #333;
+
+          &:hover {
+            color: #0983ff;
+          }
+        }
+      }
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center; /* Center the logo horizontally */
+      align-items: center; /* Center the logo vertically */
+      margin: 0 auto; /* Push the logo to the center dynamically */
+      position: absolute; /* Allow it to overlap other elements */
+      left: 50%; /* Start at the horizontal center of the container */
+      transform: translateX(-50%); /* Adjust for perfect centering */
+    }
   }
 }
 
-// Transition for Lines Below Header 
+// Transition for Lines Below Header
 
 a {
   color: #18272F;
