@@ -186,7 +186,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                             each: 0.1,
                             from: "start",
                         },
-                        ease: "bounce.out", // Use bounce easing for all transitions
+                        ease: this.ease, // Use easing for all transitions
                     });
 
                     // Animate blocks in row 2
@@ -197,7 +197,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                             each: 0.1,
                             from: "start",
                         },
-                        ease: "bounce.out", // Use bounce easing for all transitions
+                        ease: this.ease, // Use easing for all transitions
                         onComplete: resolve,
                     });
                 });
