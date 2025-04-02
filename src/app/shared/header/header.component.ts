@@ -112,7 +112,25 @@ export class HeaderComponent {
       );
       console.log("Menu opened");
     }
-
+  
     this.isMenuClosing = false; // Reset the closing flag when toggling
   }
+  
+  // Add event listener for menu links
+  addMenuLinkListeners() {
+    const menuLinks = document.querySelectorAll(".main-nav a"); // Select all links in the menu
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (this.isMenuOpen) {
+          this.toggleMenu(); // Close the menu when a link is clicked
+        }
+      });
+    });
+  }
+  
+  // Call this function once when initializing the component
+  initializeMenu() {
+    this.addMenuLinkListeners();
+  }
+  
 }
