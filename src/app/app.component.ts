@@ -10,8 +10,7 @@ import { CookiesConsentComponent } from './cookies-consent/cookies-consent.compo
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent],
-    standalone: true,
+    imports: [RouterOutlet, CookiesConsentComponent]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);

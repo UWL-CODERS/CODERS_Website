@@ -7,7 +7,6 @@ import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [RouterModule, FontAwesomeModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'

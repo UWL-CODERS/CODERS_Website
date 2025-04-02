@@ -1,15 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CommonModule } from '@angular/common'; // Import CommonModule
 import { faDiscord, faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterModule, FontAwesomeModule, CommonModule], // Add CommonModule here
+  imports: [RouterModule, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
