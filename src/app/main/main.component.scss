@@ -1,14 +1,6 @@
 // Styles for main component: Layout and appearance of home page
 // WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #333;
-}
-
 .rave-section {
     background-color: rgb(59, 50, 50); /* Dark background */
     padding: 50px 0; /* Add spacing */
@@ -73,14 +65,6 @@ $error: rgba(168, 30, 14, 0.6);
 
 $primary-color:#6f0505;
 $second-color:#3A81F7;
-
-/* GLOBAL CONFIG RESET */
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-font-family: $font1;
-}
 
 select:focus, input:focus, button:focus{
   outline:none;
