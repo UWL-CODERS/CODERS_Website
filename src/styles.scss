@@ -1,12 +1,27 @@
-// You can add global styles to this file, and also import other style files
-
-html {
-  font-family: "Anuphan", "Georgia", "Times New Roman", serif;
-  font-optical-sizing: auto;
+html,
+body {
+  height: 100%;
 }
 
 body {
-  line-height: 1.5;
   margin: 0;
-  padding: 0;
+  font-family: Anuphan, Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, ol, ul, div {
+  font-family: Anuphan, Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --primary-font: Anuphan, Roboto, "Helvetica Neue", sans-serif;
+  --secondary-font: Arial, sans-serif;
+}
+
+body {
+  font-family: var(--primary-font);
+}
+
+h1 {
+  font-family: var(--secondary-font);
 }
