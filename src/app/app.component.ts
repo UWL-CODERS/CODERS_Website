@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
+
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -9,9 +11,10 @@ import { gsap } from 'gsap';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, CookiesConsentComponent], // ADDED LINE
     standalone: true,
 })
+
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
