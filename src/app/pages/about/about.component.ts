@@ -4,12 +4,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'app-about-us',
+  selector: 'app-about',
   imports: [FontAwesomeModule],
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.scss']
 })
-export class AboutUsComponent implements AfterViewInit {
+export class AboutComponent implements AfterViewInit {
   private platformId = inject<Object>(PLATFORM_ID);
 
   readonly slider = viewChild.required<ElementRef<HTMLElement>>('slider');

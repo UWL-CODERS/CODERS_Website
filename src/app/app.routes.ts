@@ -6,11 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./shared/layout/layout.component').then(m => m.LayoutComponent),
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.MainComponent) },
-      { path: 'opportunities', loadComponent: () => import('./opportunities/opportunities.component').then(m => m.OpportunitiesComponent) },
-      { path: 'research', loadComponent: () => import('./pages/research-projects/research-projects.component').then(m => m.ResearchProjectsComponent) },
+      { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
+      { path: 'opportunities', loadComponent: () => import('./pages/opportunities/opportunities.component').then(m => m.OpportunitiesComponent) },
+      { path: 'projects', loadComponent: () => import('./pages/projects/projects.component').then(m => m.ProjectsComponent) },
       { path: 'gallery', loadComponent: () => import('./pages/gallery/gallery.component').then(m => m.GalleryComponent) },
-      { path: 'aboutus', loadComponent: () => import('./pages/about-us/about-us.component').then(m => m.AboutUsComponent) }
+      { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) }
     ],
   }
 ];

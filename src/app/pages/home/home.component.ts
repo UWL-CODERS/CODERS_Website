@@ -9,4 +9,4 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.scss',
   imports: [RouterModule]
 })
-export class MainComponent {}
+export class HomeComponent {}

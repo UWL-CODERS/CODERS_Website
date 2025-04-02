@@ -2,7 +2,7 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResearchProjectsComponent } from './research-projects.component';
+import { ResearchProjectsComponent } from './projects.component';
 
 describe('ResearchProjectsComponent', () => {
   let component: ResearchProjectsComponent;
