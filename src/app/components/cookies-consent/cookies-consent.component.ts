@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
@@ -7,10 +7,15 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./cookies-consent.component.scss']
 })
 export class CookiesConsentComponent {
+  private platformId = inject<Object>(PLATFORM_ID);
+
   isConsentGiven = false;
   showConsent = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     if (isPlatformBrowser(this.platformId)) {
       this.isConsentGiven = localStorage.getItem('cookiesConsent') === 'true';
 
