@@ -1,0 +1,16 @@
+.about {
+    text-align: center;
+    padding: 20px;
+    background-color: #1864ab;
+    color: white;
+  }
+  
+  .about h1,
+  .about p {
+    color: white;
+  }
+  
+  .about:hover {
+    background-color: #145a9d; /* Slightly darker blue on hover */
+    transition: background-color 0.3s ease;
+  }
