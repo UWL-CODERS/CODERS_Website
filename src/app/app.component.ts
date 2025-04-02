@@ -4,13 +4,12 @@ import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { gsap } from 'gsap';
-import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent],
+    imports: [RouterOutlet],
     standalone: true,
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
