@@ -35,9 +35,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/app/opportunities/Img.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -97,9 +95,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/app/opportunities/Img.js"
-            ]
+            "scripts": []
           }
         }
       }
