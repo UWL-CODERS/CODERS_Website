@@ -386,10 +386,48 @@ class CardCarousel extends DraggingEvent {
           leftPos: leftPos
         });
       }
+    } else {
+      // --- Drag End: Auto Center ---
+      this.container.classList.add("smooth-return");
+      let closestX = Infinity;
+      let closestLogicalX = 0;
+
+      for (const xStr in this.xScale) {
+        const x = parseInt(xStr, 10);
+        const absX = Math.abs(x);
+        if (absX < closestX) {
+          closestX = absX;
+          closestLogicalX = x;
+        }
+      }
+      this.centerCard(closestLogicalX);
     }
-    // The 'else' block for snap-back is removed.
   }
 
+  private centerCard(targetX: number): void {
+    const deltaX = -targetX; // Calculate the difference to move targetX to 0
+    const nextXScale: Record<number, HTMLElement> = {};
+
+    for (const xStr in this.xScale) {
+      const card = this.xScale[xStr];
+      const currentX = parseInt(xStr, 10);
+      const newLogicalX = currentX + deltaX;
+
+      const scale = this.calcScale(newLogicalX);
+      const scale2 = this.calcScale2(newLogicalX);
+      const leftPos = this.calcPos(newLogicalX, scale2);
+      const zIndex = -Math.abs(newLogicalX);
+
+      this.updateCards(card, {
+        x: newLogicalX,
+        scale: scale,
+        leftPos: leftPos,
+        zIndex: zIndex
+      });
+      nextXScale[newLogicalX] = card;
+    }
+    this.xScale = nextXScale;
+  }
 
   // Override destroy from DraggingEvent to add CardCarousel specific cleanup
   public override destroy(): void {
