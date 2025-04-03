@@ -1,3 +1,4 @@
+// opportunities.component.ts
 import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
 
 // --- Interfaces (for better type definition) ---
@@ -284,28 +285,22 @@ class CardCarousel extends DraggingEvent {
     if (data.x !== undefined) {
       card.setAttribute("data-x", data.x.toString());
     }
-
+  
     if (data.scale !== undefined) {
       card.style.transform = `scale(${data.scale})`;
-
+  
       if (data.scale === 0) {
         card.style.opacity = data.scale.toString();
       } else {
         card.style.opacity = '1';
       }
     }
-
+  
     if (data.leftPos !== undefined) {
       card.style.left = `${data.leftPos}%`;
     }
-
+  
     if (data.zIndex !== undefined) {
-      if (data.zIndex === 0) {
-        card.classList.add("highlight");
-      } else {
-        card.classList.remove("highlight");
-      }
-
       card.style.zIndex = data.zIndex.toString();
     }
   }
@@ -429,6 +424,23 @@ class CardCarousel extends DraggingEvent {
     this.xScale = nextXScale;
   }
 
+  public getCenterCardId(): string | null {
+    for (let i = 0; i < this.cards.length; i++) {
+      if (this.cards[i].classList.contains('highlight')) {
+        return this.cards[i].id;
+      }
+    }
+    return null;
+  }
+
+  public centerCardById(cardId: string): void {
+    const cardToCenter = Array.from(this.cards).find(card => card.id === cardId);
+    if (cardToCenter) {
+      const logicalX = parseInt(cardToCenter.dataset['x'] || '0', 10);
+      this.centerCard(logicalX);
+    }
+  }
+
   // Override destroy from DraggingEvent to add CardCarousel specific cleanup
   public override destroy(): void {
     super.destroy(); // Call parent destroy
@@ -443,7 +455,6 @@ class CardCarousel extends DraggingEvent {
 
 
 // --- Angular Component ---
-// (No changes needed in the component class itself)
 @Component({
   selector: 'app-opportunities',
   templateUrl: './opportunities.component.html',
@@ -455,48 +466,58 @@ export class OpportunitiesComponent implements AfterViewInit, OnDestroy {
   private carouselInstances: CardCarousel[] = [];
 
   ngAfterViewInit(): void {
-    // console.log("OpportunitiesComponent ngAfterViewInit");
-    this.initializeCarousels();
-     this.carouselContainers.changes.subscribe(() => {
-         this.cleanupCarousels();
-         this.initializeCarousels();
-     });
+    setTimeout(() => {
+      this.initializeCarousels();
+      this.carouselContainers.changes.subscribe(() => {
+        this.cleanupCarousels();
+        this.initializeCarousels();
+      });
+    }, 150); // Add a 100ms delay
   }
 
   ngOnDestroy(): void {
-    // console.log("OpportunitiesComponent ngOnDestroy");
+    this.saveCarouselState();
     this.cleanupCarousels();
   }
 
+  private saveCarouselState(): void {
+    this.carouselInstances.forEach((carousel, index) => {
+      const centeredCardId = carousel.getCenterCardId();
+      if (centeredCardId) {
+        localStorage.setItem(`carousel-${index}-centered-card`, centeredCardId);
+      }
+    });
+  }
+
   private initializeCarousels(): void {
-    // console.log(`Found ${this.carouselContainers.length} carousel containers.`);
     this.carouselContainers.forEach((containerRef, index) => {
       const containerElement = containerRef.nativeElement;
       let controllerElement: HTMLElement | null = null;
       let nextSibling = containerElement.nextElementSibling;
       while (nextSibling) {
-          if (nextSibling.matches('.card-controller')) {
-              controllerElement = nextSibling as HTMLElement;
-              break;
-          }
-          nextSibling = nextSibling.nextElementSibling;
+        if (nextSibling.matches('.card-controller')) {
+          controllerElement = nextSibling as HTMLElement;
+          break;
+        }
+        nextSibling = nextSibling.nextElementSibling;
       }
-      // if (!controllerElement) {
-      //    console.warn(`Controller not found for carousel container ${index + 1}`, containerElement);
-      // } else {
-      //    console.log(`Initializing carousel ${index + 1} with controller:`, controllerElement);
-      // }
       try {
-          const carousel = new CardCarousel(containerElement, controllerElement);
-          this.carouselInstances.push(carousel);
+        const carousel = new CardCarousel(containerElement, controllerElement);
+        this.carouselInstances.push(carousel);
+        const storedCenteredCardId = localStorage.getItem(`carousel-${index}-centered-card`);
+        if (storedCenteredCardId) {
+          // Wait for the carousel to be fully built before centering
+          setTimeout(() => {
+            carousel.centerCardById(storedCenteredCardId);
+          }, 0);
+        }
       } catch (error) {
-          console.error(`Failed to initialize CardCarousel ${index + 1}:`, error);
+        console.error(`Failed to initialize CardCarousel ${index + 1}:`, error);
       }
     });
   }
 
   private cleanupCarousels(): void {
-    // console.log(`Cleaning up ${this.carouselInstances.length} carousel instances.`);
     this.carouselInstances.forEach(carousel => carousel.destroy());
     this.carouselInstances = [];
   }
