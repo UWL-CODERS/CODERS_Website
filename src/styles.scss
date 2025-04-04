@@ -1,3 +1,7 @@
+* {
+  font-family: Anuphan, "Helvetica Neue", sans-serif;
+}
+
 html,
 body {
   height: 100%;
@@ -5,23 +9,4 @@ body {
 
 body {
   margin: 0;
-  font-family: Anuphan, "Helvetica Neue", sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6,
-p, span, a, li, ol, ul, div {
-  font-family: Anuphan, "Helvetica Neue", sans-serif;
-}
-
-:root {
-  --primary-font: Anuphan, "Helvetica Neue", sans-serif;
-  --secondary-font: Arial, sans-serif;
-}
-
-body {
-  font-family: var(--primary-font);
-}
-
-h1 {
-  font-family: var(--secondary-font);
 }
