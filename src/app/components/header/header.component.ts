@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [RouterModule, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
@@ -26,109 +27,130 @@ export class HeaderComponent {
   isMenuOpen = false;
   isMenuClosing = false;
 
-  handleBackNavigation() {
-    this.navigateAndReload('/home');
-  }
-
-  handleForwardNavigation() {
-    this.navigateAndReload('/home');
-  }
-
+  /**
+   * Navigates to a specified route and reloads the page with animations.
+   * @param route - The route to navigate to.
+   */
   navigateAndReload(route: string) {
-    this.isMenuOpen = false; // Close the menu
-    this.isMenuClosing = true; // Set the closing flag
+    this.isMenuOpen = false;
+    this.isMenuClosing = true;
 
-    
-    setTimeout(() => {
-
-      // Fade-out animation for the menu
-      gsap.to(".main-nav", {
-        opacity: 0,
-        duration: 0.4,
-        onComplete: () => {
-          console.log("Menu fade-out complete");
-        },
-      });
-
-
-      const transitionOut = () => {
-        return new Promise<void>((resolve) => {
-          const ease = "power4.inOut";
-
-          gsap.set(".block", { visibility: "visible", scaleY: 0 });
-
-          gsap.to(".transition-row.row-1 .block", {
-            scaleY: 1,
-            duration: 1,
-            stagger: {
-              each: 0.1,
-              from: "end",
-            },
-            ease: ease,
-          });
-
-          gsap.to(".transition-row.row-2 .block", {
-            scaleY: 1,
-            duration: 1,
-            stagger: {
-              each: 0.1,
-              from: "end",
-            },
-            ease: ease,
-            onComplete: resolve,
+    // Animate menu fade-out using GSAP
+    gsap.to('.main-nav', {
+      opacity: 0,
+      duration: 0.4,
+      onComplete: () => {
+        // Perform transition-out animation, navigate, and immediately transition-in
+        this.transitionOut().then(() => {
+          this.router.navigate([route]).then(() => {
+            this.transitionIn().then(() => {
+              this.isMenuClosing = false;
+            });
+          }).catch(error => {
+            console.error('Navigation error:', error);
+            this.isMenuClosing = false;
           });
         });
-      };
-
-      transitionOut().then(() => {
-        this.router.navigate([route]).then(() => {
-          window.location.reload();
-          this.isMenuClosing = false; // Reset the closing flag after reload
-        });
-      });
-    }, 300); // Adjust the timeout to match your SCSS transition duration
+      },
+    });
   }
 
+  /**
+   * Toggles the visibility of the menu with animations.
+   */
   toggleMenu() {
     if (this.isMenuOpen) {
-      // Menu is currently open -> Apply fade-out animation
-      gsap.to(".main-nav", {
+      // Animate menu fade-out
+      gsap.to('.main-nav', {
         opacity: 0,
         duration: 0.3,
         onComplete: () => {
-          this.isMenuOpen = false; // Close the menu after animation completes
-          console.log("Menu closed");
+          this.isMenuOpen = false;
         },
       });
     } else {
-      // Menu is currently closed -> Apply fade-in animation
-      this.isMenuOpen = true; // Open the menu immediately
-      gsap.fromTo(
-        ".main-nav",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.3 }
-      );
-      console.log("Menu opened");
+      // Animate menu fade-in
+      this.isMenuOpen = true;
+      gsap.fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 0.3 });
     }
-  
-    this.isMenuClosing = false; // Reset the closing flag when toggling
+    this.isMenuClosing = false;
   }
-  
-  // Add event listener for menu links
+
+  /**
+   * Adds click event listeners to menu links to close the menu when clicked.
+   */
   addMenuLinkListeners() {
-    const menuLinks = document.querySelectorAll(".main-nav a"); // Select all links in the menu
+    const menuLinks = document.querySelectorAll('.main-nav a');
     menuLinks.forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener('click', () => {
         if (this.isMenuOpen) {
-          this.toggleMenu(); // Close the menu when a link is clicked
+          this.toggleMenu();
         }
       });
     });
   }
-  
-  // Call this function once when initializing the component
+
+  /**
+   * Initializes the menu by adding event listeners.
+   */
   initializeMenu() {
     this.addMenuLinkListeners();
   }
-  
+
+  /**
+   * Checks if the given route is the current active route.
+   * @param route - The route to check.
+   * @returns True if the route is active, false otherwise.
+   */
+  isActiveRoute(route: string): boolean {
+    return this.router.url === route;
+  }
+
+  /**
+   * Handles the transition-in animation.
+   * @returns A promise that resolves when the animation completes.
+   */
+  private transitionIn() {
+    return this.animateTransition(1, 0);
+  }
+
+  /**
+   * Handles the transition-out animation.
+   * @returns A promise that resolves when the animation completes.
+   */
+  private transitionOut() {
+    return this.animateTransition(0, 1);
+  }
+
+  /**
+   * Animates a transition effect using GSAP.
+   * @param fromScale - The starting scale value.
+   * @param toScale - The ending scale value.
+   * @returns A promise that resolves when the animation completes.
+   */
+  private animateTransition(fromScale: number, toScale: number) {
+    return new Promise<void>((resolve) => {
+      const ease = 'power4.inOut'; // Smooth easing for a natural transition
+      const duration = 0.6; // Reduced duration for faster transitions
+
+      gsap.set('.block', { visibility: 'visible', scaleY: fromScale });
+
+      // Animate the first row of blocks
+      gsap.to('.transition-row.row-1 .block', {
+        scaleY: toScale,
+        duration: duration,
+        stagger: { each: 0.1, from: 'end' }, // Faster stagger
+        ease: ease,
+      });
+
+      // Animate the second row of blocks and resolve the promise
+      gsap.to('.transition-row.row-2 .block', {
+        scaleY: toScale,
+        duration: duration,
+        stagger: { each: 0.1, from: 'end' }, // Faster stagger
+        ease: ease,
+        onComplete: resolve,
+      });
+    });
+  }
 }

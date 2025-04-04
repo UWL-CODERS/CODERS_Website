@@ -19,12 +19,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private ngZone = inject(NgZone);
 
     title = 'CODERS Website';
-
-    // OPTIONS: https://editor.p5js.org/shibomb/sketches/c4zVvFz8k
-    private ease = "power1.inOut"
-
+    private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
-
     private lastNavigation: string | null = null;
 
     ngOnInit() {
@@ -32,37 +28,27 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             this.routerEventsSubscription = this.router.events.pipe(
                 filter((event): event is NavigationEnd => event instanceof NavigationEnd)
             ).subscribe((event: NavigationEnd) => {
-                window.addEventListener('popstate', () => {
-                    window.location.reload();
-                });
-                  
+                // Check if it's a browser back/forward navigation
                 if (event.id === 1 && event.url === this.lastNavigation) {
-                    // This is a browser back/forward navigation
                     this.handleBrowserNavigation();
                 } else {
-                    // This is a normal navigation
                     this.handleNormalNavigation(event);
                 }
                 this.lastNavigation = event.url;
             });
         }
-        
     }
 
     private handleBrowserNavigation() {
         document.body.style.pointerEvents = 'none';
-        this.transitionOut().then(() => {
-                this.transitionIn().then(() => {
-                    document.body.style.pointerEvents = 'auto';
-                });
-            });
+        this.transitionOutAndIn().then(() => {
+            document.body.style.pointerEvents = 'auto';
+        });
     }
-    
 
     private handleNormalNavigation(event: NavigationEnd) {
         document.body.style.pointerEvents = 'none';
         document.querySelector('.app')?.classList.add('is-transitioning');
-        // window.location.reload(); // This is causing the page to reload infinitely
         this.transitionIn().then(() => {
             document.querySelector('.app')?.classList.remove('is-transitioning');
             document.body.style.pointerEvents = 'auto';
@@ -96,11 +82,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                         const href = link.getAttribute('routerLink');
                         if (href && !href.startsWith('#') && href !== this.router.url) {
                             document.body.style.pointerEvents = 'none';
-                            this.transitionOut().then(() => {
+                            this.transitionOutAndIn().then(() => {
                                 this.router.navigate([href]).then(() => {
-                                    this.transitionIn().then(() => {
-                                        document.body.style.pointerEvents = 'auto';
-                                    });
+                                    document.body.style.pointerEvents = 'auto';
+                                }).catch((error) => {
+                                    console.error('Navigation error:', error);
+                                    document.body.style.pointerEvents = 'auto';
                                 });
                             });
                         }
@@ -113,46 +100,42 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private transitionIn() {
         return this.animateTransition(1, 0);
     }
-    
+
     private transitionOut() {
         return this.animateTransition(0, 1);
     }
-    
-    private animateTransition(fromScale: number, toScale: number) {
-        if (isPlatformBrowser(this.platformId)) {
-            return new Promise<void>((resolve) => {
-                this.ngZone.runOutsideAngular(() => {
-                    gsap.set(".block", { visibility: "visible", scaleY: fromScale });
-    
-                    // Animate blocks in row 1
-                    gsap.to(".transition-row.row-1 .block", {
-                        scaleY: toScale,
-                        duration: 1,
-                        stagger: {
-                            each: 0.1,
-                            // When changing transitions, change to either "start" (L) or "end" (R)
-                            from: "end",
-                        },
-                        ease: this.ease,
-                    });
-    
-                    // Animate blocks in row 2
-                    gsap.to(".transition-row.row-2 .block", {
-                        scaleY: toScale,
-                        duration: 1,
-                        stagger: {
-                            each: 0.1,
-                            // When changing transitions, change to either "start" (L) or "end" (R)
-                            from: "end",
-                        },
-                        ease: this.ease,
-                        onComplete: resolve,
-                    });
-                });
+
+    private transitionOutAndIn() {
+        return new Promise<void>((resolve) => {
+            this.transitionOut().then(() => {
+                this.transitionIn().then(resolve);
             });
-        } else {
-            return Promise.resolve();
-        }
+        });
     }
-    
+
+    private animateTransition(fromScale: number, toScale: number) {
+        return new Promise<void>((resolve) => {
+            const ease = 'power4.inOut'; // Smooth easing for a natural transition
+            const duration = 0.6; // Reduced duration for faster transitions
+
+            gsap.set('.block', { visibility: 'visible', scaleY: fromScale });
+
+            // Animate the first row of blocks
+            gsap.to('.transition-row.row-1 .block', {
+                scaleY: toScale,
+                duration: duration,
+                stagger: { each: 0.1, from: 'end' }, // Faster stagger
+                ease: ease,
+            });
+
+            // Animate the second row of blocks and resolve the promise
+            gsap.to('.transition-row.row-2 .block', {
+                scaleY: toScale,
+                duration: duration,
+                stagger: { each: 0.1, from: 'end' }, // Faster stagger
+                ease: ease,
+                onComplete: resolve,
+            });
+        });
+    }
 }

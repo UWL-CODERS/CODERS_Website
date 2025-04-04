@@ -40,9 +40,7 @@
               "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/app/pages/opportunities/Img.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -99,9 +97,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/app/pages/opportunities/Img.js"
-            ]
+            "scripts": []
           }
         }
       }

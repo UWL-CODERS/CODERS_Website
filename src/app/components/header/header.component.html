@@ -28,11 +28,46 @@
       </button>
       <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
         <ul>
-          <li><a (click)="navigateAndReload('/home')">Home</a></li>
-          <li><a (click)="navigateAndReload('/projects')">Projects</a></li>
-          <li><a (click)="navigateAndReload('/opportunities')">Opportunities</a></li>
-          <li><a (click)="navigateAndReload('/gallery')">Gallery</a></li>
-          <li><a (click)="navigateAndReload('/about')">About</a></li>
+          <li>
+            <a 
+              (click)="!isActiveRoute('/home') && navigateAndReload('/home')" 
+              [class.disabled]="isActiveRoute('/home')" 
+              [attr.aria-disabled]="isActiveRoute('/home') ? 'true' : null">
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              (click)="!isActiveRoute('/research') && navigateAndReload('/research')" 
+              [class.disabled]="isActiveRoute('/research')" 
+              [attr.aria-disabled]="isActiveRoute('/research') ? 'true' : null">
+              Research & Projects
+            </a>
+          </li>
+          <li>
+            <a 
+              (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')" 
+              [class.disabled]="isActiveRoute('/opportunities')" 
+              [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
+              Opportunities
+            </a>
+          </li>
+          <li>
+            <a 
+              (click)="!isActiveRoute('/pictures') && navigateAndReload('/pictures')" 
+              [class.disabled]="isActiveRoute('/pictures')" 
+              [attr.aria-disabled]="isActiveRoute('/pictures') ? 'true' : null">
+              Pictures
+            </a>
+          </li>
+          <li>
+            <a 
+              (click)="!isActiveRoute('/aboutus') && navigateAndReload('/aboutus')" 
+              [class.disabled]="isActiveRoute('/aboutus')" 
+              [attr.aria-disabled]="isActiveRoute('/aboutus') ? 'true' : null">
+              About Us
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
