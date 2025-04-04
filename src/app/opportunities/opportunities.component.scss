@@ -224,6 +224,7 @@ h1 {
   height: var(--card-height);
   min-width: var(--carousel-min-width);
   transition: filter .5s ease;
+  user-select: none;
 }
 
 /* Responsive Carousel Adjustments */
