@@ -1,5 +1,5 @@
 import { TuiRoot } from "@taiga-ui/core";
-import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -16,10 +16,8 @@ import { CookiesConsentComponent } from './components/cookies-consent/cookies-co
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
-    private ngZone = inject(NgZone);
 
     title = 'CODERS Website';
-    private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
     private lastNavigation: string | null = null;
 
