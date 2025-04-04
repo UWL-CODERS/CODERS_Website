@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.1",
+    "@angular/cdk": "^19.2.8",
     "@angular/common": "^19.2.1",
     "@angular/compiler": "^19.2.1",
     "@angular/core": "^19.2.1",
@@ -25,6 +26,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@primeng/themes": "^19.0.9",
+    "@taiga-ui/cdk": "^4.31.0",
+    "@taiga-ui/core": "^4.31.0",
+    "@taiga-ui/event-plugins": "^4.5.1",
     "express": "^5.1.0",
     "gsap": "^3.12.7",
     "path-to-regexp": "^8.2.0",

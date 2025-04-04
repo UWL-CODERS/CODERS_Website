@@ -1,3 +1,5 @@
+//! IMPORTANT! KEEP IN CASE OF ERRORS LATER ON!
+
 // Select all elements with class "card-carousel"
 const cardsContainers = document.querySelectorAll(".card-carousel");
 // Select all elements with class "card-controller" that come right after a "card-carousel"
