@@ -38,10 +38,10 @@
           </li>
           <li>
             <a 
-              (click)="!isActiveRoute('/research') && navigateAndReload('/research')" 
-              [class.disabled]="isActiveRoute('/research')" 
-              [attr.aria-disabled]="isActiveRoute('/research') ? 'true' : null">
-              Research & Projects
+              (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')" 
+              [class.disabled]="isActiveRoute('/projects')" 
+              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
+              Projects
             </a>
           </li>
           <li>
@@ -54,18 +54,18 @@
           </li>
           <li>
             <a 
-              (click)="!isActiveRoute('/pictures') && navigateAndReload('/pictures')" 
-              [class.disabled]="isActiveRoute('/pictures')" 
-              [attr.aria-disabled]="isActiveRoute('/pictures') ? 'true' : null">
-              Pictures
+              (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')" 
+              [class.disabled]="isActiveRoute('/gallery')" 
+              [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
+              Gallery
             </a>
           </li>
           <li>
             <a 
-              (click)="!isActiveRoute('/aboutus') && navigateAndReload('/aboutus')" 
-              [class.disabled]="isActiveRoute('/aboutus')" 
-              [attr.aria-disabled]="isActiveRoute('/aboutus') ? 'true' : null">
-              About Us
+              (click)="!isActiveRoute('/about') && navigateAndReload('/about')" 
+              [class.disabled]="isActiveRoute('/about')" 
+              [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
+              About
             </a>
           </li>
         </ul>
