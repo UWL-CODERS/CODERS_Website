@@ -1,7 +1,4 @@
-// Research-projects spec: Testing component logic and functionality
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProjectsComponent } from './projects.component';
 
 describe('ProjectsComponent', () => {
@@ -12,7 +9,7 @@ describe('ProjectsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ProjectsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ProjectsComponent);
     component = fixture.componentInstance;

@@ -1,11 +1,9 @@
 import { Component, AfterViewInit, ElementRef, PLATFORM_ID, inject, viewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-about',
-  imports: [FontAwesomeModule],
+  imports: [],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
@@ -16,9 +14,6 @@ export class AboutComponent implements AfterViewInit {
   readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('prevSlideBtn');
   readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>('nextSlideBtn');
   readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>('sliderDots');
-
-  faLinkedin = faLinkedin;
-  faGithub = faGithub;
 
   private currentSlide = 0;
   private slideInterval: any;

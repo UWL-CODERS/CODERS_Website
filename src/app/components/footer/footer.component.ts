@@ -1,13 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faDiscord, faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterModule, FontAwesomeModule],
+  imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
@@ -15,12 +12,6 @@ export class FooterComponent {
   private router = inject(Router);
   
   email: string = 'info@codersclub.com';
-  faFacebook = faFacebook;
-  faTwitter = faTwitter;
-  faInstagram = faInstagram;
-  faDiscord = faDiscord;
-  faGithub = faGithub;
-  faEnvelope = faEnvelope;
 
   navigateAndReload(route: string) {
     const transitionOut = () => {

@@ -1,4 +1,3 @@
-import { TuiRoot } from "@taiga-ui/core";
 import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
@@ -11,7 +10,7 @@ import { CookiesConsentComponent } from './components/cookies-consent/cookies-co
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent, TuiRoot]
+    imports: [RouterOutlet, CookiesConsentComponent]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
