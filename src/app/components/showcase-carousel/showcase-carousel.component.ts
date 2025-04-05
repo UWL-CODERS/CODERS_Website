@@ -9,17 +9,18 @@ export interface Project {
   description: string;
   imageUrl: string;
   projectUrl: string;
+  projectButton: string;
   languages: string[];
 }
 
 @Component({
   selector: 'app-carousel',
   imports: [CarouselModule, ButtonModule, TagModule],
-  templateUrl: './projects-carousel.component.html',
-  styleUrl: './projects-carousel.component.scss',
+  templateUrl: './showcase-carousel.component.html',
+  styleUrl: './showcase-carousel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CarouselComponent {
+export class ShowcaseCarouselComponent {
   readonly projects = input<Project[]>([]);
 
   responsiveOptions: any[] = [
