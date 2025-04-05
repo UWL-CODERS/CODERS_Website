@@ -1,15 +1,13 @@
 
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [RouterModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   private router = inject(Router);
