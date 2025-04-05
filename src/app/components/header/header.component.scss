@@ -1,0 +1,212 @@
+.top-bar {
+  background-color: #1864ab;
+  font-size: 14px;
+  padding: 10px;
+  color: #ddd;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    margin: 5px;
+    vertical-align: middle;
+  }
+
+  .social-links,
+  .contact-info {
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.main-header {
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+
+    img {
+      height: 55px;
+      display: flex;
+    }
+  }
+
+  .main-nav {
+
+
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 25px;
+    }
+
+    li {
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative; // Needed for the ::after positioning
+
+        &:hover {
+          color: #0983ff;
+        }
+
+        // Link hover animation for nav links
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          border-radius: 4px;
+          background-color: #333;
+          bottom: -5px;
+          left: 0;
+          transform: scaleX(0);
+          transition: transform 0.25s ease-in-out;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // Larger screens (> 768px)
+  @media (min-width: 769px) {
+    .main-nav {
+      display: flex !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+
+    .mobile-menu-toggle {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    .logo {
+      position: static !important;
+      transform: none !important;
+    }
+  }
+
+  // Mobile screens (<= 768px)
+  @media (max-width: 768px) {
+    .container {
+      position: relative;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      margin-left: auto;
+      transition: color 0.3s ease;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #f0f0f0;
+        color: #0983ff;
+      }
+    }
+
+    .main-nav {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      z-index: 999;
+
+      &.menu-open {
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          padding: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// General link styles (without hover animation)
+a {
+  color: #18272F;
+  text-decoration: none;
+}
+
+a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}

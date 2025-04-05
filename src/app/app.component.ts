@@ -1,25 +1,22 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { gsap } from 'gsap';
-import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
+import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent],
-    standalone: true,
+    imports: [RouterOutlet, CookiesConsentComponent]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
-    private ngZone = inject(NgZone);
 
     title = 'CODERS Website';
-    private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
     private lastNavigation: string | null = null;
 
