@@ -1,148 +1,107 @@
-// Styles for main component: Layout and appearance of home page
-// WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
-
 .rave-section {
-    background-color: rgb(59, 50, 50); /* Dark background */
-    padding: 50px 0; /* Add spacing */
-    height: 30vh; /* Optional: Set height to fill viewport */
+  background-color: rgb(59, 50, 50);
+  padding: 50px 0;
+  height: 30vh;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Optional: Center vertically */
-}
-
-.main-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.whatclub{
-    text-align: justify;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    color: #007bff;
-}
-
-section {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-section:last-child {
-    border-bottom: none;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Poppins:wght@100;500;600;800;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap');
-
-$font1: 'Poppins', sans-serif;
-$font2: 'Lobster Two', cursive;
-$white:#fff;
-$black:#000;
-$primary-light: #f9fafb;
-$second-light:#f0f0f0;
-$third-light:#DADBDB;
-
-$primary-dark:#222;
-$second-grey:#4f4f4f;
-
-$first-shadow: rgba(0,0,0,0.3);
-
-$success: rgba(61, 168, 102, 0.6);
-$error: rgba(168, 30, 14, 0.6);
-
-$primary-color:#6f0505;
-$second-color:#3A81F7;
-
-select:focus, input:focus, button:focus{
-  outline:none;
-}
-
-/* -------- BODY DISPLAY --------- */
-body {
-
-background-color: $primary-dark;
-overflow: hidden;
-
-display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-min-height: 100vh;
-}
-
-/* -------- TYPE SELECTORS --------- */
-
-/* -------- CLASS --------- */
-
-.container{
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  .box{
+.rave-section .container {
+  height: 100%;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.whatclub {
+  text-align: justify;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  color: #007bff;
+}
+
+section {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+select:focus, input:focus, button:focus {
+  outline: none;
+}
+
+body {
+  background-color: #222;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container .box {
+  transform-style: preserve-3d;
+  animation: spin 10s linear infinite;
+
+  span {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+    text-transform: uppercase;
+    line-height: 0.76em;
+    position: absolute;
+    color: #fff;
+    font-size: 3.5em;
+    white-space: nowrap;
+    font-weight: bold;
+    padding: 0px 10px;
     transform-style: preserve-3d;
-    animation: animate 6s ease-in-out infinite alternate;
+    text-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
 
-    span{
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
-      text-transform: uppercase;
-      line-height: 0.76em;
-      position: absolute;
-      color: $white;
-      font-size: 3.5em;
-      white-space: nowrap;
-      font-weight: bold;
-      padding: 0px 10px;
-      transform-style: preserve-3d;
-      text-shadow: 0 10px 15px $first-shadow;
-      transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+    i {
+      font-style: initial;
 
-      i{
-        font-style: initial;
+      &:nth-child(1) {
+        color: #6f0505;
+      }
 
-        &:nth-child(1){
-          color: $primary-color;
-        }
-
-        &:nth-child(2){
-          color: $second-color;
-        }
+      &:nth-child(2) {
+        color: #3A81F7;
       }
     }
   }
 }
-/* Add media query for screens smaller than 768px */
+
 @media (max-width: 950px) {
   .container .box span {
-    font-size: 2.5em; /* Shrink font size */
-    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(80px); /* Adjust translateZ for smaller screens */
+    font-size: 2.5em;
+    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(80px);
   }
 }
 
 @keyframes spin {
-    0% {
-      transform: perspective(250px) rotateX(0deg);
-    }
-    100% {
-      transform: perspective(250px) rotateX(360deg);
-    }
+  0% {
+    transform: perspective(250px) rotateX(0deg);
   }
-  
-  .container .box {
-    transform-style: preserve-3d;
-    animation: spin 10s linear infinite; /* Continuous spinning like a wheel */
+  100% {
+    transform: perspective(250px) rotateX(360deg);
   }
+}
