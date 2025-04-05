@@ -15,6 +15,7 @@
 
   .icon {
     margin: 5px;
+    vertical-align: middle;
   }
 
   .social-links,
@@ -59,7 +60,7 @@
   }
 
   .main-nav {
-    
+
 
     ul {
       display: flex;
@@ -75,9 +76,28 @@
         color: #333;
         font-size: 18px;
         cursor: pointer;
+        position: relative; // Needed for the ::after positioning
 
         &:hover {
           color: #0983ff;
+        }
+
+        // Link hover animation for nav links
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          border-radius: 4px;
+          background-color: #333;
+          bottom: -5px;
+          left: 0;
+          transform: scaleX(0);
+          transition: transform 0.25s ease-in-out;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
         }
       }
     }
@@ -179,28 +199,10 @@
   }
 }
 
-// Link hover animation
+// General link styles (without hover animation)
 a {
   color: #18272F;
-  position: relative;
   text-decoration: none;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 4px;
-    background-color: #333;
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.25s ease-in-out;
-  }
-
-  &:hover::after {
-    transform: scaleX(1);
-  }
 }
 
 a.disabled {
