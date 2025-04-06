@@ -11,18 +11,13 @@ body {
 
 /* Remove the fixed positioning from the component selector */
 app-logo-cube {
-/* position: fixed; */
-/* bottom: 0; */
-/* left: 50%; */
-/* transform: translateX(-50%); */
-/* Adjust z-index if needed to ensure it's above other elements */
-/* z-index: 999; */
-display: block; /* Ensure it takes up its own block */
-width: 100%; /* Take full width of the parent */
-display: flex;
-justify-content: center; /* Center the animation horizontally */
-margin-top: 20px; /* Add some top margin for spacing */
-margin-bottom: 20px; /* Add some bottom margin for spacing */
+  display: block; /* Ensure it takes up its own block */
+  width: 400px; /* Set a specific width */
+  margin: 15px auto; /* Center the component horizontally and add vertical margins */
+  display: flex;
+  justify-content: center; /* Center content within the logo cube horizontally */
+  align-items: center; /* Center content within the logo cube vertically */
+  background-color: transparent; /* This is for the logo-cube, not the hover detection */
 }
 
 .rave-section {
@@ -36,6 +31,7 @@ margin-bottom: 20px; /* Add some bottom margin for spacing */
   justify-content: center;
   align-items: center;
   height: 100%; /* Optional: Center vertically */
+  
 }
 
 .main-container {
@@ -120,43 +116,71 @@ min-height: 100vh;
 
 /* -------- CLASS --------- */
 
-.container{
-display: flex;
-justify-content: center;
-align-items: center;
+.container {
+  display: flex;
+  flex-direction: column; /* Stack Question, Box, and hover-message vertically */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items along the cross axis */
+  /* ... other styles for .container ... */
+}
+
+.Question {
+  text-align: center; /* Center text within the Question section */
+  margin-bottom: 10px; /* Add some space below the Question section */
+}
+
+.hover-message {
+  opacity: 0; /* Initially hide the text */
+  font-size: 1.1em; /* Adjust font size as needed */
+  color: $black; /* Set text color to black */
+  text-align: center; /* Center the text */
+  margin-top: 10px; /* Add some spacing below the logo */
+  transition: opacity 0.3s ease-in-out; /* Add a smooth fade-in effect */
+}
+
+/* Target the hover-message when hovering over the app-logo-cube */
+app-logo-cube:hover + .hover-message {
+  opacity: 1; /* Make the text visible on hover of the logo cube */
+}
+
+.Question {
+  text-align: center; /* Center text within the Question section */
+  margin-bottom: 20px; /* Add some space below the Question section */
+}
 
 .box{
   transform-style: preserve-3d;
   animation: animate 6s ease-in-out infinite alternate;
+  pointer-events: auto; /* Ensure the box can receive hover events (though not the trigger anymore) */
+}
 
-  span{
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
-    text-transform: uppercase;
-    line-height: 0.76em;
-    position: absolute;
-    color: $white;
-    font-size: 3.5em;
-    white-space: nowrap;
-    font-weight: bold;
-    padding: 0px 10px;
-    transform-style: preserve-3d;
-    text-shadow: 0 10px 15px $first-shadow;
-    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+.box span{
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+  text-transform: uppercase;
+  line-height: 0.76em;
+  position: absolute;
+  color: $white; /* Color of the letters in the box */
+  font-size: 3.5em;
+  white-space: nowrap;
+  font-weight: bold;
+  padding: 0px 10px;
+  transform-style: preserve-3d;
+  text-shadow: 0 10px 15px $first-shadow;
+  transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+}
 
-    i{
-      font-style: initial;
+.box span i{
+  font-style: initial;
 
-      &:nth-child(1){
-        color: $primary-color;
-      }
+  &:nth-child(1){
+    color: $primary-color;
+  }
 
-      &:nth-child(2){
-        color: $second-color;
-      }
-    }
+  &:nth-child(2){
+    color: $second-color;
   }
 }
-}
+
 /* Add media query for screens smaller than 768px */
 @media (max-width: 950px) {
 .container .box span {
@@ -165,14 +189,14 @@ align-items: center;
 }
 }
 
-@keyframes spin {
-  0% {
-    transform: perspective(250px) rotateX(0deg);
-  }
-  100% {
-    transform: perspective(250px) rotateX(360deg);
-  }
-}
+// @keyframes spin {
+//   0% {
+//     transform: perspective(250px) rotateX(0deg);
+//   }
+//   100% {
+//     transform: perspective(250px) rotateX(360deg);
+//   }
+// }
 
 .container .box {
   transform-style: preserve-3d;
