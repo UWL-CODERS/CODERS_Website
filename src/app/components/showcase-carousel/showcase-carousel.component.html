@@ -2,7 +2,7 @@
   <ng-template let-project pTemplate="item">
     <div class="border border-surface rounded-border m-2 p-4 text-center">
       <div class="mb-2">
-        <img [src]="project.imageUrl" [alt]="project.title" class="w-full h-48 object-cover rounded-border" />
+        <img [src]="project.imageUrl" [alt]="project.title" class="w-full h-48 object-cover rounded-border" loading="lazy"/>
       </div>
       <div class="mb-2">
         <h4 class="mb-1">{{ project.title }}</h4>

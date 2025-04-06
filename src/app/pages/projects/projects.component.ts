@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ShowcaseCarouselComponent, Project } from '../../components/showcase-carousel/showcase-carousel.component';
+import { ShowcaseCarouselComponent } from '../../components/showcase-carousel/showcase-carousel.component';
+import { Project } from '../../models/project.model';
 
 @Component({
     selector: 'app-projects',
