@@ -2,55 +2,71 @@
 // WARNING: Only Add to this file to overwrite the content of app.component.scss (Uncommon)
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Remove the fixed positioning from the component selector */
+app-logo-cube {
+/* position: fixed; */
+/* bottom: 0; */
+/* left: 50%; */
+/* transform: translateX(-50%); */
+/* Adjust z-index if needed to ensure it's above other elements */
+/* z-index: 999; */
+display: block; /* Ensure it takes up its own block */
+width: 100%; /* Take full width of the parent */
+display: flex;
+justify-content: center; /* Center the animation horizontally */
+margin-top: 20px; /* Add some top margin for spacing */
+margin-bottom: 20px; /* Add some bottom margin for spacing */
 }
 
 .rave-section {
-    background-color: rgb(59, 50, 50); /* Dark background */
-    padding: 50px 0; /* Add spacing */
-    height: 30vh; /* Optional: Set height to fill viewport */
+  background-color: rgb(59, 50, 50); /* Dark background */
+  padding: 50px 0; /* Add spacing */
+  height: 30vh; /* Optional: Set height to fill viewport */
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Optional: Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Optional: Center vertically */
 }
 
 .main-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .whatclub{
-    text-align: justify;
+  text-align: justify;
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 h1, h2 {
-    color: #007bff;
+  color: #007bff;
 }
 
 section {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
 }
 
 section:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Poppins:wght@100;500;600;800;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap');
@@ -83,7 +99,7 @@ font-family: $font1;
 }
 
 select:focus, input:focus, button:focus{
-  outline:none;
+outline:none;
 }
 
 /* -------- BODY DISPLAY --------- */
@@ -93,9 +109,9 @@ background-color: $primary-dark;
 overflow: hidden;
 
 display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
+// flex-direction: column;
+justify-content: center;
+align-items: center;
 
 min-height: 100vh;
 }
@@ -105,60 +121,60 @@ min-height: 100vh;
 /* -------- CLASS --------- */
 
 .container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 
-  .box{
+.box{
+  transform-style: preserve-3d;
+  animation: animate 6s ease-in-out infinite alternate;
+
+  span{
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+    text-transform: uppercase;
+    line-height: 0.76em;
+    position: absolute;
+    color: $white;
+    font-size: 3.5em;
+    white-space: nowrap;
+    font-weight: bold;
+    padding: 0px 10px;
     transform-style: preserve-3d;
-    animation: animate 6s ease-in-out infinite alternate;
+    text-shadow: 0 10px 15px $first-shadow;
+    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
 
-    span{
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
-      text-transform: uppercase;
-      line-height: 0.76em;
-      position: absolute;
-      color: $white;
-      font-size: 3.5em;
-      white-space: nowrap;
-      font-weight: bold;
-      padding: 0px 10px;
-      transform-style: preserve-3d;
-      text-shadow: 0 10px 15px $first-shadow;
-      transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+    i{
+      font-style: initial;
 
-      i{
-        font-style: initial;
+      &:nth-child(1){
+        color: $primary-color;
+      }
 
-        &:nth-child(1){
-          color: $primary-color;
-        }
-
-        &:nth-child(2){
-          color: $second-color;
-        }
+      &:nth-child(2){
+        color: $second-color;
       }
     }
   }
 }
+}
 /* Add media query for screens smaller than 768px */
 @media (max-width: 950px) {
-  .container .box span {
-    font-size: 2.5em; /* Shrink font size */
-    transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(80px); /* Adjust translateZ for smaller screens */
-  }
+.container .box span {
+  font-size: 2.5em; /* Shrink font size */
+  transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(80px); /* Adjust translateZ for smaller screens */
+}
 }
 
 @keyframes spin {
-    0% {
-      transform: perspective(250px) rotateX(0deg);
-    }
-    100% {
-      transform: perspective(250px) rotateX(360deg);
-    }
+  0% {
+    transform: perspective(250px) rotateX(0deg);
   }
-  
-  .container .box {
-    transform-style: preserve-3d;
-    animation: spin 10s linear infinite; /* Continuous spinning like a wheel */
+  100% {
+    transform: perspective(250px) rotateX(360deg);
   }
+}
+
+.container .box {
+  transform-style: preserve-3d;
+  animation: spin 10s linear infinite; /* Continuous spinning like a wheel */
+}
