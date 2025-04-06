@@ -21,33 +21,35 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private ngZone = inject(NgZone);
 
     @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // Get a reference to the logo component
-    
+
     title = 'CODERS Website';
     private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
     private lastNavigation: string | null = null;
+    private isBrowserNavigating = false;
 
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
             this.routerEventsSubscription = this.router.events.pipe(
                 filter((event): event is NavigationEnd => event instanceof NavigationEnd)
             ).subscribe((event: NavigationEnd) => {
-                // Check if it's a browser back/forward navigation
-                if (event.id === 1 && event.url === this.lastNavigation) {
-                    this.handleBrowserNavigation();
-                } else {
+                if (!this.isBrowserNavigating) {
                     this.handleNormalNavigation(event);
+                } else {
+                    this.isBrowserNavigating = false; // Reset the flag
                 }
                 this.lastNavigation = event.url;
+            });
+
+            window.addEventListener('popstate', () => {
+                this.isBrowserNavigating = true;
+                document.body.style.pointerEvents = 'auto';
             });
         }
     }
 
     private handleBrowserNavigation() {
-        document.body.style.pointerEvents = 'none';
-        this.transitionOutAndIn().then(() => {
-            document.body.style.pointerEvents = 'auto';
-        });
+        // This method is no longer needed with the popstate approach
     }
 
     private handleNormalNavigation(event: NavigationEnd) {
@@ -104,7 +106,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     public transitionIn(): Promise<void> {
         return new Promise<void>((resolve) => {
             const delayBeforeTransitionIn = 1200; // Adjust this value (in milliseconds) as needed
-    
+
             setTimeout(() => {
                 this.animateTransition(1, 0).then(resolve);
             }, delayBeforeTransitionIn);
