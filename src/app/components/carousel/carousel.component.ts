@@ -1,19 +1,17 @@
-
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
-import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-carousel',
   imports: [CarouselModule, ButtonModule, TagModule],
-  templateUrl: './showcase-carousel.component.html',
-  styleUrl: './showcase-carousel.component.scss',
+  templateUrl: './carousel.component.html',
+  styleUrl: './carousel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShowcaseCarouselComponent {
-  readonly projects = input<Project[]>([]);
+export class CarouselComponent {
+  readonly items = input<any[]>([]);
 
   responsiveOptions: any[] = [
       {
