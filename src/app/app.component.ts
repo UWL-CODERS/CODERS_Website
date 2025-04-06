@@ -1,23 +1,27 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject, ViewChild } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { gsap } from 'gsap';
 import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
+import { LogoTransitionComponent } from './logo-transition/logo-transition.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent],
+    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent], // Add it to imports
     standalone: true,
 })
+
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
     private ngZone = inject(NgZone);
 
+    @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // Get a reference to the logo component
+    
     title = 'CODERS Website';
     private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
@@ -97,11 +101,17 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private transitionIn() {
-        return this.animateTransition(1, 0);
+    public transitionIn(): Promise<void> {
+        return new Promise<void>((resolve) => {
+            const delayBeforeTransitionIn = 1200; // Adjust this value (in milliseconds) as needed
+    
+            setTimeout(() => {
+                this.animateTransition(1, 0).then(resolve);
+            }, delayBeforeTransitionIn);
+        });
     }
 
-    private transitionOut() {
+    public transitionOut() {
         return this.animateTransition(0, 1);
     }
 
