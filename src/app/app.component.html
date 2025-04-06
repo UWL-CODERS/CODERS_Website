@@ -24,28 +24,9 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<!-- Blue Blocks That Show Up During Transitions In and Out  -->
-<div class="transition">
-    <!-- Transition IN -->
-    <div class="transition-row row-1">
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-    </div>
-    <!-- Transition OUT -->
-    <div class="transition-row row-2">
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-    </div>
+<div class="app">
+    <router-outlet />
+    <app-cookies-consent />
 </div>
-<app-cookies-consent />
-<router-outlet />
+
+<app-page-transition #pageTransition />
