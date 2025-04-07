@@ -1,3 +1,13 @@
+/* Remove the fixed positioning from the component selector */
+app-logo-cube {
+  width: 400px; /* Set a specific width */
+  margin: 15px auto; /* Center the component horizontally and add vertical margins */
+  display: flex;
+  justify-content: center; /* Center content within the logo cube horizontally */
+  align-items: center; /* Center content within the logo cube vertically */
+  background-color: transparent; /* This is for the logo-cube, not the hover detection */
+}
+
 .rave-section {
   background-color: rgb(59, 50, 50);
   padding: 50px 0;
@@ -47,6 +57,25 @@ section:last-child {
 
 select:focus, input:focus, button:focus {
   outline: none;
+}
+
+.Question {
+  text-align: center; /* Center text within the Question section */
+  margin-bottom: 20px; /* Add some space below the Question section */
+}
+
+.hover-message {
+  opacity: 0; /* Initially hide the text */
+  font-size: 1.1em; /* Adjust font size as needed */
+  color: #000; /* Set text color to black */
+  text-align: center; /* Center the text */
+  margin-top: 10px; /* Add some spacing below the logo */
+  transition: opacity 0.3s ease-in-out; /* Add a smooth fade-in effect */
+}
+
+/* Target the hover-message when hovering over the app-logo-cube */
+app-logo-cube:hover + .hover-message {
+  opacity: 1; /* Make the text visible on hover of the logo cube */
 }
 
 .container .box {
