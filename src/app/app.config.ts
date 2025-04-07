@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withPreloading(PreloadAllModules)), // Add preloading here
+    provideRouter(routes, withPreloading(PreloadAllModules)), // Preloading is correctly configured here
     provideClientHydration(withIncrementalHydration()),
     provideAnimationsAsync(),
     providePrimeNG({

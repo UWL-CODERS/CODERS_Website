@@ -1,14 +1,19 @@
-// Main component logic: User interactions and data flow
+// main.component.ts
+import { Component, AfterViewInit, viewChild } from '@angular/core';
+import { LogoCubeComponent } from '../logo-cube/logo-cube.component';
 
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main',
+  imports: [LogoCubeComponent],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
-  imports: [RouterModule]
+  styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit {
+  readonly logoCubeComponent = viewChild.required(LogoCubeComponent);
 
+  ngAfterViewInit(): void {
+    // Call the startAnimation function of the LogoCubeComponent
+    this.logoCubeComponent().startAnimation();
+  }
 }
