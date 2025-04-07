@@ -1,27 +1,28 @@
-import { Component, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-logo-cube',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './logo-cube.component.html',
   styleUrl: './logo-cube.component.css'
 })
 export class LogoCubeComponent implements AfterViewInit {
-  @ViewChild('logoCubeContainer') logoCubeContainer!: ElementRef;
-  @ViewChild('cubeElement') cubeElement!: ElementRef;
+  private renderer = inject(Renderer2);
+
+  readonly logoCubeContainer = viewChild.required<ElementRef>('logoCubeContainer');
+  readonly cubeElement = viewChild.required<ElementRef>('cubeElement');
 
   private isAnimating = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   ngAfterViewInit(): void {
     this.setRandomInitialPosition();
   }
 
   setRandomInitialPosition(): void {
-    const cube = this.cubeElement.nativeElement;
+    const cube = this.cubeElement().nativeElement;
     const randomYRotation = Math.floor(Math.random() * 360); // Random angle between 0 and 359 degrees
     const randomZRotation = Math.floor(Math.random() * 360);
 
@@ -34,8 +35,8 @@ export class LogoCubeComponent implements AfterViewInit {
     }
     this.isAnimating = true;
 
-    const containerElement = this.logoCubeContainer.nativeElement;
-    const cube = this.cubeElement.nativeElement;
+    const containerElement = this.logoCubeContainer().nativeElement;
+    const cube = this.cubeElement().nativeElement;
 
     // Reset classes to the initial state
     this.renderer.removeClass(containerElement, 'zoom-in');

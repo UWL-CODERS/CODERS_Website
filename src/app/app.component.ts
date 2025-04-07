@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject, viewChild } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -11,21 +11,17 @@ import { LogoTransitionComponent } from './logo-transition/logo-transition.compo
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent], // Add it to imports
-    standalone: true,
+    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent]
 })
 
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
-    private ngZone = inject(NgZone);
 
-    @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // Get a reference to the logo component
+    readonly logoTransition = viewChild.required(LogoTransitionComponent); // Get a reference to the logo component
 
     title = 'CODERS Website';
-    private ease = "power4.inOut";
     private routerEventsSubscription: Subscription | null = null;
-    private lastNavigation: string | null = null;
     private isBrowserNavigating = false; // Flag to track if navigation is due to browser back/forward buttons
 
     ngOnInit() {
@@ -42,8 +38,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     // If it was a browser history navigation, reset the flag
                     this.isBrowserNavigating = false;
                 }
-                // Store the URL of the last successful navigation
-                this.lastNavigation = event.url;
             });
 
             // Listen for the 'popstate' event, which fires when the user navigates through history
@@ -57,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    private handleNormalNavigation(event: NavigationEnd) {
+    private handleNormalNavigation(_event: NavigationEnd) {
         // Disable pointer events to prevent interaction during the transition
         document.body.style.pointerEvents = 'none';
         // Add a class to the app container to indicate that a transition is in progress (for potential CSS styling)
@@ -74,7 +68,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if (isPlatformBrowser(this.platformId)) {
             Promise.resolve(null).then(() => {
                 // Start the logo animation after the view has been initialized
-                this.logoTransition?.startAnimation();
+                this.logoTransition()?.startAnimation();
                 // Perform the initial transition in animation when the component loads
                 this.transitionIn().then(() => {
                     // After the initial transition in, hide the transition blocks

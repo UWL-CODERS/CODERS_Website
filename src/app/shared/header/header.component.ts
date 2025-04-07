@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CommonModule } from '@angular/common';
+
 import { faDiscord, faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { gsap } from 'gsap';
@@ -9,8 +9,7 @@ import { AppComponent } from '../../app.component'; // Import AppComponent
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterModule, FontAwesomeModule, CommonModule],
+  imports: [RouterModule, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
@@ -39,7 +38,7 @@ export class HeaderComponent {
     this.isMenuClosing = true;
 
     this.appComponent.transitionOut().then(() => { // Blocks go down
-      this.appComponent.logoTransition?.startAnimation(); // Start logo animation
+      this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
         this.appComponent.transitionIn().then(() => { // Blocks come up
           this.isMenuClosing = false;
