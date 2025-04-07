@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-logo-cube',
@@ -6,16 +6,10 @@ import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } fr
   styleUrl: './logo-cube.component.css'
 })
 export class LogoCubeComponent implements AfterViewInit {
-  private renderer = inject(Renderer2);
-
-  readonly logoCubeContainer = viewChild.required<ElementRef>('logoCubeContainer');
-  readonly cubeElement = viewChild.required<ElementRef>('cubeElement');
+  readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
+  readonly cubeElement = viewChild.required<ElementRef<HTMLElement>>('cubeElement');
 
   private isAnimating = false;
-
-  constructor(...args: unknown[]);
-
-  constructor() {}
 
   ngAfterViewInit(): void {
     this.setRandomInitialPosition();
@@ -23,10 +17,10 @@ export class LogoCubeComponent implements AfterViewInit {
 
   setRandomInitialPosition(): void {
     const cube = this.cubeElement().nativeElement;
-    const randomYRotation = Math.floor(Math.random() * 360); // Random angle between 0 and 359 degrees
-    const randomZRotation = Math.floor(Math.random() * 360);
+    const randomYRotation = Math.random() * 360;
+    const randomZRotation = Math.random() * 360;
 
-    this.renderer.setStyle(cube, 'transform', `rotateY(${randomYRotation}deg) rotateZ(${randomZRotation}deg)`);
+    cube.style.transform = `rotateY(${randomYRotation}deg) rotateZ(${randomZRotation}deg)`;
   }
 
   startAnimation(): void {
@@ -37,43 +31,40 @@ export class LogoCubeComponent implements AfterViewInit {
 
     const containerElement = this.logoCubeContainer().nativeElement;
     const cube = this.cubeElement().nativeElement;
+    const containerClassList = containerElement.classList;
+    const cubeClassList = cube.classList;
 
-    // Reset classes to the initial state
-    this.renderer.removeClass(containerElement, 'zoom-in');
-    this.renderer.removeClass(containerElement, 'open');
-    this.renderer.removeClass(cube, 'open');
-    this.renderer.removeClass(containerElement, 'close');
-    this.renderer.removeClass(containerElement, 'zoom-out');
-
-    // Remove any inline transform that might have been set
-    this.renderer.removeStyle(cube, 'transform');
+    // Reset classes and styles
+    containerClassList.remove('zoom-in', 'open', 'close', 'zoom-out');
+    cubeClassList.remove('open');
+    cube.style.transform = ''; // Remove inline transform
 
     // 1. Zoom In
-    this.renderer.addClass(containerElement, 'zoom-in');
+    containerClassList.add('zoom-in');
 
-    // 2. Open after a longer delay
+    // 2. Open after delay
     setTimeout(() => {
-      this.renderer.addClass(containerElement, 'open');
-      this.renderer.addClass(cube, 'open');
+      containerClassList.add('open');
+      cubeClassList.add('open');
     }, 2000); // Delay before the cube starts to open (milliseconds)
 
     // 3. Close after another delay
     setTimeout(() => {
-      this.renderer.removeClass(containerElement, 'open');
-      this.renderer.removeClass(cube, 'open');
-      this.renderer.addClass(containerElement, 'close');
+      containerClassList.remove('open');
+      cubeClassList.remove('open');
+      containerClassList.add('close');
     }, 4000); // Delay before the cube starts to close (milliseconds)
 
     // 4. Zoom Out and Fade Out after another delay
     setTimeout(() => {
-      this.renderer.removeClass(containerElement, 'zoom-in');
-      this.renderer.removeClass(containerElement, 'close');
-      this.renderer.addClass(containerElement, 'zoom-out');
-      this.isAnimating = false;
-      // After the animation ends, set a new random initial position for the next time
+      containerClassList.remove('zoom-in', 'close');
+      containerClassList.add('zoom-out');
+      // Reset state after zoom-out animation ends
       setTimeout(() => {
-        this.setRandomInitialPosition();
-      }, 0); // Small delay to ensure zoom-out is complete before resetting position
-    }, 4600); // Delay before the cube starts to zoom out and fade (milliseconds)
+          containerClassList.remove('zoom-out');
+          this.isAnimating = false;
+          this.setRandomInitialPosition();
+      }, 600); // Corresponds to the zoom-out animation duration
+    }, 4600); // Delay before the cube starts to zoom out
   }
 }

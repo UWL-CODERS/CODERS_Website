@@ -12,8 +12,6 @@ export class CookiesConsentComponent {
   isConsentGiven = false;
   showConsent = false;
 
-  constructor(...args: unknown[]);
-
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
       this.isConsentGiven = localStorage.getItem('cookiesConsent') === 'true';
