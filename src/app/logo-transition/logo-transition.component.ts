@@ -1,30 +1,29 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-logo-transition', // Update the selector
+  selector: 'app-logo-transition',
   templateUrl: './logo-transition.component.html',
-  styleUrl: './logo-transition.component.scss'
+  styleUrl: './logo-transition.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoTransitionComponent implements AfterViewInit {
-  private renderer = inject(Renderer2);
+  private readonly renderer = inject(Renderer2);
 
-  readonly logoCubeContainer = viewChild.required<ElementRef>('logoCubeContainer');
-  readonly cubeElement = viewChild.required<ElementRef>('cubeElement');
+  private readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
+  private readonly cubeElement = viewChild.required<ElementRef<HTMLElement>>('cubeElement');
 
   private isAnimating = false;
-
-  constructor(...args: unknown[]);
-
-  constructor() {}
+  private animationTimeoutId: ReturnType<typeof setTimeout> | null = null;
+  private resetPositionTimeoutId: ReturnType<typeof setTimeout> | null = null;
 
   ngAfterViewInit(): void {
     this.setRandomInitialPosition();
   }
 
-  setRandomInitialPosition(): void {
+  private setRandomInitialPosition(): void {
     const cube = this.cubeElement().nativeElement;
-    const randomYRotation = Math.floor(Math.random() * 360); // Random angle between 0 and 359 degrees
-    const randomZRotation = Math.floor(Math.random() * 360);
+    const randomYRotation = Math.random() * 360;
+    const randomZRotation = Math.random() * 360;
 
     this.renderer.setStyle(cube, 'transform', `rotateY(${randomYRotation}deg) rotateZ(${randomZRotation}deg)`);
   }
@@ -34,6 +33,16 @@ export class LogoTransitionComponent implements AfterViewInit {
       return;
     }
     this.isAnimating = true;
+
+    // Clear any pending timeouts from previous runs if startAnimation is called rapidly
+    if (this.animationTimeoutId) {
+      clearTimeout(this.animationTimeoutId);
+      this.animationTimeoutId = null;
+    }
+    if (this.resetPositionTimeoutId) {
+      clearTimeout(this.resetPositionTimeoutId);
+      this.resetPositionTimeoutId = null;
+    }
 
     const containerElement = this.logoCubeContainer().nativeElement;
     const cube = this.cubeElement().nativeElement;
@@ -57,10 +66,18 @@ export class LogoTransitionComponent implements AfterViewInit {
       this.renderer.removeClass(containerElement, 'close');
       this.renderer.addClass(containerElement, 'zoom-out');
       this.isAnimating = false;
-      // After the animation ends, set a new random initial position for the next time
-      setTimeout(() => {
-        this.setRandomInitialPosition();
-      }, 0); // Small delay to ensure zoom-out is complete before resetting position
-    }, 2200); // Delay before the cube starts to zoom out and fade (milliseconds)
+
+      // Schedule the position reset slightly after zoom-out starts
+      // Using a separate timeout ensures it runs even if the component is destroyed before the main timeout finishes completely
+      this.resetPositionTimeoutId = setTimeout(() => {
+        // Check if the element still exists before resetting (optional safety)
+        if (this.cubeElement()) {
+           this.setRandomInitialPosition();
+        }
+        this.resetPositionTimeoutId = null;
+      }, 50); // Small delay after zoom-out starts
+
+      this.animationTimeoutId = null; // Clear the timeout ID after execution
+    }, 1750); // Delay before zoom-out
   }
 }

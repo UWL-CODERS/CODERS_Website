@@ -123,7 +123,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public transitionIn(): Promise<void> {
         return new Promise<void>((resolve) => {
-            const delayBeforeTransitionIn = 1200; // Adjust this value (in milliseconds) as needed
+            const delayBeforeTransitionIn = 1000; // Adjust this value (in milliseconds) as needed
 
             setTimeout(() => {
                 this.animateTransition(1, 0).then(resolve);
