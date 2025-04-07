@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faDiscord, faFacebook, faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { gsap } from 'gsap';
+import { AppComponent } from '../../app.component'; // Import AppComponent
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +15,8 @@ import { gsap } from 'gsap';
 })
 export class FooterComponent {
   private router = inject(Router);
-  
+  private appComponent = inject(AppComponent); // Inject AppComponent
+
   email: string = 'info@codersclub.com';
   faFacebook = faFacebook;
   faTwitter = faTwitter;
@@ -24,38 +26,12 @@ export class FooterComponent {
   faEnvelope = faEnvelope;
 
   navigateAndReload(route: string) {
-    const transitionOut = () => {
-      return new Promise<void>((resolve) => {
-        const ease = "power4.inOut"
+    const transitionOutPromise = this.appComponent.transitionOut(); // Blocks go down
 
-        gsap.set(".block", { visibility: "visible", scaleY: 0 });
-        
-        gsap.to(".transition-row.row-1 .block", {
-          scaleY: 1,
-          duration: 1,
-          stagger: {
-            each: 0.1,
-            from: "end",
-          },
-          ease: ease,
-        });
-        
-        gsap.to(".transition-row.row-2 .block", {
-          scaleY: 1,
-          duration: 1,
-          stagger: {
-            each: 0.1,
-            from: "end",
-          },
-          ease: ease,
-          onComplete: resolve,
-        });
-      });
-    };
-
-    transitionOut().then(() => {
+    transitionOutPromise.then(() => {
+      this.appComponent.logoTransition?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
-        window.location.reload();
+        this.appComponent.transitionIn(); // Blocks come up
       });
     });
   }

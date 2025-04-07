@@ -38,22 +38,21 @@ export class HeaderComponent {
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
+    this.appComponent.transitionOut().then(() => { // Blocks go down
+      this.appComponent.logoTransition?.startAnimation(); // Start logo animation
+      this.router.navigate([route]).then(() => {
+        this.appComponent.transitionIn().then(() => { // Blocks come up
+          this.isMenuClosing = false;
+        });
+      }).catch(error => {
+        console.error('Navigation error:', error);
+        this.isMenuClosing = false;
+      });
+    });
+
     gsap.to('.main-nav', {
       opacity: 0,
       duration: 0.4,
-      onComplete: () => {
-        this.appComponent.transitionOut().then(() => { // Blocks go down
-          this.appComponent.logoTransition?.startAnimation(); // Start logo animation
-          this.router.navigate([route]).then(() => {
-            this.appComponent.transitionIn().then(() => { // Blocks come up
-              this.isMenuClosing = false;
-            });
-          }).catch(error => {
-            console.error('Navigation error:', error);
-            this.isMenuClosing = false;
-          });
-        });
-      },
     });
   }
 

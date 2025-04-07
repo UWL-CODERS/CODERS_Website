@@ -60,6 +60,6 @@ export class LogoTransitionComponent implements AfterViewInit {
       setTimeout(() => {
         this.setRandomInitialPosition();
       }, 0); // Small delay to ensure zoom-out is complete before resetting position
-    }, 1200); // Delay before the cube starts to zoom out and fade (milliseconds)
+    }, 2200); // Delay before the cube starts to zoom out and fade (milliseconds)
   }
 }
