@@ -46,14 +46,14 @@ export class LogoCubeComponent implements AfterViewInit {
     setTimeout(() => {
       containerClassList.add('open');
       cubeClassList.add('open');
-    }, 2000); // Delay before the cube starts to open (milliseconds)
+    }, 0); // Delay before the cube starts to open (milliseconds)
 
     // 3. Close after another delay
     setTimeout(() => {
       containerClassList.remove('open');
       cubeClassList.remove('open');
       containerClassList.add('close');
-    }, 4000); // Delay before the cube starts to close (milliseconds)
+    }, 0); // Delay before the cube starts to close (milliseconds)
 
     // 4. Zoom Out and Fade Out after another delay
     setTimeout(() => {
@@ -64,7 +64,7 @@ export class LogoCubeComponent implements AfterViewInit {
           containerClassList.remove('zoom-out');
           this.isAnimating = false;
           this.setRandomInitialPosition();
-      }, 600); // Corresponds to the zoom-out animation duration
-    }, 4600); // Delay before the cube starts to zoom out
+      }, 0); // Corresponds to the zoom-out animation duration
+    }, 0); // Delay before the cube starts to zoom out
   }
 }
