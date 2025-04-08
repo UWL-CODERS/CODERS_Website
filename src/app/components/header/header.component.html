@@ -1,0 +1,80 @@
+<div class="top-bar">
+  <div class="container">
+    <div class="social-links">
+      Follow us on
+      <a href="javascript:void(0)"><span class="pi pi-facebook icon"></span></a>
+      <a href="javascript:void(0)"><span class="pi pi-twitter icon"></span></a>
+      <a href="javascript:void(0)"><span class="pi pi-instagram icon"></span></a>
+      <a href="https://discord.gg/UGupy2CVVq" target="_blank"><span class="pi pi-discord icon"></span></a>
+      <a href="https://github.com/UWL-CODERS" target="_blank"><span class="pi pi-github icon"></span></a>
+    </div>
+    <div class="contact-info">
+      <span class="pi pi-at icon"></span>
+      <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact"> Contact us on MyOrgs!</a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <section class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a (click)="navigateAndReload('/home')">
+          <img src="assets/images/headerlogo.png" alt="CODERS Club logo">
+        </a>
+      </div>
+      <button class="mobile-menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+        @if (!isMenuOpen) {
+          <i class="pi pi-bars"></i>
+        }
+        @if (isMenuOpen) {
+          <i class="pi pi-times"></i>
+        }
+      </button>
+      <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
+        <ul>
+          <li>
+            <a
+              (click)="!isActiveRoute('/home') && navigateAndReload('/home')"
+              [class.disabled]="isActiveRoute('/home')"
+              [attr.aria-disabled]="isActiveRoute('/home') ? 'true' : null">
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+              [class.disabled]="isActiveRoute('/projects')"
+              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+              [class.disabled]="isActiveRoute('/opportunities')"
+              [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
+              Opportunities
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+              [class.disabled]="isActiveRoute('/gallery')"
+              [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
+              Gallery
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
+              [class.disabled]="isActiveRoute('/about')"
+              [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+</div>

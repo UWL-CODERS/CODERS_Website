@@ -1,11 +1,11 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, NgZone, inject, viewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, PLATFORM_ID, inject, viewChild } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { gsap } from 'gsap';
-import { CookiesConsentComponent } from './cookies-consent/cookies-consent.component';
-import { LogoTransitionComponent } from './logo-transition/logo-transition.component';
+import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
+import { LogoTransitionComponent } from './components/logo-transition/logo-transition.component';
 
 @Component({
     selector: 'app-root',

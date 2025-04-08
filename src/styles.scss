@@ -1,12 +1,11 @@
-// You can add global styles to this file, and also import other style files
+@import "primeicons/primeicons.css";
 
 html {
-  font-family: "Anuphan", "Georgia", "Times New Roman", serif;
-  font-optical-sizing: auto;
+  height: 100%;
 }
 
 body {
-  line-height: 1.5;
+  font-family: Anuphan, "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
 }

@@ -1,0 +1,83 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65">
+
+<div class="transition-row row-1">
+    <div class="block t-1"></div>
+    <div class="block t-2"></div>
+    <div class="block t-3"></div>
+    <div class="block t-4"></div>
+    <div class="block t-5"></div>
+</div>
+<div class="transition-row row-2">
+    <div class="block t-6"></div>
+    <div class="block t-7"></div>
+    <div class="block t-8"></div>
+    <div class="block t-9"></div>
+    <div class="block t-10"></div>
+</div>
+
+<section class="footer container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="footer-logo">
+                            <img src="assets/images/footerlogo.png" class="w-50">
+                            <p>1705 State St, Wing Technology Center, La Crosse, WI 54601, United States</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 px-4">
+                        <h6>About Us</h6>
+                        <p>CODERS is dedicated to enhancing the La Crosse community through three core purposes. We
+                            focus on community outreach by teaching fundamental computer science (CS).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 px-4">
+                        <h6>Pages</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a (click)="navigateAndReload('/home')">Home</a></li>
+                                    <li><a (click)="navigateAndReload('/projects')">Projects</a></li>
+                                    <li><a (click)="navigateAndReload('/opportunities')">Opportunities</a></li>
+                                    <li><a (click)="navigateAndReload('/gallery')">Gallery</a></li>
+                                    <li><a (click)="navigateAndReload('/about')">About</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="javascript:void(0)">What is the club?</a></li>
+                                    <li><a href="javascript:void(0)">Our Mission</a></li>
+                                    <li><a href="javascript:void(0)">Join Us</a></li>
+                                    <li><a href="javascript:void(0)">Events</a></li>
+                                    <li><a href="javascript:void(0)">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Our Socials</h6>
+                        <div class="socials">
+                            <a href="javascript:void(0)"><span class="pi pi-facebook icon"></span></a>
+                            <a href="javascript:void(0)"><span class="pi pi-twitter icon"></span></a>
+                            <a href="javascript:void(0)"><span class="pi pi-instagram icon"></span></a>
+                            <a href="https://discord.gg/UGupy2CVVq" target="_blank"><span class="pi pi-discord icon"></span></a>
+                            <a href="https://github.com/UWL-CODERS" target="_blank"><span class="pi pi-github icon"></span></a>
+                        </div>
+                        <div class="email">
+                            <span class="pi pi-at icon"></span> Reach out to us at <a href="mailto:{{ email }}">{{ email
+                                }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col text-center mt-4 copyright-section">
+        <p>&copy; 2025 CODERS Club. All rights reserved.</p>
+    </div>
+</section>

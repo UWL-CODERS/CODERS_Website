@@ -1,21 +1,21 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { provideClientHydration, withIncrementalHydration } from '@angular/platform-browser';
 import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Nora from '@primeng/themes/nora';
 import { routes } from './app.routes';
+import { providePrimeNG } from 'primeng/config';
+import { CODERS_Preset } from '../presets/coders.preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withPreloading(PreloadAllModules)), // Preloading is correctly configured here
+    provideExperimentalZonelessChangeDetection(),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(withIncrementalHydration()),
     provideAnimationsAsync(),
     providePrimeNG({
-      theme: {
-        preset: Nora,
-      },
-    }),
+        theme: {
+            preset: CODERS_Preset
+        },
+    })
   ],
 };

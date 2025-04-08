@@ -1,0 +1,21 @@
+.projects {
+    text-align: center;
+    padding: 20px;
+    background-color: #1864ab;
+    color: white;
+}
+
+.research-projects {
+    text-align: center;
+    padding: 20px;
+
+    h1 {
+        border-bottom: 1px solid #aaa;
+        padding: 10px;
+        display: inline-block;
+    }
+
+    p {
+        font-style: italic;
+    }
+}
