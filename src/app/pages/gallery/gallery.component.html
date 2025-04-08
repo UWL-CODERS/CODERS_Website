@@ -1,16 +1,62 @@
-<!-- Gallery Component: Image gallery showcase -->
+<div class="container">
+  <div class="gallery-header">
+    <h1>CODERS Club Photo Gallery</h1>
+    <p>
+      Browse through our collection of photos from various club events, workshops, and activities.
+    </p>
+  </div>
 
-<section class="about">
-  <h1>Gallery</h1>
-  <p>
-    These images showcase the vibrant spirit of CODERS Club as
-    we engage with our community and foster a culture of innovation.
-    From hands-on coding sessions with local youth to collaborative
-    events with fellow clubs on campus, every moment is an opportunity
-    to inspire and be inspired. Our photos highlight the joy of
-    learning, the power of collaboration, and the impact of
-    community service.
-  </p>
-</section>
+  <!-- Event Section -->
+  <div class="event-card" *ngFor="let event of events">
+    <div class="event-content">
+      <h2 class="event-title">{{ event.title }}</h2>
 
-<p>PICTURES GO HERE, VIDEOS TOO IF ANY</p>
+      <div class="event-meta">
+        <div class="event-meta-item" *ngFor="let meta of event.meta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path [attr.d]="meta.iconPath"></path>
+          </svg>
+          <span>{{ meta.text }}</span>
+        </div>
+      </div>
+
+      <p class="event-description">{{ event.description }}</p>
+
+      <!-- Picture Section -->
+      <div class="image-grid">
+        <div
+          class="image-item"
+          *ngFor="let image of event.images"
+          (click)="openModal(image)">
+          <div class="image-wrapper">
+            <img [src]="image.src" [alt]="image.alt" />
+          </div>
+          <div class="image-overlay">
+            <div class="image-caption">{{ image.caption }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Section -->
+  <div
+    class="modal-backdrop"
+    *ngIf="selectedImage"
+    [class.active]="selectedImage"
+    (click)="onBackdropClick($event)">
+    <div class="modal-content">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
+      <h3 class="modal-title">{{ selectedImage.event }}</h3>
+      <div class="modal-image-container">
+        <img
+          [src]="selectedImage.src"
+          class="modal-image"
+          [alt]="selectedImage.alt" />
+      </div>
+      <p class="modal-caption">{{ selectedImage.caption }}</p>
+    </div>
+  </div>
+</div>
