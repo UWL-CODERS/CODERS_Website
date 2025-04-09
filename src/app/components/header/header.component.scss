@@ -32,14 +32,13 @@
 }
 
 .main-header {
-  padding: 15px 0;
+  padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-weight: 500;
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,20 +46,21 @@
   }
 
   .logo {
-    display: flex;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 500;
     cursor: pointer;
 
     img {
-      height: 55px;
-      display: flex;
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
     }
   }
 
   .main-nav {
-
 
     ul {
       display: flex;
