@@ -20,8 +20,18 @@ export class FooterComponent {
     transitionOutPromise.then(() => {
       this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page
         this.appComponent.pageTransition().transitionIn(); // Blocks come up
       });
     });
+  }
+
+  /**
+   * Checks if the given route is the current active route.
+   * @param route - The route to check.
+   * @returns True if the route is active, false otherwise.
+   */
+  isActiveRoute(route: string): boolean {
+    return this.router.url === route;
   }
 }

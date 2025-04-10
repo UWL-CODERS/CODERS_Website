@@ -29,6 +29,7 @@ export class HeaderComponent {
     this.appComponent.pageTransition().transitionOut().then(() => { // Access transitionOut through pageTransition
       this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page
         this.appComponent.pageTransition().transitionIn().then(() => { // Access transitionIn through pageTransition
           this.isMenuClosing = false;
         });
