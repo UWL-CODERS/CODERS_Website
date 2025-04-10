@@ -343,6 +343,9 @@ h2 {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   text-align: center;
   color: #333;
+  a {
+    cursor: pointer;
+  }
 }
 
 /* Section Titles */
@@ -445,12 +448,14 @@ h2 {
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: all 0.5s ease;
+  cursor: pointer; /* Add this line */
 }
 
 .cta-button:hover {
   background-color: #0056b3;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .cta-button:hover::before {
