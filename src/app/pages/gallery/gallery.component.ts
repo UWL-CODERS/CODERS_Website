@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -22,16 +21,22 @@ export class GalleryComponent {
       ],
       images: [
         {
-          src: 'https://via.placeholder.com/600x400',
+          src: 'assets/images/IMG_6750.png',
           alt: 'Students working on coding projects',
           caption: 'Collaborating on projects',
-          event: 'Coding Workshop 2023'
+          event: 'UWL | Boys and Girls Club'
         },
         {
-          src: 'https://via.placeholder.com/600x400',
+          src: 'assets/images/IMG_6146.jpg',
           alt: 'Instructor teaching',
-          caption: 'Instructor explaining code',
-          event: 'Coding Workshop 2023'
+          caption: 'Jack Being Jack',
+          event: 'Enchanted Forest Trick Or Treat 2024'
+        },
+        {
+          src: 'assets/images/IMG_6144.jpg',
+          alt: 'Andree is GOATED',
+          caption: 'Working on a new feature',
+          event: 'Enchanted Forest Trick Or Treat 2024'
         }
       ]
     }
