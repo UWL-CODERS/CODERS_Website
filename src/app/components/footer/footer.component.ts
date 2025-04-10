@@ -15,12 +15,12 @@ export class FooterComponent {
   email: string = 'info@codersclub.com';
 
   navigateAndReload(route: string) {
-    const transitionOutPromise = this.appComponent.transitionOut(); // Blocks go down
+    const transitionOutPromise = this.appComponent.pageTransition().transitionOut(); // Blocks go down
 
     transitionOutPromise.then(() => {
       this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
-        this.appComponent.transitionIn(); // Blocks come up
+        this.appComponent.pageTransition().transitionIn(); // Blocks come up
       });
     });
   }

@@ -64,7 +64,7 @@ export class LogoCubeComponent implements AfterViewInit {
           containerClassList.remove('zoom-out');
           this.isAnimating = false;
           this.setRandomInitialPosition();
-      }, 0); // Corresponds to the zoom-out animation duration
-    }, 0); // Delay before the cube starts to zoom out
+      }, 2000); // Corresponds to the zoom-out animation duration
+    }, 2000); // Delay before the cube starts to zoom out
   }
 }

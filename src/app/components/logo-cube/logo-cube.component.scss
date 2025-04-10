@@ -18,7 +18,7 @@
   align-items: center;
   transition: all 0.5s ease-in-out; /* Apply transition to all animatable properties */
   opacity: 1; /* Start visible */
-  z-index: 1000; /* Ensure it's on top of other content if needed */
+  z-index: 999; /* Ensure it's on top of other content if needed */
   cursor: pointer; /* Add a pointer to indicate interactivity */
 
   /* Initial closed state */
@@ -142,7 +142,7 @@
   position: relative;
   transform-style: preserve-3d;
   animation: rotateCubeDoubleTime 4s infinite linear;
-  transition: all 0.15s ease-in-out; /* Faster transition for closing */
+  transition: all 0.20s ease-in-out; /* Faster transition for closing */
 }
 
 /* Pulse animation for the glow effect */
