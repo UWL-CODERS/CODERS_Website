@@ -41,11 +41,46 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul>
-                                    <li><a (click)="navigateAndReload('/home')">Home</a></li>
-                                    <li><a (click)="navigateAndReload('/projects')">Projects</a></li>
-                                    <li><a (click)="navigateAndReload('/opportunities')">Opportunities</a></li>
-                                    <li><a (click)="navigateAndReload('/gallery')">Gallery</a></li>
-                                    <li><a (click)="navigateAndReload('/about')">About</a></li>
+                                    <li>
+                                        <a
+                                            (click)="!isActiveRoute('/home') && navigateAndReload('/home')"
+                                            [class.disabled]="isActiveRoute('/home')"
+                                            [attr.aria-disabled]="isActiveRoute('/home') ? 'true' : null">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+                                            [class.disabled]="isActiveRoute('/projects')"
+                                            [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
+                                            Projects
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+                                            [class.disabled]="isActiveRoute('/opportunities')"
+                                            [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
+                                            Opportunities
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+                                            [class.disabled]="isActiveRoute('/gallery')"
+                                            [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
+                                            Gallery
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
+                                            [class.disabled]="isActiveRoute('/about')"
+                                            [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
+                                            About
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-md-6">

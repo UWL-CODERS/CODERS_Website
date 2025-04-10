@@ -26,10 +26,11 @@ export class HeaderComponent {
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
-    this.appComponent.transitionOut().then(() => { // Blocks go down
+    this.appComponent.pageTransition().transitionOut().then(() => { // Access transitionOut through pageTransition
       this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
       this.router.navigate([route]).then(() => {
-        this.appComponent.transitionIn().then(() => { // Blocks come up
+        window.scrollTo(0, 0); // Scroll to the top of the page
+        this.appComponent.pageTransition().transitionIn().then(() => { // Access transitionIn through pageTransition
           this.isMenuClosing = false;
         });
       }).catch(error => {
