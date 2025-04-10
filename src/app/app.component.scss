@@ -29,28 +29,5 @@
     background-color: rgb(58, 129, 247);
     transform: scaleY(1);
     will-change: transform;
-    min-width: 50px;
-    /* Adjust as needed */
-}
-
-/* Layout Styles */
-app-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* Ensure layout covers viewport */
-}
-
-/* Ensure header and router-outlet are within the layout */
-app-header {
-    width: 100%;
-    /* Take full width */
-    order: 1;
-    /* Ensure correct order */
-}
-
-router-outlet {
-    flex: 1;
-    /* Allow content to grow and take available space */
-    order: 2;
+    width: 50px; // Adjust as needed
 }
