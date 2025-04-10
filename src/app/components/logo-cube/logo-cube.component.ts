@@ -3,7 +3,7 @@ import { Component, ElementRef, AfterViewInit, viewChild } from '@angular/core';
 @Component({
   selector: 'app-logo-cube',
   templateUrl: './logo-cube.component.html',
-  styleUrl: './logo-cube.component.css'
+  styleUrl: './logo-cube.component.scss'
 })
 export class LogoCubeComponent implements AfterViewInit {
   readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
@@ -64,7 +64,7 @@ export class LogoCubeComponent implements AfterViewInit {
           containerClassList.remove('zoom-out');
           this.isAnimating = false;
           this.setRandomInitialPosition();
-      }, 0); // Corresponds to the zoom-out animation duration
-    }, 0); // Delay before the cube starts to zoom out
+      }, 2000); // Corresponds to the zoom-out animation duration
+    }, 2000); // Delay before the cube starts to zoom out
   }
 }

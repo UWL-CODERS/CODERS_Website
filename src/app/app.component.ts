@@ -3,22 +3,29 @@ import { RouterOutlet, Router, NavigationEnd, } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { gsap } from 'gsap';
 import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
 import { LogoTransitionComponent } from './components/logo-transition/logo-transition.component';
+import { PageTransitionComponent } from './components/page-transition/page-transition.component'; // Import the new component
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent]
+    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent, PageTransitionComponent] // Add PageTransitionComponent to imports
 })
 
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+    transitionIn() {
+      throw new Error('Method not implemented.');
+    }
+    transitionOut() {
+      throw new Error('Method not implemented.');
+    }
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
 
     readonly logoTransition = viewChild.required(LogoTransitionComponent); // Get a reference to the logo component
+    readonly pageTransition = viewChild.required(PageTransitionComponent); // Get a reference to the page transition component
 
     title = 'CODERS Website';
     private routerEventsSubscription: Subscription | null = null;
@@ -57,7 +64,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         // Add a class to the app container to indicate that a transition is in progress (for potential CSS styling)
         document.querySelector('.app')?.classList.add('is-transitioning');
         // Start the transition in animation
-        this.transitionIn().then(() => {
+        this.pageTransition().transitionIn().then(() => { // Call the transitionIn method of the new component
             // After the transition in completes, remove the transitioning class and re-enable pointer events
             document.querySelector('.app')?.classList.remove('is-transitioning');
             document.body.style.pointerEvents = 'auto';
@@ -70,9 +77,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 // Start the logo animation after the view has been initialized
                 this.logoTransition()?.startAnimation();
                 // Perform the initial transition in animation when the component loads
-                this.transitionIn().then(() => {
+                this.pageTransition().transitionIn().then(() => { // Call the transitionIn method of the new component
                     // After the initial transition in, hide the transition blocks
-                    gsap.set(".block", { visibility: "hidden" });
+                    // You might need to adjust the selector if the blocks are now in the child component's template
+                    gsap.set(".page-transition .block", { visibility: "hidden" });
                 });
                 // Set up listeners for router links to handle custom navigation transitions
                 this.setupLinkListeners();
@@ -104,7 +112,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                             // Disable pointer events during the transition
                             document.body.style.pointerEvents = 'none';
                             // Perform the transition out and then navigate to the new route
-                            this.transitionOutAndIn().then(() => {
+                            this.pageTransition().transitionOutAndIn().then(() => { // Call the transitionOutAndIn method of the new component
                                 this.router.navigate([href]).then(() => {
                                     // Re-enable pointer events after navigation completes
                                     document.body.style.pointerEvents = 'auto';
@@ -119,53 +127,5 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 });
             }, 0); // Use a timeout to ensure links are rendered before attaching listeners
         }
-    }
-
-    public transitionIn(): Promise<void> {
-        return new Promise<void>((resolve) => {
-            const delayBeforeTransitionIn = 1000; // Adjust this value (in milliseconds) as needed
-
-            setTimeout(() => {
-                this.animateTransition(1, 0).then(resolve);
-            }, delayBeforeTransitionIn);
-        });
-    }
-
-    public transitionOut() {
-        return this.animateTransition(0, 1);
-    }
-
-    private transitionOutAndIn() {
-        return new Promise<void>((resolve) => {
-            this.transitionOut().then(() => {
-                this.transitionIn().then(resolve);
-            });
-        });
-    }
-
-    private animateTransition(fromScale: number, toScale: number) {
-        return new Promise<void>((resolve) => {
-            const ease = 'power4.inOut'; // Smooth easing for a natural transition
-            const duration = 0.6; // Reduced duration for faster transitions
-
-            gsap.set('.block', { visibility: 'visible', scaleY: fromScale });
-
-            // Animate the first row of blocks
-            gsap.to('.transition-row.row-1 .block', {
-                scaleY: toScale,
-                duration: duration,
-                stagger: { each: 0.1, from: 'end' }, // Faster stagger
-                ease: ease,
-            });
-
-            // Animate the second row of blocks and resolve the promise
-            gsap.to('.transition-row.row-2 .block', {
-                scaleY: toScale,
-                duration: duration,
-                stagger: { each: 0.1, from: 'end' }, // Faster stagger
-                ease: ease,
-                onComplete: resolve,
-            });
-        });
     }
 }
