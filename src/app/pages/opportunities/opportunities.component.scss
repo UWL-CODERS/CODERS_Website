@@ -9,16 +9,17 @@
 /* Stats and Featured Sections */
 .stats-and-featured {
   display: flex;
-  justify-content: space-between;
   align-items: stretch;
-  margin: 2rem auto;
+  margin: 2rem auto; /* Keep this to center the entire section */
   max-width: 1200px;
 }
 
 /* Statistics Container */
 .stats-container {
   flex: 1;
-  margin-right: 2rem;
+  // margin-right: 2rem; /* Keep the right margin */
+  margin-left: 2rem;
+  margin-right: 2rem;  /* Add this to move it off the left wall */
   border-radius: 10px;
   overflow: hidden;
   background-color: #ffffff;
@@ -70,6 +71,7 @@
 /* Featured Section */
 #featured {
   flex: 1;
+  margin-right: 0rem; /* Add right margin for the highlighted event */
 }
 
 #featured h2 {
@@ -139,8 +141,8 @@
   }
 
   .stats-container {
-    margin-right: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem; /* Keep the bottom margin for stacking */
+    /* Remove margin-right: 0; to keep consistent margins */
   }
 }
 
@@ -181,7 +183,10 @@ h1 {
   overflow: hidden;
   padding: 20px;
   margin-top: 2em;
-  background: rgba(0,0,0,.1)
+  background: rgba(0,0,0,.1);
+  display: flex; /* Enable Flexbox for the container */
+  justify-content: center; /* Center the content horizontally */
+  border-radius: 30px; /* Add this line */
 }
 
 /* Main Carousel Styles */

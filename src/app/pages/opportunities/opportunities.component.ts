@@ -149,7 +149,7 @@ class CardCarousel extends DraggingEvent {
   private cards: NodeListOf<HTMLElement>;
 
   private centerIndex: number;
-  private cardWidth: number = 0;
+  private cardWidth: number = 30;
   private xScale: Record<number, HTMLElement> = {}; // Maps logical index (e.g., -2, -1, 0, 1, 2) to card element
 
   private resizeListener: () => void;
