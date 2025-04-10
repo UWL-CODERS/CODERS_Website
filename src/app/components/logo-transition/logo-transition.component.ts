@@ -76,7 +76,7 @@ export class LogoTransitionComponent implements AfterViewInit {
            this.setRandomInitialPosition();
         }
         this.resetPositionTimeoutId = null;
-      }, 50); // Small delay after zoom-out starts
+      }, 100); // Small delay after zoom-out starts
 
       this.animationTimeoutId = null; // Clear the timeout ID after execution
     }, 1750); // Delay before zoom-out

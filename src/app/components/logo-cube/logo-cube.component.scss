@@ -36,7 +36,7 @@
 
 .cube-container:hover .cube .front {
   transform: translateZ(170px) rotateY(0deg) rotateX(15deg) scale(1.05);
-  transition-delay: 0s;
+  transition-delay: 0s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(100, 149, 237, 0.7), rgba(173, 216, 230, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -46,7 +46,7 @@
 
 .cube-container:hover .cube .back {
   transform: translateZ(-170px) rotateY(180deg) rotateX(15deg) scale(1.05);
-  transition-delay: 0.05s;
+  transition-delay: 0.025s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(255, 99, 71, 0.7), rgba(255, 160, 122, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -56,7 +56,7 @@
 
 .cube-container:hover .cube .right {
   transform: translateX(170px) rotateY(90deg) rotateZ(15deg) scale(1.05);
-  transition-delay: 0.1s;
+  transition-delay: 0.05s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(144, 238, 144, 0.7), rgba(173, 255, 47, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -66,7 +66,7 @@
 
 .cube-container:hover .cube .left {
   transform: translateX(-170px) rotateY(-90deg) rotateZ(-15deg) scale(1.05);
-  transition-delay: 0.15s;
+  transition-delay: 0.075s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(255, 215, 0, 0.7), rgba(255, 255, 224, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -76,7 +76,7 @@
 
 .cube-container:hover .cube .top {
   transform: translateY(-170px) rotateX(90deg) rotateY(15deg) scale(1.05);
-  transition-delay: 0.2s;
+  transition-delay: 0.1s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(255, 192, 203, 0.7), rgba(255, 182, 193, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -86,7 +86,7 @@
 
 .cube-container:hover .cube .bottom {
   transform: translateY(170px) rotateX(-90deg) rotateY(-15deg) scale(1.05);
-  transition-delay: 0.25s;
+  transition-delay: 0.125s; /* Faster entrance */
   background-image: linear-gradient(to bottom right, rgba(216, 191, 216, 0.7), rgba(230, 230, 250, 0.7)), url('../../../assets/images/logo.png');
   background-size: cover;
   background-position: center;
@@ -105,7 +105,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%) translateZ(100px); /* Position it forward */
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.15s ease-in-out; /* Faster entrance */
   box-shadow:
     0 0 20px 10px rgba(255, 255, 230, 0.95),
     0 0 40px 20px rgba(255, 255, 200, 0.9),
@@ -131,7 +131,8 @@
   opacity: 0.9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out, opacity 0.3s ease-in-out, background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, animation-play-state 0.3s ease-in-out;
+  /* Faster transition duration */
+  transition: transform 0.15s ease-in-out, scale 0.15s ease-in-out, opacity 0.15s ease-in-out, background-image 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, animation-play-state 0.15s ease-in-out;
   background-color: rgba(50, 50, 50, 0.5);
 }
 
@@ -141,7 +142,7 @@
   position: relative;
   transform-style: preserve-3d;
   animation: rotateCubeDoubleTime 4s infinite linear;
-  transition: all 0.3s ease-in-out; /* Add transition for smoother closing */
+  transition: all 0.15s ease-in-out; /* Faster transition for closing */
 }
 
 /* Pulse animation for the glow effect */
