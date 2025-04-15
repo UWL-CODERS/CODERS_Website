@@ -2,7 +2,6 @@
 dist
 tmp
 out-tsc
-bazel-out
 
 # Node
 node_modules
@@ -23,11 +22,7 @@ yarn-error.log
 # Miscellaneous
 .angular
 .sass-cache
-connect.lock
 coverage
-libpeerconnection.log
-testem.log
-typings
 
 # System files
 .DS_Store
