@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AppComponent } from '../../app.component'; // Import AppComponent
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-footer',
@@ -10,27 +10,28 @@ import { AppComponent } from '../../app.component'; // Import AppComponent
 })
 export class FooterComponent {
   private router = inject(Router);
-  private appComponent = inject(AppComponent); // Inject AppComponent
+  private appComponent = inject(AppComponent);
+  private isAnimating = false; // Added animation lock flag
 
   email: string = 'info@codersclub.com';
 
   navigateAndReload(route: string) {
-    const transitionOutPromise = this.appComponent.pageTransition().transitionOut(); // Blocks go down
+    if (this.isAnimating) return; // Prevent multiple triggers
+    this.isAnimating = true; // Lock animation
 
-    transitionOutPromise.then(() => {
-      this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
+    this.appComponent.pageTransition().transitionOut().then(() => {
+      this.appComponent.logoTransition()?.startAnimation();
       this.router.navigate([route]).then(() => {
-        window.scrollTo(0, 0); // Scroll to the top of the page
-        this.appComponent.pageTransition().transitionIn(); // Blocks come up
+        window.scrollTo(0, 0);
+        this.appComponent.pageTransition().transitionIn()
+          .then(() => this.isAnimating = false); // Release lock
+      }).catch(error => {
+        console.error('Navigation error:', error);
+        this.isAnimating = false; // Release lock on error
       });
     });
   }
 
-  /**
-   * Checks if the given route is the current active route.
-   * @param route - The route to check.
-   * @returns True if the route is active, false otherwise.
-   */
   isActiveRoute(route: string): boolean {
     return this.router.url === route;
   }
