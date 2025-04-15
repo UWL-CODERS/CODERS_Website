@@ -2,7 +2,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
-import { AppComponent } from '../../app.component'; // Import AppComponent
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-header',
@@ -12,30 +12,31 @@ import { AppComponent } from '../../app.component'; // Import AppComponent
 })
 export class HeaderComponent {
   private router = inject(Router);
-  private appComponent = inject(AppComponent); // Inject AppComponent
+  private appComponent = inject(AppComponent);
+  private isAnimating = false; // New flag to track animation state
 
   email: string = 'info@codersclub.com';
   isMenuOpen = false;
   isMenuClosing = false;
 
-  /**
-   * Navigates to a specified route and reloads the page with animations.
-   * @param route - The route to navigate to.
-   */
   navigateAndReload(route: string) {
+    if (this.isAnimating) return; // Prevent multiple triggers
+    this.isAnimating = true; // Lock animation
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
-    this.appComponent.pageTransition().transitionOut().then(() => { // Access transitionOut through pageTransition
-      this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
+    this.appComponent.pageTransition().transitionOut().then(() => {
+      this.appComponent.logoTransition()?.startAnimation();
       this.router.navigate([route]).then(() => {
-        window.scrollTo(0, 0); // Scroll to the top of the page
-        this.appComponent.pageTransition().transitionIn().then(() => { // Access transitionIn through pageTransition
+        window.scrollTo(0, 0);
+        this.appComponent.pageTransition().transitionIn().then(() => {
           this.isMenuClosing = false;
+          this.isAnimating = false; // Release lock after animation
         });
       }).catch(error => {
         console.error('Navigation error:', error);
         this.isMenuClosing = false;
+        this.isAnimating = false; // Release lock on error
       });
     });
 
@@ -45,12 +46,9 @@ export class HeaderComponent {
     });
   }
 
-  /**
-   * Toggles the visibility of the menu with animations.
-   */
   toggleMenu() {
+    if (this.isAnimating) return; // Prevent during navigation
     if (this.isMenuOpen) {
-      // Animate menu fade-out
       gsap.to('.main-nav', {
         opacity: 0,
         duration: 0.3,
@@ -59,7 +57,6 @@ export class HeaderComponent {
         },
       });
     } else {
-      // Animate menu fade-in
       this.isMenuOpen = true;
       gsap.fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 0.3 });
     }
