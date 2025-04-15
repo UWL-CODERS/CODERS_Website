@@ -1,5 +1,4 @@
-
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 import { AppComponent } from '../../app.component';
@@ -10,18 +9,27 @@ import { AppComponent } from '../../app.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
   private appComponent = inject(AppComponent);
-  private isAnimating = false; // New flag to track animation state
+  private cdr = inject(ChangeDetectorRef); // <-- Add ChangeDetectorRef
+  private isAnimating = false;
+  private documentClickHandler?: (event: MouseEvent) => void;
 
-  email: string = 'info@codersclub.com';
   isMenuOpen = false;
   isMenuClosing = false;
 
+  ngOnInit() {
+    this.initializeMenu();
+  }
+
+  ngOnDestroy() {
+    this.cleanupDocumentListener();
+  }
+
   navigateAndReload(route: string) {
-    if (this.isAnimating) return; // Prevent multiple triggers
-    this.isAnimating = true; // Lock animation
+    if (this.isAnimating) return;
+    this.isAnimating = true;
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
@@ -31,12 +39,12 @@ export class HeaderComponent {
         window.scrollTo(0, 0);
         this.appComponent.pageTransition().transitionIn().then(() => {
           this.isMenuClosing = false;
-          this.isAnimating = false; // Release lock after animation
+          this.isAnimating = false;
         });
       }).catch(error => {
         console.error('Navigation error:', error);
         this.isMenuClosing = false;
-        this.isAnimating = false; // Release lock on error
+        this.isAnimating = false;
       });
     });
 
@@ -47,25 +55,93 @@ export class HeaderComponent {
   }
 
   toggleMenu() {
-    if (this.isAnimating) return; // Prevent during navigation
+    if (this.isAnimating) return;
+
+    const animationDuration = 0.2;
+    const toggleElement = document.querySelector('.mobile-menu-toggle');
+    
+    // Toggle state
+    this.isMenuOpen = !this.isMenuOpen;
+
+    // Handle document click listener
     if (this.isMenuOpen) {
-      gsap.to('.main-nav', {
-        opacity: 0,
-        duration: 0.3,
-        onComplete: () => {
-          this.isMenuOpen = false;
-        },
+      setTimeout(() => {
+        this.documentClickHandler = (event: MouseEvent) => this.handleDocumentClick(event);
+        document.addEventListener('click', this.documentClickHandler);
       });
     } else {
-      this.isMenuOpen = true;
-      gsap.fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 0.3 });
+      this.cleanupDocumentListener();
     }
-    this.isMenuClosing = false;
+
+    // Animate toggle button
+    gsap.to(toggleElement, {
+      opacity: 0,
+      duration: 0.1,
+      onComplete: () => {
+        gsap.to(toggleElement, {
+          opacity: 1,
+          duration: 0.1
+        });
+      }
+    });
+
+    // Animate main nav
+    gsap.to('.main-nav', {
+      opacity: this.isMenuOpen ? 1 : 0,
+      duration: animationDuration,
+      onComplete: () => {
+        if (!this.isMenuOpen) {
+          this.isMenuClosing = false;
+        }
+      }
+    });
   }
 
-  /**
-   * Adds click event listeners to menu links to close the menu when clicked.
-   */
+  private handleDocumentClick(event: MouseEvent) {
+    const nav = document.querySelector('.main-nav');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (nav && toggle && !nav.contains(event.target as Node) && !toggle.contains(event.target as Node)) {
+      if (this.isMenuOpen) {
+        // Close menu and reset icon state
+        this.isMenuOpen = false;
+        this.cdr.detectChanges(); // <-- Add this line to force UI update
+        this.cleanupDocumentListener();
+  
+        // Animate menu close
+        gsap.to('.main-nav', {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            this.isMenuClosing = false;
+          }
+        });
+  
+        // Animate toggle button
+        const toggleElement = document.querySelector('.mobile-menu-toggle');
+        gsap.to(toggleElement, {
+          opacity: 0,
+          duration: 0.1,
+          onComplete: () => {
+            gsap.to(toggleElement, {
+              opacity: 1,
+              duration: 0.1
+            });
+          }
+        });
+      }
+    }
+  }
+  
+  
+
+  private cleanupDocumentListener() {
+    if (this.documentClickHandler) {
+      document.removeEventListener('click', this.documentClickHandler);
+      this.documentClickHandler = undefined;
+    }
+  }
+
   addMenuLinkListeners() {
     const menuLinks = document.querySelectorAll('.main-nav a');
     menuLinks.forEach((link) => {
@@ -77,18 +153,10 @@ export class HeaderComponent {
     });
   }
 
-  /**
-   * Initializes the menu by adding event listeners.
-   */
   initializeMenu() {
     this.addMenuLinkListeners();
   }
 
-  /**
-   * Checks if the given route is the current active route.
-   * @param route - The route to check.
-   * @returns True if the route is active, false otherwise.
-   */
   isActiveRoute(route: string): boolean {
     return this.router.url === route;
   }

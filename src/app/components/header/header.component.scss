@@ -118,10 +118,25 @@
     }
 
     .mobile-menu-toggle {
-      display: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
+      .hamburger-icon {
+        .line {
+          transition: all 0.3s ease-in-out;
+          
+          &.open {
+            &:nth-child(1) {
+              transform: translateY(11px) rotate(-45deg);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              transform: translateY(-11px) rotate(45deg);
+            }
+          }
+        }
+      }
     }
+    
 
     .logo {
       position: static !important;
