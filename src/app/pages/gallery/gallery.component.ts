@@ -25,8 +25,8 @@ export class GalleryComponent implements OnInit {
         'Weekly Sessions of Volunteering Dedicated to Teach Computer Science Concepts.',
         [
           { src: 'assets/images/IMG_6750.png', alt: 'Helping Children Learn CS', caption: 'Helping Children Learn CS', event: 'UWL | Boys and Girls Club'},
-          { src: 'assets/images/IMG_6146.jpg', alt: 'Jack being Jack', caption: 'Jack Being Jack', event: 'Enchanted Forest Trick Or Treat 2024'},
-          { src: 'assets/images/IMG_6745.png', alt: 'Andree Helping A Student', caption: 'Andree Helping Students Understand CS', event: 'Boy\'s and Girl\'s Club Volunteering'},
+          { src: 'assets/images/IMG_6737.png', alt: 'Luke Checking Code', caption: 'Luke Checking Code', event: 'UWL | Boys and Girls Club'},
+          { src: 'assets/images/IMG_6745.png', alt: 'Show Students How to Use the Keyboard', caption: 'Show Students How to Use the Keyboard', event: 'Boy\'s and Girl\'s Club Volunteering'},
         ],
         [
           {
@@ -40,7 +40,7 @@ export class GalleryComponent implements OnInit {
         'Cookies With CODERS',
         'A Weekly Event to Hang out, Work On Projects, and Eat Cookies!',
         [
-          { src: 'path/to/image1.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
+          { src: 'assets/images/IMG_6956.png', alt: 'Chill Guys Working on this Website', caption: 'Chill Guys Working on the Websit', event: 'Cookies With CODERS' },
           { src: 'path/to/image2.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
           { src: 'path/to/image3.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
         ],
@@ -53,12 +53,12 @@ export class GalleryComponent implements OnInit {
       ),
 
       this.createAlbum(
-        'Collage of Past Events',
+        'ALl of Our Past Events',
         'A Variety of Volunteer Opportunities Both On and Off Campus!',
         [
           { src: 'assets/images/IMG_6144.jpg', alt: 'Friends Handing Out Candy', caption: 'Friends Handing Out Candy', event: 'Enchanted Forest Trick Or Treat 2024'},
           { src: 'path/to/image2.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
-          { src: 'path/to/image3.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
+          { src: 'assets/images/IMG_6146.jpg', alt: 'Jack being Jack', caption: 'Jack Being Jack', event: 'Enchanted Forest Trick Or Treat 2024'},
         ],
         [
           {
