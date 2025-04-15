@@ -67,7 +67,7 @@ If you encounter issues, have questions, or need assistance with this project, h
 
 - For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/CODERS_Website/issues).
 - Join our [CODERS Club Discord server](https://discord.gg/UGupy2CVVq) for general discussion, quick questions, and community interaction.
-- For specific inquiries not suitable for public forums, you can reach out to Brendan Lambrecht at `lambrecht5083@uwlax.edu`.
+- For specific inquiries not suitable for public forums, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
 
 ## Top Contributors
 
