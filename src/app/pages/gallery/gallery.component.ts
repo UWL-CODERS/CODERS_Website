@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit {
         [
           { src: 'assets/images/IMG_6750.png', alt: 'Helping Children Learn CS', caption: 'Helping Children Learn CS', event: 'UWL | Boys and Girls Club'},
           { src: 'assets/images/IMG_6737.png', alt: 'Luke Checking Code', caption: 'Luke Checking Code', event: 'UWL | Boys and Girls Club'},
-          { src: 'assets/images/IMG_6745.png', alt: 'Show Students How to Use the Keyboard', caption: 'Show Students How to Use the Keyboard', event: 'Boy\'s and Girl\'s Club Volunteering'},
+          { src: 'assets/images/IMG_6745.png', alt: 'Showing Students How to Solve a Coding Problem', caption: 'Showing Students How to Solve a Coding Problem', event: 'Boy\'s and Girl\'s Club Volunteering'},
         ],
         [
           {
@@ -40,7 +40,7 @@ export class GalleryComponent implements OnInit {
         'Cookies With CODERS',
         'A Weekly Event to Hang out, Work On Projects, and Eat Cookies!',
         [
-          { src: 'assets/images/IMG_6956.png', alt: 'Chill Guys Working on this Website', caption: 'Chill Guys Working on the Websit', event: 'Cookies With CODERS' },
+          { src: 'assets/images/IMG_6956.png', alt: 'Chill Guys Working on this Website', caption: 'Chill Guys Working on the Website', event: 'Cookies With CODERS' },
           { src: 'path/to/image2.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
           { src: 'path/to/image3.jpg', alt: 'Alt text', caption: 'Caption text', event: 'Event Name' },
         ],
