@@ -21,8 +21,8 @@ yarn-error.log
 *.sublime-workspace
 
 # Miscellaneous
-.angular/cache
-.sass-cache/
+.angular
+.sass-cache
 connect.lock
 coverage
 libpeerconnection.log
