@@ -9,9 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    labels:
-      - "dependencies"
-      - "angular"
     ignore:
       - dependency-name: "zone.js"
         update-types: ["version-update:semver-major"]
