@@ -2,15 +2,12 @@
 
 This document provides information on how to develop and contribute to the CODERS Club Website.
 
-<p align="center">
- <a href="#angular-usage">Angular Usage</a> &bull; <a href="#git-demonstration-for-beginners">Git Demonstration for Beginners</a>
-</p>
+## Table of Contents
+
+- [Angular Usage](#angular-usage)
+- [Git Demonstration for Beginners](#git-demonstration-for-beginners)
 
 ## Angular Usage
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
-
-### Development server
 
 To start a local development server, run:
 
