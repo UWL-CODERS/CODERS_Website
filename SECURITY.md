@@ -1,19 +1,23 @@
 # Security Policy
 
-### What is a Vulnerability?
+We take the security of our project seriously. If you discover a security vulnerability, please report it to us privately to protect the project and its users.
 
-A vulnerability is a flaw or weakness in a system, software, or process that can be exploited by malicious actors to gain unauthorized access, disrupt operations, or compromise sensitive data. These vulnerabilities can arise from coding errors, misconfigurations, or weaknesses in design and implementation. Exploiting vulnerabilities may allow attackers to install malware, steal data, or perform unauthorized actions on a system.
+> [!CAUTION]
+> Please do not report security vulnerabilities through public GitHub issues or discussion forums.
 
-### Reporting Vulnerabilities
+Instead, please contact one of our professors directly and privately:
+- [Prof. Foley](https://www.uwlax.edu/profile/sfoley/)
+- [Prof. Sauppé](https://www.uwlax.edu/profile/asauppe/)
+- Any of the currently active project maintainer
 
-If you suspect or identify a vulnerability in this project:
-1. Report it in the Discussion Forum: Share your findings in the project's discussion forum to initiate awareness and collaboration.
-2. Reach Out for Assistance: Contact Prof. Foley, Prof. Sauppé, or any knowledgeable individual who can provide guidance on addressing the issue.
+## What to Include
 
-### When reporting, include as much detail as possible about the vulnerability:
+When reporting a vulnerability, please include as much detail as possible:
 
-1. A description of the issue and its potential impact.
-2. Steps to replicate the vulnerability (if applicable).
-3. Any supporting evidence, such as screenshots or logs.
+1.  **Description:** A clear description of the vulnerability and its potential impact.
+2.  **Reproduction Steps:** Detailed steps to reproduce the vulnerability.
+3.  **Proof of Concept:** Code snippets, screenshots, logs, or other evidence demonstrating the vulnerability.
+4.  **Affected Components/Versions:** Specify which parts or versions of the project are affected.
+5.  **Suggested Mitigation (Optional):** If you have ideas on how to fix the vulnerability.
 
-Your proactive reporting helps ensure the security and integrity of this project!
+We appreciate your efforts in responsibly disclosing your findings and helping us keep this project secure. We will acknowledge receipt of your report and work towards addressing the vulnerability promptly.
