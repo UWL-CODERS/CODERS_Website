@@ -1,43 +1,44 @@
 <div align="center">
 
-  [![Contributors][contributors-shield]][contributors-url]
-  [![Forks][forks-shield]][forks-url]
-  [![Stargazers][stars-shield]][stars-url]
-  [![Issues][issues-shield]][issues-url]
-  [![License][license-shield]][license-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
 
-  <h1>CODERS Club - Website Research Project</h1>
-  <img src="src/assets/images/logo.png" alt="CODERS logo">
-  <br>
-  <em>Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.</em>
-  <br>
-  <p>
-    <a href="./INSTALL.md">Installation</a> &bull; <a href="./DEVELOPMENT.md">Development</a> &bull; <a href="./SECURITY.md">Security</a> &bull; <a href="#need-help">Contact</a>
-  </p>
+# CODERS Club - Website Research Project
+
+<img src="src/assets/images/logo.png" alt="CODERS logo" width="300">
+
+Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+
+[Installation](./INSTALL.md) &bull; [Development](./DEVELOPMENT.md) &bull; [Security](./SECURITY.md) &bull; [Getting Help](#getting-help)
+
 </div>
 
-## Website Structure & What To Know to Contribute
+## Technology Stack
 
-Our website is built using the following technologies. I highly suggest you learn about or at least get a feel for:
+Our website is built using the following technologies. We highly suggest you learn about or at least get a feel for them before contributing:
 
-- **HTML** for structure
-- **CSS, SCSS** for styling
-- **JavaScript/TypeScript** for interactivity
-- **Angular Service** for Dynamic Website Modification and Deployment
-
-To get started, set up your development environment using the [Installation Guide](./INSTALL.md) and once you are ready to contribute, see the [Development Guide](./DEVELOPMENT.md) for details.
+- **HTML**: Builds the basic structure of the website pages.
+- **SCSS**: A fancier version of CSS that helps us style things more easily.
+- **TypeScript**: JavaScript with added features (like types) to help prevent bugs and keep the code organized.
+- **Angular**: The main framework holding everything together and making the site dynamic.
 
 ## Further Reading & Resources
+
+Here are some resources to help you get started with the technologies used in this project:
 
 ### HTML
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [freeCodeCamp](https://www.freecodecamp.org/)
 
-### CSS
+### CSS/SCSS
 
 - [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [freeCodeCamp](https://www.freecodecamp.org/)
+- [Sass Basics](https://sass-lang.com/guide)
 
 ### JavaScript
 
@@ -52,16 +53,31 @@ To get started, set up your development environment using the [Installation Guid
 
 - [Official Documentation](https://angular.io/docs)
 
-## Need help?
+## Contribution Guide
 
-If you have any questions, concerns, or need anything, please contact Brendan Lambrecht at lambrecht5083@uwlax.edu or via [Snapchat](https://snapchat.com/add/bren-dog2020).
+Ready to contribute?
+
+1. Set up your development environment using the [Installation Guide](./INSTALL.md).
+2. Follow the guidelines in the [Development Guide](./DEVELOPMENT.md) for coding standards and contribution process.
+3. Review our [Security Policy](./SECURITY.md).
+
+## Getting Help
+
+If you encounter issues, have questions, or need assistance with this project, here are several ways to get support:
+
+- For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/CODERS_Website/issues).
+- Join our [CODERS Club Discord server](https://discord.gg/UGupy2CVVq) for general discussion, quick questions, and community interaction.
+- For specific inquiries not suitable for public forums, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
 
 ## Top Contributors
+
+Thanks to these amazing people who have contributed to this project:
 
 <a href="https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=UWL-CODERS/CODERS_Website" />
 </a>
 
+<!-- Reference-style Links -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/UWL-CODERS/CODERS_Website?style=for-the-badge
 [contributors-url]: https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors

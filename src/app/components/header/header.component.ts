@@ -1,8 +1,7 @@
-
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
-import { AppComponent } from '../../app.component'; // Import AppComponent
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-header',
@@ -10,32 +9,42 @@ import { AppComponent } from '../../app.component'; // Import AppComponent
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
-  private appComponent = inject(AppComponent); // Inject AppComponent
+  private appComponent = inject(AppComponent);
+  private cdr = inject(ChangeDetectorRef); // <-- Add ChangeDetectorRef
+  private isAnimating = false;
+  private documentClickHandler?: (event: MouseEvent) => void;
 
-  email: string = 'info@codersclub.com';
   isMenuOpen = false;
   isMenuClosing = false;
 
-  /**
-   * Navigates to a specified route and reloads the page with animations.
-   * @param route - The route to navigate to.
-   */
+  ngOnInit() {
+    this.initializeMenu();
+  }
+
+  ngOnDestroy() {
+    this.cleanupDocumentListener();
+  }
+
   navigateAndReload(route: string) {
+    if (this.isAnimating) return;
+    this.isAnimating = true;
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
-    this.appComponent.pageTransition().transitionOut().then(() => { // Access transitionOut through pageTransition
-      this.appComponent.logoTransition()?.startAnimation(); // Start logo animation
+    this.appComponent.pageTransition().transitionOut().then(() => {
+      this.appComponent.logoTransition()?.startAnimation();
       this.router.navigate([route]).then(() => {
-        window.scrollTo(0, 0); // Scroll to the top of the page
-        this.appComponent.pageTransition().transitionIn().then(() => { // Access transitionIn through pageTransition
+        window.scrollTo(0, 0);
+        this.appComponent.pageTransition().transitionIn().then(() => {
           this.isMenuClosing = false;
+          this.isAnimating = false;
         });
       }).catch(error => {
         console.error('Navigation error:', error);
         this.isMenuClosing = false;
+        this.isAnimating = false;
       });
     });
 
@@ -45,30 +54,94 @@ export class HeaderComponent {
     });
   }
 
-  /**
-   * Toggles the visibility of the menu with animations.
-   */
   toggleMenu() {
+    if (this.isAnimating) return;
+
+    const animationDuration = 0.2;
+    const toggleElement = document.querySelector('.mobile-menu-toggle');
+    
+    // Toggle state
+    this.isMenuOpen = !this.isMenuOpen;
+
+    // Handle document click listener
     if (this.isMenuOpen) {
-      // Animate menu fade-out
-      gsap.to('.main-nav', {
-        opacity: 0,
-        duration: 0.3,
-        onComplete: () => {
-          this.isMenuOpen = false;
-        },
+      setTimeout(() => {
+        this.documentClickHandler = (event: MouseEvent) => this.handleDocumentClick(event);
+        document.addEventListener('click', this.documentClickHandler);
       });
     } else {
-      // Animate menu fade-in
-      this.isMenuOpen = true;
-      gsap.fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 0.3 });
+      this.cleanupDocumentListener();
     }
-    this.isMenuClosing = false;
+
+    // Animate toggle button
+    gsap.to(toggleElement, {
+      opacity: 0,
+      duration: 0.1,
+      onComplete: () => {
+        gsap.to(toggleElement, {
+          opacity: 1,
+          duration: 0.1
+        });
+      }
+    });
+
+    // Animate main nav
+    gsap.to('.main-nav', {
+      opacity: this.isMenuOpen ? 1 : 0,
+      duration: animationDuration,
+      onComplete: () => {
+        if (!this.isMenuOpen) {
+          this.isMenuClosing = false;
+        }
+      }
+    });
   }
 
-  /**
-   * Adds click event listeners to menu links to close the menu when clicked.
-   */
+  private handleDocumentClick(event: MouseEvent) {
+    const nav = document.querySelector('.main-nav');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (nav && toggle && !nav.contains(event.target as Node) && !toggle.contains(event.target as Node)) {
+      if (this.isMenuOpen) {
+        // Close menu and reset icon state
+        this.isMenuOpen = false;
+        this.cdr.detectChanges(); // <-- Add this line to force UI update
+        this.cleanupDocumentListener();
+  
+        // Animate menu close
+        gsap.to('.main-nav', {
+          opacity: 0,
+          duration: 0.2,
+          onComplete: () => {
+            this.isMenuClosing = false;
+          }
+        });
+  
+        // Animate toggle button
+        const toggleElement = document.querySelector('.mobile-menu-toggle');
+        gsap.to(toggleElement, {
+          opacity: 0,
+          duration: 0.1,
+          onComplete: () => {
+            gsap.to(toggleElement, {
+              opacity: 1,
+              duration: 0.1
+            });
+          }
+        });
+      }
+    }
+  }
+  
+  
+
+  private cleanupDocumentListener() {
+    if (this.documentClickHandler) {
+      document.removeEventListener('click', this.documentClickHandler);
+      this.documentClickHandler = undefined;
+    }
+  }
+
   addMenuLinkListeners() {
     const menuLinks = document.querySelectorAll('.main-nav a');
     menuLinks.forEach((link) => {
@@ -80,18 +153,10 @@ export class HeaderComponent {
     });
   }
 
-  /**
-   * Initializes the menu by adding event listeners.
-   */
   initializeMenu() {
     this.addMenuLinkListeners();
   }
 
-  /**
-   * Checks if the given route is the current active route.
-   * @param route - The route to check.
-   * @returns True if the route is active, false otherwise.
-   */
   isActiveRoute(route: string): boolean {
     return this.router.url === route;
   }
