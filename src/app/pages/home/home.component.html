@@ -1,83 +1,227 @@
 <!-- Main component: Primary content and layout for the home page -->
-<div class="main-container">
-    <div class="title">
-        <h3>Welcome to CODERS!</h3>
-    </div>
-
-    <section class="whatCLUB">
-        <h4>What is the CLUB?</h4>
-        <p>UWL is a CLUB dedicated to enhancing the La Crosse community by
-            promoting computer science education,
-            supporting students, and fostering diversity in tech.
-            <br><br>We also have free cookies!!!
-        </p>
-    </section>
-
-    <section class="whatwedo">
-        <h4>What do we do?</h4>
-        <ul>
-            <li><b>Community outreach: </b>
-                We teach fundamental computer science skills to local residents,
-                empowering them with technological knowledge for the betterment
-                of the entire community.</li>
-            <li><b>Student support: </b>
-                We provide comprehensive support to students on campus,
-                promoting their professional skills to enhance academic performance
-                and career readiness.</li>
-            <li><b>Diversity promotion: </b>
-                We actively promote diversity in computer science by encouraging
-                participation from all minority groups and serving as a
-                support network for all students, fostering an inclusive
-                environment where everyone can thrive.</li>
-        </ul>
-    </section>
-
-    <section class="howtojoin">
-        <h4>How can you join?</h4>
-        <p>You can head on over to <a href="https://orgs.uwlax.edu/organization/coders" target="_blank"
-                rel="nooperner noreferrer">
-                MyOrgs</a> to join!
-        </p>
-    </section>
-
-    <section class="schedule">
-        <h4>Our Schedule</h4>
-        <ul>
-            <li><b>Cookies With CODERS</b> - Tuesdays, 3:30 PM - 5:30 PM at WING 016</li>
-            <li><b>Boys and Girls CLUB Volunteering</b>
-                <ul>
-                    <li>Thursday, March 13 - 3:45 PM - 5:10 PM</li>
-                    <li>Thursday, March 20 - 3:45 PM - 5:10 PM</li>
-                    <li>Thutsday, March 27 - 3:45 PM - 5:10 PM</li>
-                </ul>
-            </li>
-            <li><b>Kid's College Volunteering</b> - Friday, April 11
-                <ul>
-                    <li>Session 2 - 10:50 AM - 11:50 AM</li>
-                    <li>Session 3 - 12:40 PM - 1:40 PM</li>
-                </ul>
-
-            </li>
-
-        </ul>
-
-    </section>
-
-    <section class="socials">
-        <h4>Our socials</h4>
-        <p>bird seeds</p>
-    </section>
-
-    <!-- Your container with the question and box animation -->
-    <div class="container">
-        <section class="Question">
-            &nbsp;
-            <h4>What is in the Box?</h4>
-            <p>Hover Over To Find Out!</p>
-        </section>
+<!-- Banner Slider Section -->
+<section class="banner-section">
+    <div class="banner-container">
+      <div class="banner-wrapper">
+        <div class="banner-slider" #bannerSlider>
+          <div *ngFor="let slide of bannerSlides" class="banner-slide">
+            <img [src]="slide.image" [alt]="slide.title" />
+            <div class="slide-content">
+              <h2>{{ slide.title }}</h2>
+              <p>{{ slide.description }}</p>
+              <div class="slide-buttons">
+                <a href="#join" class="btn btn-primary">Join Us</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+              </div>
+            </div>
+          </div>
         </div>
-    <!-- Your logo cube component -->
-    <app-logo-cube></app-logo-cube>
-
-    <!-- The text to appear on hover -->
-    <p class="hover-message">It's the Spirit of CODERS!</p>
+      </div>
+      <div class="banner-controls">
+        <button class="banner-btn" #prevSlideBtn (click)="prevSlide()">&#60;</button>
+        <button class="banner-btn" #nextSlideBtn (click)="nextSlide()">&#62;</button>
+      </div>
+      <div class="banner-dots" #sliderDots></div>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div class="title">
+        <pre class="code-text">
+          <code>
+  class CODERS &#123;
+    mission = "Empowering through code";
+    location = "UW-La Crosse";
+    passion = "Technology";
+  &#125;
+          </code>
+        </pre>
+        <div class="welcome-image">
+          <img src="assets/images/logo.png" alt="CODERS Logo" class="logo-image">
+        </div>
+      </div>
+    </section>
+  
+    <!-- About Section - What is the club? -->
+    <section id="about" class="about-section">
+      <div class="grid-container">
+        <div class="content-column">
+          <div class="badge">About Us</div>
+          <h2>What is the club?</h2>
+          <p class="description">
+            Our club is a community of UWL students who are part of the CS Department who share common interests
+            through the fieldwork and classes.
+          </p>
+          <div class="mission-container">
+            <div class="icon-container">
+              <i class="pi pi-code"></i>
+            </div>
+            <div class="mission-content">
+              <h3>Our Mission</h3>
+              <p>
+                CODERS is dedicated to enhancing the La Crosse community through three core purposes. We focus on
+                community outreach by teaching fundamental computer science (CS).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="image-column">
+          <div class="image-container">
+            <img src="assets/images/club-members.jpg" alt="Club members at an event" class="club-image">
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- What We Offer Section -->
+    <section class="whatCLUB">
+      <div class="section-content">
+        <h2>&lt; What_We_Offer /&gt;</h2>
+        <p class="code-comment">// Join us in our mission to code, create, and make a difference</p>
+        <div class="features">
+          <div *ngFor="let feature of features" class="feature">
+            <div class="feature-image">
+              <img [src]="feature.image" [alt]="feature.title">
+            </div>
+            <div class="feature-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+            <div class="tech-stack">
+              <span *ngFor="let tech of feature.techStack" class="tech-tag">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- What We Do Section -->
+    <section class="whatwedo">
+      <div class="section-content">
+        <h2>function activities() &#123;</h2>
+        <div class="activities-grid">
+          <div *ngFor="let activity of activities" class="activity-card">
+            <div class="activity-image">
+              <img [src]="activity.image" [alt]="activity.title">
+            </div>
+            <div class="activity-icon">
+              <i [class]="activity.icon"></i>
+            </div>
+            <h3>{{ activity.title }}</h3>
+            <p>{{ activity.description }}</p>
+            <div class="tech-stack">
+              <span *ngFor="let tech of activity.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+        <p class="code-text">&#125;</p>
+      </div>
+    </section>
+  
+    <!-- Join Us Section -->
+    <section class="howtojoin">
+      <div class="section-content">
+        <h2>npm install uwl/coders</h2>
+        <p class="code-comment">// Start your coding journey with us</p>
+        <div class="terminal">
+          <div class="terminal-header">
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+          </div>
+          <div class="terminal-content">
+            <p><span class="prompt">$</span> git clone your-future</p>
+            <p><span class="prompt">$</span> cd coders-community</p>
+            <p><span class="prompt">$</span> npm run start-journey</p>
+          </div>
+        </div>
+        <a href="https://orgs.uwlax.edu/organization/coders" target="_blank" rel="noopener noreferrer" class="join-button">
+          Join Now
+        </a>
+      </div>
+    </section>
+  
+    <!-- Schedule Section -->
+    <section class="schedule">
+      <div class="section-content">
+        <h2>while (true) &#123;</h2>
+        <p class="code-comment">// Our upcoming events</p>
+        <div class="events-grid">
+          <div *ngFor="let event of events" class="event-card">
+            <div class="event-image">
+              <img [src]="event.image" [alt]="event.title">
+            </div>
+            <h3>{{ event.title }}</h3>
+            <p class="event-time">{{ event.time }}</p>
+            <p class="event-time">{{ event.timeRange }}</p>
+            <p *ngIf="event.timeRange2" class="event-time">{{ event.timeRange2 }}</p>
+            <p *ngIf="event.location" class="event-location">{{ event.location }}</p>
+            <div class="tech-tags">
+              <span *ngFor="let tag of event.tags" class="tech-tag">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+        <p class="code-text">&#125;</p>
+      </div>
+    </section>
+  
+    <!-- Join Us Section - How can you join? -->
+    <section id="join" class="membership-section">
+      <div class="grid-container">
+        <div class="image-column">
+          <div class="image-container">
+            <img src="assets/images/new-members.jpg" alt="New members welcome event" class="membership-image">
+          </div>
+        </div>
+        <div class="content-column">
+          <div class="badge">Membership</div>
+          <h2>How can you join?</h2>
+          <p class="description">
+            Becoming a member is easy! Simply sign up through UWL's myOrgs platform to start receiving our weekly
+            emails.
+          </p>
+          <div class="steps-container">
+            <h3>Join in 3 simple steps:</h3>
+            <ol class="steps-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <p>
+                    Visit the
+                    <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders" target="_blank" rel="noopener noreferrer">
+                      CODERS club page on myOrgs
+                    </a>
+                  </p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <p>Click the "Join" button and log in with your UWL credentials</p>
+                </div>
+              </li>
+              <li class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <p>Start receiving weekly emails about meetings and events</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="action-buttons">
+            <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Join on myOrgs
+            </a>
+            <a href="mailto:lambrecht5083@uwlax.edu" class="btn btn-outline">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
