@@ -13,7 +13,7 @@ export class ProjectsComponent {
         {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/logo.png',
+            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
             projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
             languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
             projectButton: 'View Project'
@@ -37,7 +37,7 @@ export class ProjectsComponent {
         {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/logo.png',
+            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
             projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
             languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
             projectButton: 'View Project'
@@ -64,7 +64,7 @@ export class ProjectsComponent {
         {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/logo.png',
+            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
             projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
             languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
             projectButton: 'View Research'
@@ -88,7 +88,7 @@ export class ProjectsComponent {
         {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/logo.png',
+            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
             projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
             languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
             projectButton: 'View Research'
