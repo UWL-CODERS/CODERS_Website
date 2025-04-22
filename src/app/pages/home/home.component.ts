@@ -1,6 +1,7 @@
 // main.component.ts
 import { CommonModule } from "@angular/common"
 import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core"
+import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component'; // Import LogoTransitionComponent
 
 interface BannerSlide {
   image: string
@@ -37,7 +38,7 @@ interface Event {
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LogoTransitionComponent], // Add LogoTransitionComponent to imports
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
@@ -46,6 +47,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild("prevSlideBtn") prevSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("nextSlideBtn") nextSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("sliderDots") sliderDots!: ElementRef<HTMLElement>
+  @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // ViewChild to access LogoTransitionComponent
 
   private currentSlide = 0
   private slideInterval: any
@@ -149,6 +151,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initBannerSlider()
+    this.logoTransition.startAnimation(); // Start the logo transition
   }
 
   ngOnDestroy(): void {

@@ -7,13 +7,13 @@ import { gsap } from 'gsap';
   styleUrl: './page-transition.component.scss',
 })
 export class PageTransitionComponent {
+  
   public transitionIn(): Promise<void> {
     return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        this.animateTransition(1, 0).then(resolve);
-      }, 1250);
+      this.animateTransition(1, 0).then(resolve); // Start animation immediately
     });
   }
+
 
   public transitionOut() {
     return this.animateTransition(0, 1);
