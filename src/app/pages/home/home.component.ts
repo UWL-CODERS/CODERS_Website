@@ -52,22 +52,22 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   bannerSlides: BannerSlide[] = [
     {
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      image: "assets/images/Logos/logo.png",
       title: "< CODERS />",
       description: "Where Innovation Meets Community",
     },
     {
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+      image: "assets/images/Logos/logo.png",
       title: "Code. Create. Connect.",
       description: "Join our tech community at UW-La Crosse",
     },
     {
-      image: "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2",
+      image: "assets/images/Logos/logo.png",
       title: "Hack & Learn",
       description: "Weekly coding sessions with free cookies!",
     },
     {
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+      image: "assets/images/Logos/logo.png",
       title: "Build the Future",
       description: "Work on real projects that impact our community",
     },
@@ -78,21 +78,21 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       icon: "pi pi-code",
       title: "Coding Workshops",
       description: "Weekly hands-on coding sessions covering web development, mobile apps, and more",
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+      image: "assets/images/Logos/logo.png",
       techStack: ["JavaScript", "Python", "Java", "React", "Angular"],
     },
     {
       icon: "pi pi-globe",
       title: "Tech Projects",
       description: "Build real-world applications and contribute to open-source projects",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978",
+      image: "assets/images/Logos/logo.png",
       techStack: ["Git", "Node.js", "MongoDB", "AWS", "Docker"],
     },
     {
       icon: "pi pi-users",
       title: "Tech Community",
       description: "Connect with fellow developers and industry professionals",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+      image: "assets/images/Logos/logo.png",
       techStack: ["Networking", "Mentorship", "Career Development"],
     },
   ]
@@ -102,21 +102,21 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       icon: "pi pi-desktop",
       title: "Code Teaching",
       description: "Share your knowledge by teaching coding to local students and community members.",
-      image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
+      image: "assets/images/Logos/logo.png",
       technologies: ["HTML/CSS", "JavaScript", "Python", "Scratch"],
     },
     {
       icon: "pi pi-briefcase",
       title: "Tech Career Prep",
       description: "Get ready for your tech career with resume workshops, mock interviews, and coding practice.",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+      image: "assets/images/Logos/logo.png",
       technologies: ["LeetCode", "HackerRank", "System Design", "Behavioral"],
     },
     {
       icon: "pi pi-globe",
       title: "Hackathons",
       description: "Participate in hackathons and coding competitions to challenge yourself and win prizes.",
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+      image: "assets/images/Logos/logo.png",
       technologies: ["Full-Stack", "AI/ML", "IoT", "Cloud"],
     },
   ]
@@ -127,14 +127,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       time: "Every Tuesday",
       timeRange: "3:30 PM - 5:30 PM",
       location: "WING 016",
-      image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e",
+      image: "assets/images/Logos/logo.png",
       tags: ["Coding", "Cookies", "Community"],
     },
     {
       title: "Code Teaching",
       time: "March 13, 20, 27",
       timeRange: "3:45 PM - 5:10 PM",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+      image: "assets/images/Logos/logo.png",
       tags: ["Python", "Scratch", "Teaching"],
     },
     {
@@ -142,7 +142,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       time: "April 11",
       timeRange: "Session 2: 10:50 AM - 11:50 AM",
       timeRange2: "Session 3: 12:40 PM - 1:40 PM",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b",
+      image: "assets/images/Logos/logo.png",
       tags: ["Web Dev", "Games", "Fun"],
     },
   ]
