@@ -11,7 +11,7 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0); /* Start small and centered */
   opacity: 0; /* Start invisible */
-  z-index: 1001; /* Ensure it's on top of other content */
+  z-index: 5000; /* Ensure it's on top of other content */
 }
 
 .cube-container.zoom-in {
