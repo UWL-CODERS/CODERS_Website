@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   currentSlide = 0;
   slideInterval: any;
   private readonly SLIDE_INTERVAL = 5000; // 5 seconds
+  private touchStartX = 0;
+  private touchEndX = 0;
+  private isTransitioning = false;
+  private clonedSlides: any[] = [];
 
   // Banner slides with technology-related images
   bannerSlides = [
@@ -119,6 +123,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initializeBannerSlider();
+    this.setupTouchEvents();
   }
 
   ngOnDestroy(): void {
@@ -135,6 +140,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.sliderDots.nativeElement.appendChild(dot);
     });
 
+    // Clone slides for infinite loop
+    this.setupInfiniteLoop();
+
     // Start auto-slide
     this.startAutoSlide();
 
@@ -143,10 +151,58 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.nextSlideBtn.nativeElement.addEventListener('click', () => this.nextSlide());
   }
 
+  setupInfiniteLoop(): void {
+    if (!this.bannerSlider) return;
+    
+    const slider = this.bannerSlider.nativeElement;
+    const slides = slider.children;
+    
+    // Clone first and last slides
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    
+    // Add clones to the slider
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
+    
+    // Set initial position to show the first real slide
+    slider.style.transform = 'translateX(-100%)';
+    
+    // Store cloned slides for reference
+    this.clonedSlides = [lastClone, firstClone];
+  }
+
+  setupTouchEvents(): void {
+    const slider = this.bannerSlider.nativeElement;
+    
+    slider.addEventListener('touchstart', (e: TouchEvent) => {
+      this.touchStartX = e.touches[0].clientX;
+      this.stopAutoSlide();
+    });
+
+    slider.addEventListener('touchmove', (e: TouchEvent) => {
+      this.touchEndX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchend', () => {
+      const swipeDistance = this.touchEndX - this.touchStartX;
+      if (Math.abs(swipeDistance) > 50) { // Minimum swipe distance
+        if (swipeDistance > 0) {
+          this.prevSlide();
+        } else {
+          this.nextSlide();
+        }
+      }
+      this.startAutoSlide();
+    });
+  }
+
   startAutoSlide(): void {
     this.stopAutoSlide(); // Clear any existing interval
     this.slideInterval = setInterval(() => {
-      this.nextSlide();
+      if (!this.isTransitioning) {
+        this.nextSlide();
+      }
     }, this.SLIDE_INTERVAL);
   }
 
@@ -158,20 +214,42 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   goToSlide(index: number): void {
+    if (this.isTransitioning) return;
+    
     if (index >= 0 && index < this.bannerSlides.length) {
+      this.isTransitioning = true;
       this.currentSlide = index;
       this.updateSlider();
+      
+      // Reset transition flag after animation
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 500); // Match this with CSS transition duration
     }
   }
 
   prevSlide(): void {
+    if (this.isTransitioning) return;
+    
+    this.isTransitioning = true;
     this.currentSlide = (this.currentSlide - 1 + this.bannerSlides.length) % this.bannerSlides.length;
     this.updateSlider();
+    
+    setTimeout(() => {
+      this.isTransitioning = false;
+    }, 500);
   }
 
   nextSlide(): void {
+    if (this.isTransitioning) return;
+    
+    this.isTransitioning = true;
     this.currentSlide = (this.currentSlide + 1) % this.bannerSlides.length;
     this.updateSlider();
+    
+    setTimeout(() => {
+      this.isTransitioning = false;
+    }, 500);
   }
 
   updateSlider(): void {
@@ -179,9 +257,42 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     
     const slider = this.bannerSlider.nativeElement;
     const dots = this.sliderDots.nativeElement.children;
-
-    // Update slider position
-    slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+    const totalSlides = this.bannerSlides.length;
+    
+    // Calculate the position with the cloned slides
+    const position = -(this.currentSlide + 1) * 100;
+    
+    // Update slider position with smooth transition
+    slider.style.transform = `translateX(${position}%)`;
+    
+    // Check if we need to reset to the other end
+    if (this.currentSlide === totalSlides - 1) {
+      // If we're at the last slide, wait for transition to complete then jump to first
+      setTimeout(() => {
+        slider.style.transition = 'none';
+        this.currentSlide = 0;
+        slider.style.transform = 'translateX(-100%)';
+        
+        // Force a reflow
+        slider.offsetHeight;
+        
+        // Restore transition
+        slider.style.transition = 'transform 0.5s ease-in-out';
+      }, 500);
+    } else if (this.currentSlide === 0) {
+      // If we're at the first slide and going backwards, wait for transition to complete then jump to last
+      setTimeout(() => {
+        slider.style.transition = 'none';
+        this.currentSlide = totalSlides - 1;
+        slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+        
+        // Force a reflow
+        slider.offsetHeight;
+        
+        // Restore transition
+        slider.style.transition = 'transform 0.5s ease-in-out';
+      }, 500);
+    }
 
     // Update dots
     Array.from(dots).forEach((dot: any, index) => {
