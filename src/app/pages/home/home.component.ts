@@ -317,7 +317,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         slider.style.transition = 'transform 0.5s ease-in-out';
       }, 500);
     } else if (this.currentSlide === 0) {
-      // If we're at the first slide and going backwards, wait for transition to complete then jump to last
       setTimeout(() => {
         slider.style.transition = 'none';
         this.currentSlide = totalSlides - 1;
