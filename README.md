@@ -8,7 +8,7 @@
 
 # CODERS Club - Website Research Project
 
-<img src="src/assets/images/Logos/logo.png" alt="CODERS logo" width="300">
+<img src="src/assets/images/logo.png" alt="CODERS logo" width="300">
 
 Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
 
