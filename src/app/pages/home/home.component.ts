@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LogoTransitionComponent],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('bannerSlider') bannerSlider!: ElementRef;
