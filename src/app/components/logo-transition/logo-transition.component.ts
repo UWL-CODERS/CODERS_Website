@@ -99,6 +99,6 @@ export class LogoTransitionComponent implements AfterViewInit {
           this.animationTimeoutId = null; // Clear the timeout ID after execution
         }
       });
-    }, 3000); // Extended delay before zoom-out
+    }, 700); // Extended delay before zoom-out
   }
 }
