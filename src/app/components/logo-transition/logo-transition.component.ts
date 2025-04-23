@@ -1,4 +1,5 @@
 import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-logo-transition',
@@ -6,11 +7,10 @@ import { Component, ElementRef, Renderer2, AfterViewInit, inject, viewChild, Cha
   styleUrl: './logo-transition.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class LogoTransitionComponent implements AfterViewInit {
   private readonly renderer = inject(Renderer2);
 
-  private readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
+  public readonly logoCubeContainer = viewChild.required<ElementRef<HTMLElement>>('logoCubeContainer');
   private readonly cubeElement = viewChild.required<ElementRef<HTMLElement>>('cubeElement');
 
   private isAnimating = false;
@@ -61,24 +61,44 @@ export class LogoTransitionComponent implements AfterViewInit {
     // 1. Zoom In
     this.renderer.addClass(containerElement, 'zoom-in');
 
+    // 2. Trigger cube animation
+    setTimeout(() => {
+      this.renderer.addClass(containerElement, 'open');
+      this.renderer.addClass(cube, 'open');
+    }, 550); // Short delay to allow zoom-in to complete
+
+    // 3. Close cube
+    setTimeout(() => {
+      this.renderer.removeClass(containerElement, 'open');
+      this.renderer.removeClass(cube, 'open');
+      this.renderer.addClass(containerElement, 'close');
+    }, 500); // Extended delay before closing
+
     // 4. Zoom Out and Fade Out after another delay
     setTimeout(() => {
-      this.renderer.removeClass(containerElement, 'zoom-in');
-      this.renderer.removeClass(containerElement, 'close');
-      this.renderer.addClass(containerElement, 'zoom-out');
-      this.isAnimating = false;
+      //Fade Out
+      gsap.to(containerElement, {
+        opacity: 0, // Fade out over 0.5 seconds
+        duration: 0.5,
+        onComplete: () => {
+        this.renderer.removeClass(containerElement, 'zoom-in');
+        this.renderer.removeClass(containerElement, 'close');
+        this.renderer.addClass(containerElement, 'zoom-out');
+        this.isAnimating = false;
 
-      // Schedule the position reset slightly after zoom-out starts
-      // Using a separate timeout ensures it runs even if the component is destroyed before the main timeout finishes completely
-      this.resetPositionTimeoutId = setTimeout(() => {
-        // Check if the element still exists before resetting (optional safety)
-        if (this.cubeElement()) {
-           this.setRandomInitialPosition();
+          // Schedule the position reset slightly after zoom-out starts
+          // Using a separate timeout ensures it runs even if the component is destroyed before the main timeout finishes completely
+          this.resetPositionTimeoutId = setTimeout(() => {
+            // Check if the element still exists before resetting (optional safety)
+            if (this.cubeElement()) {
+               this.setRandomInitialPosition();
+            }
+            this.resetPositionTimeoutId = null;
+          }, 1500); // Small delay after zoom-out starts
+
+          this.animationTimeoutId = null; // Clear the timeout ID after execution
         }
-        this.resetPositionTimeoutId = null;
-      }, 1500); // Small delay after zoom-out starts
-
-      this.animationTimeoutId = null; // Clear the timeout ID after execution
-    }, 1950); // Delay before zoom-out
+      });
+    }, 700); // Extended delay before zoom-out
   }
 }

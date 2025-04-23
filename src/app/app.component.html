@@ -1,4 +1,4 @@
-<app-page-transition />
-<app-logo-transition />
-<app-cookies-consent />
-<router-outlet />
+<app-logo-transition *ngIf="showLogoTransition" #logoTransition></app-logo-transition>
+<router-outlet></router-outlet>
+<app-cookies-consent></app-cookies-consent>
+<app-page-transition></app-page-transition>

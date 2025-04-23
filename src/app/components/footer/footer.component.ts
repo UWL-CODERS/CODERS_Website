@@ -20,7 +20,6 @@ export class FooterComponent {
     this.isAnimating = true; // Lock animation
 
     this.appComponent.pageTransition().transitionOut().then(() => {
-      this.appComponent.logoTransition()?.startAnimation();
       this.router.navigate([route]).then(() => {
         window.scrollTo(0, 0);
         this.appComponent.pageTransition().transitionIn()

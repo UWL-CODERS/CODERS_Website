@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMenuClosing = true;
 
     this.appComponent.pageTransition().transitionOut().then(() => {
-      this.appComponent.logoTransition()?.startAnimation();
       this.router.navigate([route]).then(() => {
         window.scrollTo(0, 0);
         this.appComponent.pageTransition().transitionIn().then(() => {
