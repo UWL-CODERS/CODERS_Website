@@ -53,7 +53,7 @@ export class GalleryComponent implements OnInit {
       ),
 
       this.createAlbum(
-        'ALl of Our Past Events',
+        'All of Our Past Events',
         'A Variety of Volunteer Opportunities Both On and Off Campus!',
         [
           { src: 'assets/images/TrickOrTreat24/IMG_6144.jpg', alt: 'Friends Handing Out Candy', caption: 'Friends Handing Out Candy', event: 'Enchanted Forest Trick Or Treat 2024'},
