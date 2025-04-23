@@ -1,119 +1,156 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+// main.component.ts
+import { CommonModule } from "@angular/common"
+import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core"
+import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component'; // Import LogoTransitionComponent
+
+interface BannerSlide {
+  image: string
+  title: string
+  description: string
+}
+
+interface Feature {
+  icon: string
+  title: string
+  description: string
+  image: string
+  techStack: string[]
+}
+
+interface Activity {
+  icon: string
+  title: string
+  description: string
+  image: string
+  technologies: string[]
+}
+
+interface Event {
+  title: string
+  time: string
+  timeRange: string
+  timeRange2?: string
+  location?: string
+  image: string
+  tags: string[]
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LogoTransitionComponent], // Add LogoTransitionComponent to imports
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('bannerSlider') bannerSlider!: ElementRef;
-  @ViewChild('prevSlideBtn') prevSlideBtn!: ElementRef;
-  @ViewChild('nextSlideBtn') nextSlideBtn!: ElementRef;
-  @ViewChild('sliderDots') sliderDots!: ElementRef;
+export class HomeComponent implements AfterViewInit, OnDestroy {
+  @ViewChild("bannerSlider") bannerSlider!: ElementRef<HTMLElement>
+  @ViewChild("prevSlideBtn") prevSlideBtn!: ElementRef<HTMLButtonElement>
+  @ViewChild("nextSlideBtn") nextSlideBtn!: ElementRef<HTMLButtonElement>
+  @ViewChild("sliderDots") sliderDots!: ElementRef<HTMLElement>
+  @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // ViewChild to access LogoTransitionComponent
 
-  currentSlide = 0;
-  slideInterval: any;
-  private readonly SLIDE_INTERVAL = 5000; // 5 seconds
-  private touchStartX = 0;
-  private touchEndX = 0;
-  private isTransitioning = false;
-  private clonedSlides: any[] = [];
+  private currentSlide = 0
+  private slideInterval: any
 
-  // Banner slides with technology-related images
-  bannerSlides = [
+  bannerSlides: BannerSlide[] = [
     {
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-      title: 'Welcome to CODERS',
-      description: 'Join our community of passionate developers',
+      image: "assets/images/Logos/logo.png",
+      title: "< CODERS />",
+      description: "Where Innovation Meets Community",
     },
     {
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-      title: 'Learn & Grow',
-      description: 'Enhance your coding skills with us',
+      image: "assets/images/Logos/logo.png",
+      title: "Code. Create. Connect.",
+      description: "Join our tech community at UW-La Crosse",
     },
     {
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-      title: 'Build Projects',
-      description: 'Work on real-world projects',
+      image: "assets/images/Logos/logo.png",
+      title: "Hack & Learn",
+      description: "Weekly coding sessions with free cookies!",
     },
     {
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-      title: 'Connect & Collaborate',
-      description: 'Network with fellow developers',
+      image: "assets/images/Logos/logo.png",
+      title: "Build the Future",
+      description: "Work on real projects that impact our community",
     },
   ];
 
   // Features with technology-related images
   features = [
     {
-      title: 'Coding Workshops',
-      description: 'Regular workshops to enhance your coding skills',
-      icon: 'pi pi-code',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      techStack: ['JavaScript', 'Python', 'Java'],
+      icon: "pi pi-code",
+      title: "Coding Workshops",
+      description: "Weekly hands-on coding sessions covering web development, mobile apps, and more",
+      image: "assets/images/Logos/logo.png",
+      techStack: ["JavaScript", "Python", "Java", "React", "Angular"],
     },
     {
-      title: 'Tech Projects',
-      description: 'Work on real-world projects with modern technologies',
-      icon: 'pi pi-sitemap',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      techStack: ['React', 'Angular', 'Node.js'],
+      icon: "pi pi-globe",
+      title: "Tech Projects",
+      description: "Build real-world applications and contribute to open-source projects",
+      image: "assets/images/Logos/logo.png",
+      techStack: ["Git", "Node.js", "MongoDB", "AWS", "Docker"],
     },
     {
-      title: 'Tech Community',
-      description: 'Connect with like-minded developers',
-      icon: 'pi pi-users',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      techStack: ['Networking', 'Collaboration'],
+      icon: "pi pi-users",
+      title: "Tech Community",
+      description: "Connect with fellow developers and industry professionals",
+      image: "assets/images/Logos/logo.png",
+      techStack: ["Networking", "Mentorship", "Career Development"],
     },
   ];
 
   // Activities with technology-related images
   activities = [
     {
-      title: 'Code Teaching',
-      description: 'Teach coding to beginners and help them grow',
-      icon: 'pi pi-book',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      technologies: ['Teaching', 'Mentoring'],
+      icon: "pi pi-desktop",
+      title: "Code Teaching",
+      description: "Share your knowledge by teaching coding to local students and community members.",
+      image: "assets/images/Logos/logo.png",
+      technologies: ["HTML/CSS", "JavaScript", "Python", "Scratch"],
     },
     {
-      title: 'Career Prep',
-      description: 'Prepare for your tech career with industry insights',
-      icon: 'pi pi-briefcase',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      technologies: ['Resume', 'Interview Prep'],
+      icon: "pi pi-briefcase",
+      title: "Tech Career Prep",
+      description: "Get ready for your tech career with resume workshops, mock interviews, and coding practice.",
+      image: "assets/images/Logos/logo.png",
+      technologies: ["LeetCode", "HackerRank", "System Design", "Behavioral"],
     },
     {
-      title: 'Hackathons',
-      description: 'Participate in exciting hackathons and coding competitions',
-      icon: 'pi pi-flag',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      technologies: ['Competition', 'Innovation'],
+      icon: "pi pi-globe",
+      title: "Hackathons",
+      description: "Participate in hackathons and coding competitions to challenge yourself and win prizes.",
+      image: "assets/images/Logos/logo.png",
+      technologies: ["Full-Stack", "AI/ML", "IoT", "Cloud"],
     },
   ];
 
   // Events with technology-related images
   events = [
     {
-      title: 'Cookies With CODERS',
-      time: 'Every Tuesday',
-      timeRange: '3:00 PM - 4:00 PM',
-      location: 'Wing Technology Center',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      tags: ['Social', 'Networking'],
+      title: "Cookies With CODERS",
+      time: "Every Tuesday",
+      timeRange: "3:30 PM - 5:30 PM",
+      location: "WING 016",
+      image: "assets/images/Logos/logo.png",
+      tags: ["Coding", "Cookies", "Community"],
     },
     {
-      title: 'Kids College',
-      time: 'Every Wednesday',
-      timeRange: '4:00 PM - 5:00 PM',
-      timeRange2: '5:00 PM - 6:00 PM',
-      location: 'Wing Technology Center',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80',
-      tags: ['Teaching', 'Outreach'],
+      title: "Code Teaching",
+      time: "March 13, 20, 27",
+      timeRange: "3:45 PM - 5:10 PM",
+      image: "assets/images/Logos/logo.png",
+      tags: ["Python", "Scratch", "Teaching"],
+    },
+    {
+      title: "Kid's College: Code Edition",
+      time: "April 11",
+      timeRange: "Session 2: 10:50 AM - 11:50 AM",
+      timeRange2: "Session 3: 12:40 PM - 1:40 PM",
+      image: "assets/images/Logos/logo.png",
+      tags: ["Web Dev", "Games", "Fun"],
     },
   ];
 
@@ -122,9 +159,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.initializeBannerSlider();
-    this.setupTouchEvents();
-  }
+    this.bannerSlider()
+    this.logoTransition.startAnimation(); // Start the logo transition
+  }  
 
   ngOnDestroy(): void {
     this.stopAutoSlide();
