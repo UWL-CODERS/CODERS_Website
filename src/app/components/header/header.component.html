@@ -14,6 +14,25 @@
   </div>
 </div>
 
+<!-- EVENT BAR -->
+<div class="event-bar">
+  <div class="container">
+    <ng-container *ngIf="upcomingEvents.length > 0; else noEvents">
+      <span *ngFor="let event of upcomingEvents; let i = index">
+        <strong>{{ event.summary }}</strong>
+        <span>
+          ({{ event.start.dateTime ? (event.start.dateTime | date: 'short') : (event.start.date | date: 'longDate') }})
+        </span>
+        <span *ngIf="i < upcomingEvents.length - 1"> | </span>
+      </span>
+    </ng-container>
+    <ng-template #noEvents>
+      <span>No Events Coming Up Soon!</span>
+    </ng-template>
+  </div>
+</div>
+<!-- END EVENT BAR -->
+
 <div>
   <section class="main-header">
     <div class="container">

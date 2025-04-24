@@ -225,3 +225,30 @@ a.disabled {
   opacity: 0.5;
   cursor: default;
 }
+
+.event-bar {
+  background: #1a7396;
+  color: #fff; // White text
+  font-size: 1.05rem;
+  padding: 6px 0;
+  text-align: center;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif; // Cool font
+  font-weight: 700; // Bold
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  span, strong {
+    color: #fff; // Ensure all text is white
+    font-weight: 700; // Bold
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+  }
+  strong {
+    margin-right: 4px;
+  }
+}
+
