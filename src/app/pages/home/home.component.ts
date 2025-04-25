@@ -81,21 +81,21 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       title: "Coding Workshops",
       description: "Volunteer and On-Campus hands-on coding sessions covering a variety of topics",
       image: "assets/images/Kids College Pictures/IMG_6923.png",
-      techStack: ["Python", "Java", "Code.org"],
+      techStack: ["Python", "Java", "Code.org", "Scratch", "Git", "Terminal"],
     },
     {
       icon: "pi pi-globe",
       title: "CODERS Projects",
       description: "Build real-world applications and contribute to open-source team projects that impact our community",
       image: "assets/images/Logos/logo.png",
-      techStack: ["Typescript", "SCSS", "Javascript", "HTML", "Angular"],
+      techStack: ["Typescript", "SCSS", "Javascript", "HTML", "Angular", "GitHub"],
     },
     {
       icon: "pi pi-users",
       title: "Tech Community",
       description: "Connect with fellow developers and industry professionals for advice and mentorship",
       image: "assets/images/Intern_Panel24/IMG_7995.jpg",
-      techStack: ["Networking", "Personal Growth", "Internship Advice", "Career Development"],
+      techStack: ["Networking", "College Readiness", "Internship Advice", "Career Growth"],
     },
   ]
 
@@ -112,14 +112,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       title: "Local Volunteering",
       description: "Volunteer for good causes to teach Computer Science and Coding Concepts to the next generation of innovators.",
       image: "assets/images/Boys_And_Girls/IMG_6759.png",
-      technologies: ["Volunteer", "Coding", "Fun", "Teaching"],
+      technologies: ["Volunteer", "Coding", "Fun", "Teaching", "Presenting"],
     },
     {
       icon: "pi pi-globe",
       title: "Cookies With CODERS",
       description: "Chill and relax with fellow CODERS members while enjoying free cookies!",
       image: "assets/images/CookiesCODERS/Cookievar.JPG",
-      technologies: ["Chill", "Coding", "Cookies", "Tasty"],
+      technologies: ["Chill", "Coding", "Cookies", "Tasty", "Friendship"],
     },
   ]
 
@@ -129,7 +129,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       time: "Happening Soon!",
       timeRange: "TBD",
       image: "assets/images/Logos/logo.png",
-      tags: ["Python", "Scratch", "Teaching"],
+      tags: ["Python", "Scratch", "Teaching", "Networking", "New Concepts"],
     },
     {
       title: "Cookies With CODERS",
