@@ -2,20 +2,21 @@ import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
 import { AppComponent } from '../../app.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
   private appComponent = inject(AppComponent);
-  private cdr = inject(ChangeDetectorRef); // <-- Add ChangeDetectorRef
+  private cdr = inject(ChangeDetectorRef);
   private isAnimating = false;
   private documentClickHandler?: (event: MouseEvent) => void;
-
+  upcomingEvents: any[] = [];
   isMenuOpen = false;
   isMenuClosing = false;
 

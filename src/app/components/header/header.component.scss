@@ -225,3 +225,74 @@ a.disabled {
   opacity: 0.5;
   cursor: default;
 }
+
+.event-bar {
+  background: linear-gradient(90deg, #1a73e8, #7928ca 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  animation: gradient-move-infinite 8s linear infinite alternate;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  text-align: center;
+  font-weight: 800;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 100;
+  border-radius: 24px;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 2, 0.6, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 2, 0.6, 1),
+    background 0.25s;
+  display: inline-block;
+  margin: 0 auto;
+  width: fit-content;
+  cursor: pointer; /* Makes it look clickable */
+}
+
+.event-bar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(26, 115, 232, 0.25), 0 0 16px #7928ca99;
+  background: linear-gradient(90deg, #b47cff, #3ea6ff, #b47cff);
+}
+
+.event-bar a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  font-weight: inherit;
+  border-radius: inherit;
+  padding: 0;
+  transition: none;
+  cursor: pointer;
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.event-bar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(26, 115, 232, 0.25), 0 0 16px #7928ca99;
+  background: rgb(151, 160, 247)
+  /* Slightly brighter gradient on hover */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
