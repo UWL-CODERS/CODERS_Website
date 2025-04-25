@@ -6,6 +6,30 @@
   opacity: 0;
 }
 
+.shadow-line {
+  width: 100%; /* Make it span the full width */
+  height: 2px; /* Adjust height as needed */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* The shadow effect */
+  margin-bottom: 20px; /* Space between the shadow and the header */
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+
+  h1 {
+      border-bottom: 1px solid #aaa;
+      padding: 10px;
+      display: inline-block;
+  }
+
+  p {
+      font-style: italic;
+  }
+}
+
+
+
 /* Stats and Featured Sections */
 .stats-and-featured {
   display: flex;

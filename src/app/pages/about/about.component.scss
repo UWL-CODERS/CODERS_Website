@@ -5,6 +5,13 @@
     color: white;
 }
 
+.shadow-line {
+    width: 100%; /* Make it span the full width */
+    height: 4px; /* Adjust height as needed */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* The shadow effect */
+    margin-bottom: 20px; /* Space between the shadow and the header */
+  }
+
 .social-links {
     display: flex;
     gap: 10px;
