@@ -61,17 +61,17 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     {
       image: "assets/images/TrickOrTreat24/IMG_6144_Long.png",
       title: "Code. Create. Connect.",
-      description: "Join our tech community at UW-La Crosse",
+      description: "Join Our Community at UW-La Crosse",
     },
     {
       image: "assets/images/CookiesCODERS/IMG_7009.png",
       title: "Learn and Grow",
-      description: "Weekly coding sessions with free cookies!",
+      description: "Weekly Coding Sessions with Free Cookies!",
     },
     {
       image: "assets/images/Kids College Pictures/IMG_6887.png",
       title: "Help Us Build the Future",
-      description: "Work on real projects that impact our community",
+      description: "Work On Real Projects That Impact Our Community",
     },
   ]
 
@@ -125,6 +125,13 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   events: Event[] = [
     {
+      title: "DevLab Sessions",
+      time: "Happening Soon!",
+      timeRange: "TBD",
+      image: "assets/images/Logos/logo.png",
+      tags: ["Python", "Scratch", "Teaching"],
+    },
+    {
       title: "Cookies With CODERS",
       time: "Every Tuesday",
       timeRange: "3:30 PM - 5:30 PM",
@@ -133,19 +140,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       tags: ["Coding", "Cookies", "Community"],
     },
     {
-      title: "Code Teaching",
-      time: "Coming Soon",
+      title: "Boys' and Girls' Club Volunteering",
+      time: "Happening Again this Fall!",
       timeRange: "TBD",
-      image: "assets/images/Logos/logo.png",
-      tags: ["Python", "Scratch", "Teaching"],
-    },
-    {
-      title: "Kid's College: CODERS Lab",
-      time: "April 11th",
-      timeRange: "Session 2: 10:50 AM - 11:50 AM",
-      timeRange2: "Session 3: 12:40 PM - 1:40 PM",
-      image: "assets/images/Kids College Pictures/presentation.png",
-      tags: ["Conceptual", "Games", "Fun"],
+      image: "assets/images/Logos/BGCNAL-Official-Symbol.png",
+      tags: ["Conceptual", "Games", "Code.org"],
     },
   ]
 
