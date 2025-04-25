@@ -54,12 +54,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   bannerSlides: BannerSlide[] = [
     {
-      image: "../../assets/images/Other/coding.jpeg",
+      image: "assets/images/Other/coding.jpeg",
       title: "< CODERS />",
       description: "Where Innovation Meets Community",
     },
     {
-      image: "../../assets/images/TrickOrTreat24/IMG_6144_Long.png",
+      image: "assets/images/TrickOrTreat24/IMG_6144_Long.png",
       title: "Code. Create. Connect.",
       description: "Join our tech community at UW-La Crosse",
     },

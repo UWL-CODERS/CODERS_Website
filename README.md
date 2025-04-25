@@ -1,18 +1,18 @@
 <div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
+<img src="src/assets/images/Logos/logo.png" alt="CODERS logo" width="20%" height="20%">
 
-# CODERS Club - Website Research Project
+# CODERS Club: Website Project
 
-<img src="src/assets/images/Logos/logo.png" alt="CODERS logo" width="300">
+[![Installation Guide][img-install]][url-install]
+[![Development Guide][img-develop]][url-develop]
+[![Security Policy][img-security]][url-security]
+[![Getting Help][img-help]][url-help]
 
-Welcome to the CODERS Club Website GitHub repository! This website serves as the central hub for our vibrant community of coding enthusiasts at our college.
+[![Discord][img-discord]][url-discord]
+[![GitHub][img-github]][url-github]
 
-[Installation](./INSTALL.md) &bull; [Development](./DEVELOPMENT.md) &bull; [Security](./SECURITY.md) &bull; [Getting Help](#getting-help)
+The official website for the CODERS club at the University of Wisconsin-La Crosse.
 
 </div>
 
@@ -77,15 +77,16 @@ Thanks to these amazing people who have contributed to this project:
   <img src="https://contrib.rocks/image?repo=UWL-CODERS/CODERS_Website" />
 </a>
 
-<!-- Reference-style Links -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/UWL-CODERS/CODERS_Website?style=for-the-badge
-[contributors-url]: https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/UWL-CODERS/CODERS_Website?style=for-the-badge
-[forks-url]: https://github.com/UWL-CODERS/CODERS_Website/network/members
-[stars-shield]: https://img.shields.io/github/stars/UWL-CODERS/CODERS_Website?style=for-the-badge
-[stars-url]: https://github.com/UWL-CODERS/CODERS_Website/stargazers
-[issues-shield]: https://img.shields.io/github/issues/UWL-CODERS/CODERS_Website?style=for-the-badge
-[issues-url]: https://github.com/UWL-CODERS/CODERS_Website/issues
-[license-shield]: https://img.shields.io/github/license/UWL-CODERS/CODERS_Website?style=for-the-badge
-[license-url]: https://github.com/UWL-CODERS/CODERS_Website/blob/master/LICENSE
+[img-install]: https://img.shields.io/badge/Installation-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1kb3dubG9hZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIj48L3BvbHlsaW5lPjxsaW5lIHgxPSIxMiIgeTE9IjE1IiB4Mj0iMTIiIHkyPSIzIj48L2xpbmU+PC9zdmc+
+[url-install]: <./INSTALL.md>
+[img-develop]: https://img.shields.io/badge/Development-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1jb2RlIj48cG9seWxpbmUgcG9pbnRzPSIxNiAxOCAyMiAxMiAxNiA2Ij48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjggNiAyIDEyIDggMTgiPjwvcG9seWxpbmU+PC9zdmc+
+[url-develop]: <./DEVELOPMENT.md>
+[img-security]: https://img.shields.io/badge/Security-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1sb2NrIj48cmVjdCB4PSIzIiB5PSIxMSIgd2lkdGg9IjE4IiBoZWlnaHQ9IjExIiByeD0iMiIgcnk9IjIiPjwvcmVjdD48cGF0aCBkPSJNNyAxMVY3YTUgNSAwIDAgMSAxMCAwdjQiPjwvcGF0aD48L3N2Zz4=
+[url-security]: <./SECURITY.md>
+[img-help]: https://img.shields.io/badge/Getting%20Help-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1oZWxwLWNpcmNsZSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiPjwvY2lyY2xlPjxwYXRoIGQ9Ik05LjA5IDlhMyAzIDAgMCAxIDUuODMgMWMwIDItMyAzLTMgMyI+PC9wYXRoPjxsaW5lIHgxPSIxMiIgeTE9IjE3IiB4Mj0iMTIuMDEiIHkyPSIxNyI+PC9saW5lPjwvc3ZnPg==
+[url-help]: <#getting-help>
+
+[img-discord]: <https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2FUGupy2CVVq%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&style=for-the-badge&label=Discord&color=5865F2&logoColor=white&labelColor=black&logo=discord>
+[img-github]: <https://img.shields.io/github/stars/UWL-CODERS/CODERS_Website?style=for-the-badge&label=Stars&color=white&logoColor=white&labelColor=black&logo=github>
+[url-discord]: <https://discord.gg/UGupy2CVVq>
+[url-github]: <https://github.com/UWL-CODERS/CODERS_Website>
