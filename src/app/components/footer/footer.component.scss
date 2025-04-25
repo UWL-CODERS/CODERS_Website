@@ -13,14 +13,14 @@
   }
 
   .footer-logo {
-    border-right: none;  // Remove border for mobile (new)
-    padding-right: 0;    // Remove padding for mobile (new)
+    border-right: none; // Remove border for mobile (new)
+    padding-right: 0; // Remove padding for mobile (new)
     margin-bottom: 30px; // Add spacing between stacked sections (new)
-    
+
     img {
       margin: 0 auto 20px; // Center logo (new)
     }
-    
+
     p {
       margin-top: 20px;
     }
@@ -31,12 +31,12 @@
     position: relative;
 
     &:after {
-      position: absolute; 
+      position: absolute;
       content: "";
       background: #ddd;
       width: 12%;
       height: 1px;
-      left: 50%;          // Center line for mobile (new)
+      left: 50%; // Center line for mobile (new)
       transform: translateX(-50%); // Center line for mobile (new)
       bottom: -20px;
     }
@@ -49,17 +49,13 @@
 
   .socials {
     justify-content: center; // Center social icons on mobile (new)
-    margin-bottom: 20px;    // Add spacing
-  }
-
-  .email {
-    margin-top: 15px;       // Adjusted spacing
+    margin-bottom: 20px; // Add spacing
   }
 
   // Desktop layout (new)
   @media (min-width: 769px) {
     .row {
-      flex-direction: row;    // Side-by-side columns
+      flex-direction: row; // Side-by-side columns
       align-items: flex-start;
       text-align: left;
       gap: 0;
@@ -67,8 +63,8 @@
 
     .footer-logo {
       border-right: 1px solid grey; // Restore border
-      padding-right: 30px;         // Restore padding
-      text-align: left;            // Align left
+      padding-right: 30px; // Restore padding
+      text-align: left; // Align left
       margin-bottom: 0;
 
       img {
@@ -78,8 +74,8 @@
 
     h6 {
       &:after {
-        left: 0;          // Restore left alignment
-        transform: none;  // Remove centering
+        left: 0; // Restore left alignment
+        transform: none; // Remove centering
       }
     }
 
@@ -88,11 +84,13 @@
     }
   }
 
-  // ... rest of your existing styles ...
-  .contact-info {
-    font-size: 14px;
-    color: inherit;
+  .icon {
+    margin: 5px;
+    vertical-align: middle;
+    color: #ddd;
+  }
 
+  .contact-info {
     a {
       color: inherit;
       text-decoration: none;
@@ -101,10 +99,6 @@
         color: #fff;
       }
     }
-  }
-
-  .email {
-    @extend .contact-info;
   }
 
   ul {
@@ -118,7 +112,7 @@
         text-decoration: none;
         cursor: pointer;
         color: inherit;
-        
+
         &:hover {
           color: #fff !important;
         }
@@ -129,67 +123,6 @@
         opacity: 0.5;
         cursor: default;
       }
-    }
-  }
-}
-
-// ... rest of your existing global styles ...
-.container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.container {
-  max-width: 90% !important;
-}
-
-.btn-footer {
-  color: #ddd;
-  text-decoration: none;
-  border: 1px solid;
-  border-radius: 43px;
-  font-size: 13px;
-  padding: 7px 30px;
-  line-height: 47px;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.form-footer {
-  input[type="text"] {
-    border: none;
-    border-radius: 16px 0 0 16px;
-    outline: none;
-    padding-left: 10px;
-
-    &::placeholder {
-      font-size: 10px;
-      padding-left: 10px;
-      font-style: italic;
-    }
-  }
-
-  input[type="button"] {
-    border: none;
-    background: #232323;
-    margin-left: -5px;
-    color: #fff;
-    outline: none;
-    border-radius: 0 16px 16px 0;
-    padding: 2px 12px;
-  }
-}
-
-.socials {
-  a {
-    font-size: 22px;
-    margin-right: 15px;
-    color: inherit;
-
-    &:hover {
-      color: #fff;
     }
   }
 }

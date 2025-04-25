@@ -42,40 +42,35 @@
                             <div class="col-md-6">
                                 <ul>
                                     <li>
-                                        <a
-                                            (click)="!isActiveRoute('/home') && navigateAndReload('/home')"
+                                        <a (click)="!isActiveRoute('/home') && navigateAndReload('/home')"
                                             [class.disabled]="isActiveRoute('/home')"
                                             [attr.aria-disabled]="isActiveRoute('/home') ? 'true' : null">
                                             Home
                                         </a>
                                     </li>
                                     <li>
-                                        <a
-                                            (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+                                        <a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
                                             [class.disabled]="isActiveRoute('/projects')"
                                             [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
                                             Projects
                                         </a>
                                     </li>
                                     <li>
-                                        <a
-                                            (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
+                                        <a (click)="!isActiveRoute('/opportunities') && navigateAndReload('/opportunities')"
                                             [class.disabled]="isActiveRoute('/opportunities')"
                                             [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
                                             Opportunities
                                         </a>
                                     </li>
                                     <li>
-                                        <a
-                                            (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
+                                        <a (click)="!isActiveRoute('/gallery') && navigateAndReload('/gallery')"
                                             [class.disabled]="isActiveRoute('/gallery')"
                                             [attr.aria-disabled]="isActiveRoute('/gallery') ? 'true' : null">
                                             Gallery
                                         </a>
                                     </li>
                                     <li>
-                                        <a
-                                            (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
+                                        <a (click)="!isActiveRoute('/about') && navigateAndReload('/about')"
                                             [class.disabled]="isActiveRoute('/about')"
                                             [attr.aria-disabled]="isActiveRoute('/about') ? 'true' : null">
                                             About
@@ -87,16 +82,19 @@
                     </div>
                     <div class="col-md-6 order-md-3">
                         <h6>Our Socials</h6>
-                        <div class="socials">
+                        <div class="contact-info">
                             <!-- <a href="javascript:void(0)"><span class="pi pi-facebook icon"></span></a>
                             <a href="javascript:void(0)"><span class="pi pi-twitter icon"></span></a> -->
-                            <a href="https://www.instagram.com/uwlcoders/" target="_blank"><span class="pi pi-instagram icon"></span></a>
-                            <a href="https://discord.gg/UGupy2CVVq" target="_blank"><span class="pi pi-discord icon"></span></a>
-                            <a href="https://github.com/UWL-CODERS" target="_blank"><span class="pi pi-github icon"></span></a>
+                            <a href="https://www.instagram.com/uwlcoders/" target="_blank"><span
+                                    class="pi pi-instagram icon"></span></a>
+                            <a href="https://discord.gg/UGupy2CVVq" target="_blank"><span
+                                    class="pi pi-discord icon"></span></a>
+                            <a href="https://github.com/UWL-CODERS" target="_blank"><span
+                                    class="pi pi-github icon"></span></a>
+                            <br>
+                            <span class="pi pi-at icon"></span>Contact us on <a
+                                href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact">MyOrgs</a>
                         </div>
-                        <div class="contact-info">
-                            <span class="pi pi-at icon"></span> Contact us on <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact">MyOrgs</a>
-                          </div>
                     </div>
                 </div>
             </div>
