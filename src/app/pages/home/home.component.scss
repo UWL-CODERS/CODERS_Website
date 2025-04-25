@@ -218,40 +218,6 @@ $transition-speed: 0.3s;
   padding: 2rem;
 }
 
-// Welcome Section
-.welcome-section {
-  padding: 4rem 0;
-  text-align: center;
-
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-    .code-text {
-      background-color: $dark-color;
-      padding: 2rem;
-      border-radius: 10px;
-      color: $light-color;
-      font-family: monospace;
-      font-size: 1.2rem;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 0 auto;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .welcome-image {
-      img {
-        max-width: 200px;
-        height: auto;
-        @include hover-effect;
-      }
-    }
-  }
-}
-
 // About Section
 .about-section {
   padding: 4rem 0;
@@ -830,15 +796,6 @@ $transition-speed: 0.3s;
           flex-direction: column;
           gap: 1rem;
         }
-      }
-    }
-  }
-
-  .welcome-section {
-    .title {
-      .code-text {
-        font-size: 1rem;
-        padding: 1.5rem;
       }
     }
   }
