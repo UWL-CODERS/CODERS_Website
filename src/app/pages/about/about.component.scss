@@ -111,12 +111,13 @@
 }
 
 // On hover: scale up, add a glowing shadow, and enhance the border color
-.professor-card img:hover,
-.exec-card img:hover {
+.professor-card:hover img,
+.exec-card:hover img {
   transform: scale(1.08) rotate(-2deg);
   box-shadow: 0 0 32px 0 #1864ab77, 0 4px 16px #1864ab22;
   border: 4px solid #1864ab;
 }
+
 
   
   .slider-container {
