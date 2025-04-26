@@ -25,7 +25,7 @@ export class GalleryComponent implements OnInit {
         'Volunteer Work at Boys\' and Girls\' Club',
         'Weekly Sessions of Volunteering Dedicated to Teach Computer Science Concepts.',
         [
-          { src: 'assets/images/Boys_And_Girls/IMG_6750.png', alt: 'Andree Helping A Student Learn Problem-Solving Skills', caption: 'Andree Helping A Student Learn Problem-Solving Skills', event: 'UWL | Boys and Girls Club'},
+          { src: 'assets/images/Boys_And_Girls/IMG_6750.png', alt: 'Andree Helping A Student Improve their Problem-Solving Skills', caption: 'Andree Helping A Student Improve their Problem-Solving Skills', event: 'UWL | Boys and Girls Club'},
           { src: 'assets/images/Boys_And_Girls/IMG_6737.png', alt: 'Luke Checking A Student\'s Code', caption: 'Luke Checking Code', event: 'UWL | Boys and Girls Club'},
           { src: 'assets/images/Boys_And_Girls/IMG_6745.png', alt: 'Andree Guiding A Student on How to Solve a Coding Problem', caption: 'Andree Guiding A Student on How to Solve a Coding Problem', event: 'UWL | Boys and Girls Club'},
         ],
@@ -60,7 +60,7 @@ export class GalleryComponent implements OnInit {
         'Volunteering to Teach 6-8th Graders the Wonderful World of Computer Science!',
         [
           { src: 'assets/images/Kids College Pictures/IMG_0875.png', alt: 'Brendan Teaching Students How To Think Critically', caption: 'Brendan Teaching Students How To Think Critically', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_6891.png', alt: 'Students Working Together to Solve the Maze', caption: 'Students Working Together to Solve the Maze', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/Kids College Pictures/IMG_6891.png', alt: 'Students Discussing to Solve the Maze', caption: 'Students Discussing to Solve the Maze', event: 'Kids\' College | April 2025' },
           { src: 'assets/images/Kids College Pictures/IMG_6895.png', alt: 'Students Attempting to Solve A Puzzle', caption: 'Students Attempting to Solve A Puzzle', event: 'Kids\' College | April 2025' },
           { src: 'assets/images/Kids College Pictures/IMG_0878.png', alt: 'A Group of Students Solved The Puzzle!', caption: 'A Group of Students Solved The Puzzle!', event: 'Kids\' College | April 2025' },
           { src: 'assets/images/Kids College Pictures/IMG_6889.png', alt: 'Zheyi and Jack Presenting Facts of CS Majors', caption: 'Zheyi and Jack Presenting Topics of CS', event: 'Kids\' College | April 2025' },
