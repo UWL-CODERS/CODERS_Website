@@ -11,9 +11,9 @@
         <p class="text-sm">{{ item.description }}</p>
       </div>
       <div class="mb-2">
-        @for (lang of item.languages; track lang) {
+        @for (tag of item.tags; track tag) {
           <span class="mr-1 mb-1 inline-block">
-            <p-tag class="tag" [value]="lang" />
+            <p-tag class="tag" [value]="tag" />
           </span>
         }
       </div>

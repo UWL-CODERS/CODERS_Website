@@ -4,5 +4,5 @@ export interface Project {
     imageUrl: string;
     externalUrl: string;
     button: string;
-    languages: string[];
+    tags: string[];
 }
