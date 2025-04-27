@@ -1,8 +1,8 @@
 import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
-import { AppComponent } from '../../app.component';
 import { CommonModule } from '@angular/common';
+import { PageTransitionService } from '../page-transition/page-transition.service'; // Adjust path as needed
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private router = inject(Router);
-  private appComponent = inject(AppComponent);
+  private pageTransitionService = inject(PageTransitionService);
   private cdr = inject(ChangeDetectorRef);
   private isAnimating = false;
   private documentClickHandler?: (event: MouseEvent) => void;
@@ -34,10 +34,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMenuOpen = false;
     this.isMenuClosing = true;
 
-    this.appComponent.pageTransition().transitionOut().then(() => {
+    this.pageTransitionService.transitionOut().then(() => {
       this.router.navigate([route]).then(() => {
         window.scrollTo(0, 0);
-        this.appComponent.pageTransition().transitionIn().then(() => {
+        this.pageTransitionService.transitionIn().then(() => {
           this.isMenuClosing = false;
           this.isAnimating = false;
         });
@@ -103,12 +103,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     
     if (nav && toggle && !nav.contains(event.target as Node) && !toggle.contains(event.target as Node)) {
       if (this.isMenuOpen) {
-        // Close menu and reset icon state
         this.isMenuOpen = false;
-        this.cdr.detectChanges(); // <-- Add this line to force UI update
+        this.cdr.detectChanges();
         this.cleanupDocumentListener();
   
-        // Animate menu close
         gsap.to('.main-nav', {
           opacity: 0,
           duration: 0.2,
@@ -117,7 +115,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
           }
         });
   
-        // Animate toggle button
         const toggleElement = document.querySelector('.mobile-menu-toggle');
         gsap.to(toggleElement, {
           opacity: 0,
@@ -132,8 +129,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     }
   }
-  
-  
 
   private cleanupDocumentListener() {
     if (this.documentClickHandler) {
