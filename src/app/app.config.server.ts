@@ -1,5 +1,3 @@
-// DO NOT MODIFY THIS!!!
-
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
 import { provideServerRouting } from '@angular/ssr';

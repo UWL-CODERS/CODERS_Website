@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { PageTransitionService } from '../page-transition/page-transition.service'; // Adjust path as needed
+import { PageTransitionService } from '../page-transition/page-transition.service';
 
 @Component({
   selector: 'app-footer',
-  standalone: true, // If you're using standalone components
   imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
