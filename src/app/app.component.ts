@@ -8,6 +8,7 @@ import { LogoTransitionComponent } from './components/logo-transition/logo-trans
 import { PageTransitionComponent } from './components/page-transition/page-transition.component';
 import { PageTransitionService } from './components/page-transition/page-transition.service';
 import { gsap } from 'gsap';
+// import 'zone.js';  Use this import if you need to run the spec.ts tests in isolation
 
 @Component({
     selector: 'app-root',
