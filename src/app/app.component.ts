@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
 import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
 import { LogoTransitionComponent } from './components/logo-transition/logo-transition.component';
 import { PageTransitionComponent } from './components/page-transition/page-transition.component';
-import { PageTransitionService } from './components/page-transition/page-transition.service'; // <-- Add this import!
+import { PageTransitionService } from './components/page-transition/page-transition.service';
 import { gsap } from 'gsap';
 
 @Component({
@@ -18,7 +18,7 @@ import { gsap } from 'gsap';
 export class AppComponent implements OnInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
-    private pageTransitionService = inject(PageTransitionService); // <-- Inject service
+    private pageTransitionService = inject(PageTransitionService);
 
     readonly logoTransition = viewChild.required(LogoTransitionComponent);
     readonly pageTransition = viewChild.required(PageTransitionComponent);
@@ -32,12 +32,16 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
             // --- FIX: Trigger transitionOut on initial load ---
-            setTimeout(() => {
-                this.pageTransitionService.transitionIn();
-            }, 0);
+            // If this is the first load, run the transition
+            if (!this.initialTransitionComplete) {
+                setTimeout(() => {
+                    this.startPageTransition();
+                }, 0);
+            }
+            // --- END FIX ---
 
             // Set showLogoTransition to true only on initial load or when navigating to the home page
-            this.showLogoTransition = this.router.url === '/';
+            this.showLogoTransition = this.router.url === '/home';
 
             this.routerEventsSubscription = this.router.events.pipe(
                 filter((event): event is NavigationEnd => event instanceof NavigationEnd)
@@ -53,6 +57,12 @@ export class AppComponent implements OnInit, OnDestroy {
                 this.isBrowserNavigating = true;
                 document.body.style.pointerEvents = 'auto';
             });
+
+            // --- WORKAROUND: Force repaint to help with SCSS not applying on first load ---
+            setTimeout(() => {
+                document.body.offsetHeight; // Accessing offsetHeight forces a repaint
+            }, 0);
+            // --- END WORKAROUND ---
         }
     }
 
@@ -100,3 +110,8 @@ export class AppComponent implements OnInit, OnDestroy {
         }
     }
 }
+
+/*
+  NOTE: For best results with SCSS and caching, ensure you have this in your angular.json:
+  "outputHashing": "all"
+*/
