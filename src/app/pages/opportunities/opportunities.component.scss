@@ -1,3 +1,34 @@
+/* Variables */
+$primary-color: #1864ab;
+$secondary-color: #1a237e;
+$shadow-color: rgba(24, 100, 171, 0.1);
+
+/* Mixins */
+@mixin section-gradient {
+  background: $primary-color
+}
+
+@mixin standard-shadow {
+  box-shadow: 0 4px 12px rgba(24, 100, 171, 0.2);
+}
+
+@mixin hover-shadow {
+  box-shadow: 0 10px 20px rgba(24, 100, 171, 0.4);
+}
+
+@mixin link-underline {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background: $primary-color;
+  bottom: 0px;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease-in-out;
+}
+
 /* Visually Hide Elements */
 .visuallyhidden {
   position: absolute;
@@ -7,10 +38,10 @@
 }
 
 .shadow-line {
-  width: 100%; /* Make it span the full width */
-  height: 2px; /* Adjust height as needed */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* The shadow effect */
-  margin-bottom: 20px; /* Space between the shadow and the header */
+  width: 100%;
+  height: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .header {
@@ -36,7 +67,7 @@
   max-width: 1200px;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(24, 100, 171, 0.07);
+  box-shadow: 0 4px 24px $shadow-color; /* Use variable */
   background: rgba(255, 255, 255, 0.96);
 }
 
@@ -65,7 +96,7 @@
 }
 
 .stats-table th {
-  background: linear-gradient(135deg, #1864ab);
+  @include section-gradient;  /* Use mixin */
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
@@ -91,12 +122,12 @@
 
 .stats-table td:last-child {
   font-weight: 700;
-  color: #1864ab;
+  color: $primary-color;  /* Use variable */
   text-align: center;
   transition: color 0.3s;
 
   &:hover {
-    color: #1a237e;
+    color: $secondary-color;  /* Use variable */
     text-shadow: 0 2px 8px rgba(24, 100, 171, 0.3);
   }
 }
@@ -110,17 +141,17 @@
   text-align: left;
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
-  color: #1864ab;
-  text-shadow: 0 2px 8px rgba(24, 100, 171, 0.1);
+  color: $primary-color;  /* Use variable */
+  text-shadow: 0 2px 8px $shadow-color;  /* Use variable */
 }
 
 /* Blue Header Style */
 .blue-header {
-  background: linear-gradient(135deg, #1864ab 80%, #1a237e 100%);
+  @include section-gradient;  /* Use mixin */
   color: #fff;
   padding: 22px 16px;
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 4px 12px rgba(24, 100, 171, 0.2);
+  @include standard-shadow;  /* Use mixin */
 }
 
 .blue-header h3 {
@@ -134,8 +165,8 @@
 .centered-title {
   text-align: center;
   margin: 12px 0;
-  color: #1864ab;
-  text-shadow: 0 2px 8px rgba(24, 100, 171, 0.1);
+  color: $primary-color;  /* Use variable */
+  text-shadow: 0 2px 8px $shadow-color;  /* Use variable */
 }
 
 .centered-title h2 {
@@ -161,7 +192,7 @@
   width: max-content;
   margin: 0 auto;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #1864ab 70%, #1a237e 100%);
+  @include section-gradient;  /* Use mixin */
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -171,7 +202,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(24, 100, 171, 0.3);
+  @include standard-shadow;  /* Use mixin */
 
   &::before {
     content: "";
@@ -192,9 +223,9 @@
 
   &:hover {
     background: #fff;
-    color: #1864ab;
+    color: $primary-color;  /* Use variable */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(24, 100, 171, 0.4);
+    @include hover-shadow;  /* Use mixin */
     cursor: pointer;
 
     &::before {
@@ -229,11 +260,11 @@
 .about {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #1864ab 80%, #1a237e 100%);
+  @include section-gradient;  /* Use mixin */
   color: #fff;
   margin-top: 0;
   border-radius: 1rem;
-  box-shadow: 0 4px 24px rgba(24, 100, 171, 0.1);
+  box-shadow: 0 4px 24px $shadow-color;  /* Use variable */
   overflow: hidden;
 
   h1,
@@ -389,7 +420,7 @@ h1 {
   display: block;
   width: 120%;
   height: 120%;
-  border: solid 3px rgba(24, 100, 171, 0.1);
+  border: solid 3px $shadow-color; /* Use variable */
   border-radius: 100%;
   position: absolute;
   top: calc(-10% - 3px);
@@ -402,7 +433,7 @@ h2 {
   margin: 1.2rem auto;
   background: rgba(231, 231, 231, 0.15);
   text-align: center;
-  color: #1864ab;
+  color: $primary-color; /* Use variable */
   border-radius: 0.4rem;
   display: block;
   max-width: 80%;
@@ -428,11 +459,12 @@ h2 {
 .section-title,
 .section-subtitle {
   text-align: center;
-  color: #1864ab;
+  color: $primary-color; /* Use variable */
   margin-bottom: 1.5rem;
   position: relative;
+  padding-bottom: 0.5rem;  /* Added padding to avoid overlap */
   overflow: hidden;
-  text-shadow: 0 2px 8px rgba(24, 100, 171, 0.1);
+  text-shadow: 0 2px 8px $shadow-color; /* Use variable */
 }
 
 .section-title::after,
@@ -443,7 +475,7 @@ h2 {
   left: 50%;
   width: 0;
   height: 3px;
-  background: linear-gradient(135deg, #1864ab 80%, #1a237e 100%);
+  background: linear-gradient(135deg, $primary-color 80%, $secondary-color 100%);
   transition: all 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }
 
@@ -483,7 +515,7 @@ h2 {
 /* Resource Icon Styling */
 .resource-icon {
   font-size: 2.5rem;
-  color: #1864ab;
+  color: $primary-color; /* Use variable */
   margin-bottom: 0.5rem;
 }
 
@@ -508,7 +540,7 @@ h2 {
   width: max-content;
   margin: 0 auto;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #1864ab 70%, #1a237e 100%);
+   @include section-gradient;  /* Use mixin */
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
@@ -518,7 +550,7 @@ h2 {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(24, 100, 171, 0.3);
+   @include standard-shadow;  /* Use mixin */
 
   &::before {
     content: "";
@@ -539,9 +571,9 @@ h2 {
 
   &:hover {
     background: #fff;
-    color: #1864ab;
+    color: $primary-color; /* Use variable */
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(24, 100, 171, 0.4);
+    @include hover-shadow;  /* Use mixin */
     cursor: pointer;
 
     &::before {
@@ -558,16 +590,7 @@ a {
 }
 
 a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 4px;
-  background: #1864ab;
-  bottom: 0px;
-  left: 0;
-  transform: scaleX(0);
-  transition: transform 0.25s ease-in-out;
+    @include link-underline; /* Use mixin */
 }
 
 a:hover::after {

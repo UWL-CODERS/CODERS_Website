@@ -1,32 +1,33 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AppComponent } from '../../app.component';
+import { PageTransitionService } from '../page-transition/page-transition.service'; // Adjust path as needed
 
 @Component({
   selector: 'app-footer',
+  standalone: true, // If you're using standalone components
   imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
   private router = inject(Router);
-  private appComponent = inject(AppComponent);
-  private isAnimating = false; // Added animation lock flag
+  private pageTransition = inject(PageTransitionService);
+  private isAnimating = false;
 
   email: string = 'info@codersclub.com';
 
   navigateAndReload(route: string) {
-    if (this.isAnimating) return; // Prevent multiple triggers
-    this.isAnimating = true; // Lock animation
+    if (this.isAnimating) return;
+    this.isAnimating = true;
 
-    this.appComponent.pageTransition().transitionOut().then(() => {
+    this.pageTransition.transitionOut().then(() => {
       this.router.navigate([route]).then(() => {
         window.scrollTo(0, 0);
-        this.appComponent.pageTransition().transitionIn()
-          .then(() => this.isAnimating = false); // Release lock
+        this.pageTransition.transitionIn()
+          .then(() => this.isAnimating = false);
       }).catch(error => {
         console.error('Navigation error:', error);
-        this.isAnimating = false; // Release lock on error
+        this.isAnimating = false;
       });
     });
   }
