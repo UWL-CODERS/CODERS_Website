@@ -14,100 +14,71 @@ export class ProjectsComponent {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
             imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-            projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
-            languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
-            projectButton: 'View Project'
+            externalUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
+            tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
+            button: 'View Project'
         },
         {
             title: 'YMCA Project',
             description: 'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
             imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
-            projectUrl: 'https://github.com/bishalkarki01/YMCAProject',
-            languages: ['JavaScript', 'HTML', 'CSS'],
-            projectButton: 'View Project'
+            externalUrl: 'https://github.com/bishalkarki01/YMCAProject',
+            tags: ['JavaScript', 'HTML', 'CSS'],
+            button: 'View Project'
         },
         {
             title: 'FaceMesh',
             description: 'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
             imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
-            projectUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
-            languages: ['Python', 'CV2', 'HTML'],
-            projectButton: 'View Project'
-        },
-        {
-            title: 'CODERS Website',
-            description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-            projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
-            languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
-            projectButton: 'View Project'
-        },
-        {
-            title: 'YMCA Project',
-            description: 'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
-            projectUrl: 'https://github.com/bishalkarki01/YMCAProject',
-            languages: ['JavaScript', 'HTML', 'CSS'],
-            projectButton: 'View Project'
-        },
-        {
-            title: 'FaceMesh',
-            description: 'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
-            projectUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
-            languages: ['Python', 'CV2', 'HTML'],
-            projectButton: 'View Project'
-        },
+            externalUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
+            tags: ['Python', 'CV2', 'HTML'],
+            button: 'View Project'
+        }
     ];
 
-    researchData: Project[] = [
+    // researchData: Project[] = [
+    //     {
+    //         title: 'CODERS Website',
+    //         description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
+    //         imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
+    //         externalUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
+    //         tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
+    //         button: 'View Research'
+    //     },
+    //     {
+    //         title: 'YMCA Project',
+    //         description: 'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
+    //         imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
+    //         externalUrl: 'https://github.com/bishalkarki01/YMCAProject',
+    //         tags: ['JavaScript', 'HTML', 'CSS'],
+    //         button: 'View Research'
+    //     },
+    //     {
+    //         title: 'FaceMesh',
+    //         description: 'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
+    //         imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
+    //         externalUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
+    //         tags: ['Python', 'CV2', 'HTML'],
+    //         button: 'View Research'
+    //     }
+    // ];
+
+    lightningTalksData: Project[] = [
         {
-            title: 'CODERS Website',
-            description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-            projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
-            languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
-            projectButton: 'View Research'
+            title: '2023 Lightning Talks',
+            description: '',
+            imageUrl: 'assets/images/Logos/logo.png',
+            externalUrl: 'https://cs.uwlax.edu/~mzheng/LightningTalks2023.pdf',
+            tags: ['Samantha Foley', 'Mao Zheng', 'Rig Das', 'W. Michael Petullo', 'Dipankar Mitra'],
+            button: 'View Slides'
         },
         {
-            title: 'YMCA Project',
-            description: 'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
-            projectUrl: 'https://github.com/bishalkarki01/YMCAProject',
-            languages: ['JavaScript', 'HTML', 'CSS'],
-            projectButton: 'View Research'
-        },
-        {
-            title: 'FaceMesh',
-            description: 'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
-            projectUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
-            languages: ['Python', 'CV2', 'HTML'],
-            projectButton: 'View Research'
-        },
-        {
-            title: 'CODERS Website',
-            description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-            projectUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
-            languages: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
-            projectButton: 'View Research'
-        },
-        {
-            title: 'YMCA Project',
-            description: 'A web app to manage YMCA programs and registrations as part of a minor project at UW-La Crosse.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/63300213',
-            projectUrl: 'https://github.com/bishalkarki01/YMCAProject',
-            languages: ['JavaScript', 'HTML', 'CSS'],
-            projectButton: 'View Research'
-        },
-        {
-            title: 'FaceMesh',
-            description: 'This project utilizes the CV2 Python package and external Machine-Learning HTML Sources to make a visual face mesh.',
-            imageUrl: 'https://avatars.githubusercontent.com/u/132915020',
-            projectUrl: 'https://github.com/BlambrechtCodes/FaceMesh',
-            languages: ['Python', 'CV2', 'HTML'],
-            projectButton: 'View Research'
-        },
+            title: '2024 Lightning Talks',
+            description: '',
+            imageUrl: 'assets/images/Logos/logo.png',
+            externalUrl: 'https://cs.uwlax.edu/~mzheng/Lightning2024.pdf',
+            tags: ['Mao Zheng', 'Niusen Chen', 'Dipankar Mitra', 'Samantha Foley', 'Rig Das'],
+            button: 'View Slides'
+        }
     ];
 }

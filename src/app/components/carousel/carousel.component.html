@@ -1,4 +1,4 @@
-<p-carousel [value]="items()" [numVisible]="3" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+<p-carousel [value]="items()" [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
   <ng-template let-item pTemplate="item">
     <div class="border border-surface rounded-border m-2 p-4 text-center">
       <div class="mb-2">
@@ -11,15 +11,15 @@
         <p class="text-sm">{{ item.description }}</p>
       </div>
       <div class="mb-2">
-        @for (lang of item.languages; track lang) {
+        @for (tag of item.tags; track tag) {
           <span class="mr-1 mb-1 inline-block">
-            <p-tag class="tag" [value]="lang" />
+            <p-tag class="tag" [value]="tag" />
           </span>
         }
       </div>
       <div class="flex justify-center items-center">
-        <a [href]="item.projectUrl" target="_blank" rel="noopener noreferrer">
-          <p-button [label]="item.projectButton" icon="pi pi-external-link" styleClass="p-button-sm"></p-button>
+        <a [href]="item.externalUrl" target="_blank" rel="noopener noreferrer">
+          <p-button [label]="item.button" icon="pi pi-external-link" styleClass="p-button-sm"></p-button>
         </a>
       </div>
     </div>

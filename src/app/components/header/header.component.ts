@@ -1,12 +1,12 @@
 import { Component, inject, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { gsap } from 'gsap';
-import { CommonModule } from '@angular/common';
+
 import { PageTransitionService } from '../page-transition/page-transition.service'; // Adjust path as needed
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

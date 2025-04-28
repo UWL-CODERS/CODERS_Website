@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, PLATFORM_ID, inject, viewChild } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
@@ -13,7 +13,7 @@ import { gsap } from 'gsap';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent, PageTransitionComponent, CommonModule]
+    imports: [RouterOutlet, CookiesConsentComponent, LogoTransitionComponent, PageTransitionComponent]
 })
 export class AppComponent implements OnInit, OnDestroy {
     private router = inject(Router);

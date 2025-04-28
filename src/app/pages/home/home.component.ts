@@ -1,7 +1,6 @@
-// main.component.ts
-import { CommonModule } from "@angular/common"
-import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core"
-import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component'; // Import LogoTransitionComponent
+
+import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core";
+import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component';
 
 interface BannerSlide {
   image: string
@@ -37,8 +36,7 @@ interface Event {
 
 @Component({
   selector: "app-home",
-  standalone: true,
-  imports: [CommonModule, LogoTransitionComponent], // Add LogoTransitionComponent to imports
+  imports: [LogoTransitionComponent],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
