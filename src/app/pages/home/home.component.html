@@ -6,17 +6,19 @@
   <div class="banner-container">
     <div class="banner-wrapper">
       <div class="banner-slider" #bannerSlider>
-        <div *ngFor="let slide of bannerSlides" class="banner-slide">
-          <img [src]="slide.image" [alt]="slide.title" />
-          <div class="slide-content">
-            <h2>{{ slide.title }}</h2>
-            <p>{{ slide.description }}</p>
-            <div class="slide-buttons">
-              <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Us</a>
-              <a href="https://orgs.uwlax.edu/organization/coders/events" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Events</a>
+        @for (slide of bannerSlides; track slide) {
+          <div class="banner-slide">
+            <img [src]="slide.image" [alt]="slide.title" />
+            <div class="slide-content">
+              <h2>{{ slide.title }}</h2>
+              <p>{{ slide.description }}</p>
+              <div class="slide-buttons">
+                <a href="https://uwlmyorgs.campuslabs.com/engage/organization/coders/contact" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Us</a>
+                <a href="https://orgs.uwlax.edu/organization/coders/events" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Events</a>
+              </div>
             </div>
           </div>
-        </div>
+        }
       </div>
     </div>
     <div class="banner-controls">
@@ -37,7 +39,7 @@
         <h2>What is CODERS?</h2>
         <p class="description">
           CODERS is a community of UWL students scatted across a variety of departments
-           who share common interests of coding, technology, and computer science.
+          who share common interests of coding, technology, and computer science.
         </p>
         <div class="mission-container">
           <div class="icon-container">
@@ -46,7 +48,7 @@
           <div class="mission-content">
             <h3>Our Mission</h3>
             <p>
-              CODERS is committed to enriching the La Crosse community by volunteering, teaching fundamental computer science skills, 
+              CODERS is committed to enriching the La Crosse community by volunteering, teaching fundamental computer science skills,
               supporting student development and career readiness, and fostering diversity and inclusion in technology.
             </p>
           </div>
@@ -66,19 +68,23 @@
       <h2>&lt; What_We_Offer /&gt;</h2>
       <p class="code-comment">// Join us in our mission to code, create, and make a difference</p>
       <div class="features">
-        <div *ngFor="let feature of features" class="feature">
-          <div class="feature-image">
-            <img [src]="feature.image" [alt]="feature.title">
+        @for (feature of features; track feature) {
+          <div class="feature">
+            <div class="feature-image">
+              <img [src]="feature.image" [alt]="feature.title">
+            </div>
+            <div class="feature-icon">
+              <i [class]="feature.icon"></i>
+            </div>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+            <div class="tech-stack">
+              @for (tech of feature.techStack; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
           </div>
-          <div class="feature-icon">
-            <i [class]="feature.icon"></i>
-          </div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
-          <div class="tech-stack">
-            <span *ngFor="let tech of feature.techStack" class="tech-tag">{{ tech }}</span>
-          </div>
-        </div>
+        }
       </div>
     </div>
   </section>
@@ -88,19 +94,23 @@
     <div class="section-content">
       <h2>function activities() &#123;</h2>
       <div class="activities-grid">
-        <div *ngFor="let activity of activities" class="activity-card">
-          <div class="activity-image">
-            <img [src]="activity.image" [alt]="activity.title">
+        @for (activity of activities; track activity) {
+          <div class="activity-card">
+            <div class="activity-image">
+              <img [src]="activity.image" [alt]="activity.title">
+            </div>
+            <div class="activity-icon">
+              <i [class]="activity.icon"></i>
+            </div>
+            <h3>{{ activity.title }}</h3>
+            <p>{{ activity.description }}</p>
+            <div class="tech-stack">
+              @for (tech of activity.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
           </div>
-          <div class="activity-icon">
-            <i [class]="activity.icon"></i>
-          </div>
-          <h3>{{ activity.title }}</h3>
-          <p>{{ activity.description }}</p>
-          <div class="tech-stack">
-            <span *ngFor="let tech of activity.technologies" class="tech-tag">{{ tech }}</span>
-          </div>
-        </div>
+        }
       </div>
       <p class="code-text">&#125;</p>
     </div>
@@ -135,19 +145,27 @@
       <h2>while (true) &#123;</h2>
       <p class="code-comment">// Our upcoming events</p>
       <div class="events-grid">
-        <div *ngFor="let event of events" class="event-card">
-          <div class="event-image">
-            <img [src]="event.image" [alt]="event.title">
+        @for (event of events; track event) {
+          <div class="event-card">
+            <div class="event-image">
+              <img [src]="event.image" [alt]="event.title">
+            </div>
+            <h3>{{ event.title }}</h3>
+            <p class="event-time">{{ event.time }}</p>
+            <p class="event-time">{{ event.timeRange }}</p>
+            @if (event.timeRange2) {
+              <p class="event-time">{{ event.timeRange2 }}</p>
+            }
+            @if (event.location) {
+              <p class="event-location">{{ event.location }}</p>
+            }
+            <div class="tech-tags">
+              @for (tag of event.tags; track tag) {
+                <span class="tech-tag">{{ tag }}</span>
+              }
+            </div>
           </div>
-          <h3>{{ event.title }}</h3>
-          <p class="event-time">{{ event.time }}</p>
-          <p class="event-time">{{ event.timeRange }}</p>
-          <p *ngIf="event.timeRange2" class="event-time">{{ event.timeRange2 }}</p>
-          <p *ngIf="event.location" class="event-location">{{ event.location }}</p>
-          <div class="tech-tags">
-            <span *ngFor="let tag of event.tags" class="tech-tag">{{ tag }}</span>
-          </div>
-        </div>
+        }
       </div>
       <p class="code-text">&#125;</p>
     </div>
