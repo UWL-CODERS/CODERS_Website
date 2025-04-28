@@ -29,11 +29,13 @@ export class AppComponent implements OnInit, OnDestroy {
     showLogoTransition: boolean = false;
     private initialTransitionComplete: boolean = false;
 
+    // Track the current transition timeout and listener for cleanup
+    private transitionTimeout: any = null;
+    private transitionEndListener: (() => void) | null = null;
+
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
-
-            // Set showLogoTransition to true only on initial load or when navigating to the home page
-            this.showLogoTransition = this.router.url === '/home';
+            this.showLogoTransition = this.router.url === '/';
 
             this.routerEventsSubscription = this.router.events.pipe(
                 filter((event): event is NavigationEnd => event instanceof NavigationEnd)
@@ -50,41 +52,59 @@ export class AppComponent implements OnInit, OnDestroy {
                 document.body.style.pointerEvents = 'auto';
             });
 
-            // --- WORKAROUND: Force repaint to help with SCSS not applying on first load ---
+            // WORKAROUND: Force repaint for SCSS
             setTimeout(() => {
-                document.body.offsetHeight; // Accessing offsetHeight forces a repaint
+                document.body.offsetHeight;
             }, 0);
-            // --- END WORKAROUND ---
         }
     }
 
     private handleNormalNavigation(event: NavigationEnd) {
-        // Check if navigating TO the home page
+        // Clean up any previous listeners/timeouts
+        this.cleanupTransitionListeners();
+
         if (event.url === '/') {
-            this.showLogoTransition = true; // Enable the logo transition
+            this.showLogoTransition = true;
         } else {
-            this.showLogoTransition = false; // Disable the logo transition
+            this.showLogoTransition = false;
         }
 
         document.body.style.pointerEvents = 'none';
         document.querySelector('.app')?.classList.add('is-transitioning');
 
-        // Conditionally start the logo transition and page transition
         if (this.showLogoTransition && !this.initialTransitionComplete) {
             this.logoTransition().startAnimation();
 
-            // Wait for the logo transition to complete before running the page transition
-            this.logoTransition().logoCubeContainer().nativeElement.addEventListener('transitionend', () => {
+            // Fallback: If transitionend doesn't fire, proceed after 2s
+            this.transitionTimeout = setTimeout(() => {
                 this.initialTransitionComplete = true;
                 this.startPageTransition();
-            }, { once: true });
+                this.cleanupTransitionListeners();
+            }, 0);
+
+            // Attach transitionend listener if the element exists
+            const logoContainer = this.logoTransition().logoCubeContainer().nativeElement;
+            if (logoContainer) {
+                const transitionEndHandler = () => {
+                    this.initialTransitionComplete = true;
+                    this.startPageTransition();
+                    this.cleanupTransitionListeners();
+                };
+                logoContainer.addEventListener('transitionend', transitionEndHandler, { once: true });
+                // Save handler for cleanup
+                this.transitionEndListener = () => logoContainer.removeEventListener('transitionend', transitionEndHandler);
+            } else {
+                // If element is missing, just fallback
+                this.initialTransitionComplete = true;
+                this.startPageTransition();
+            }
         } else {
             this.startPageTransition();
         }
     }
 
     private startPageTransition() {
-        // Delay the transition if it's the initial transition
+        // Delay only on very first transition
         const delay = !this.initialTransitionComplete && this.router.url === '/' ? 1250 : 0;
 
         setTimeout(() => {
@@ -96,14 +116,23 @@ export class AppComponent implements OnInit, OnDestroy {
         }, delay);
     }
 
+    private cleanupTransitionListeners() {
+        // Remove previous transitionend listener if any
+        if (this.transitionEndListener) {
+            this.transitionEndListener();
+            this.transitionEndListener = null;
+        }
+        // Clear previous timeout if any
+        if (this.transitionTimeout) {
+            clearTimeout(this.transitionTimeout);
+            this.transitionTimeout = null;
+        }
+    }
+
     ngOnDestroy() {
+        this.cleanupTransitionListeners();
         if (this.routerEventsSubscription) {
             this.routerEventsSubscription.unsubscribe();
         }
     }
 }
-
-/*
-  NOTE: For best results with SCSS and caching, ensure you have this in your angular.json:
-  "outputHashing": "all"
-*/
