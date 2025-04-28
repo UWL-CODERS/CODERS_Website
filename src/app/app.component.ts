@@ -31,14 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
-            // --- FIX: Trigger transitionOut on initial load ---
-            // If this is the first load, run the transition
-            if (!this.initialTransitionComplete) {
-                setTimeout(() => {
-                    this.startPageTransition();
-                }, 0);
-            }
-            // --- END FIX ---
 
             // Set showLogoTransition to true only on initial load or when navigating to the home page
             this.showLogoTransition = this.router.url === '/home';
