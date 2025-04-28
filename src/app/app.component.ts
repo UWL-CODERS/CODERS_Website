@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
 import { CookiesConsentComponent } from './components/cookies-consent/cookies-consent.component';
 import { LogoTransitionComponent } from './components/logo-transition/logo-transition.component';
 import { PageTransitionComponent } from './components/page-transition/page-transition.component';
+import { PageTransitionService } from './components/page-transition/page-transition.service'; // <-- Add this import!
 import { gsap } from 'gsap';
 
 @Component({
@@ -17,6 +18,7 @@ import { gsap } from 'gsap';
 export class AppComponent implements OnInit, OnDestroy {
     private router = inject(Router);
     private platformId = inject<Object>(PLATFORM_ID);
+    private pageTransitionService = inject(PageTransitionService); // <-- Inject service
 
     readonly logoTransition = viewChild.required(LogoTransitionComponent);
     readonly pageTransition = viewChild.required(PageTransitionComponent);
@@ -29,6 +31,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
+            // --- FIX: Trigger transitionOut on initial load ---
+            setTimeout(() => {
+                this.pageTransitionService.transitionIn();
+            }, 0);
+
             // Set showLogoTransition to true only on initial load or when navigating to the home page
             this.showLogoTransition = this.router.url === '/';
 
@@ -46,7 +53,6 @@ export class AppComponent implements OnInit, OnDestroy {
                 this.isBrowserNavigating = true;
                 document.body.style.pointerEvents = 'auto';
             });
-
         }
     }
 
@@ -57,14 +63,14 @@ export class AppComponent implements OnInit, OnDestroy {
         } else {
             this.showLogoTransition = false; // Disable the logo transition
         }
-    
+
         document.body.style.pointerEvents = 'none';
         document.querySelector('.app')?.classList.add('is-transitioning');
-    
+
         // Conditionally start the logo transition and page transition
         if (this.showLogoTransition && !this.initialTransitionComplete) {
             this.logoTransition().startAnimation();
-    
+
             // Wait for the logo transition to complete before running the page transition
             this.logoTransition().logoCubeContainer().nativeElement.addEventListener('transitionend', () => {
                 this.initialTransitionComplete = true;
@@ -74,8 +80,6 @@ export class AppComponent implements OnInit, OnDestroy {
             this.startPageTransition();
         }
     }
-
-    
 
     private startPageTransition() {
         // Delay the transition if it's the initial transition
