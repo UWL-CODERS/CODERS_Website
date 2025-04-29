@@ -72,11 +72,13 @@ The department web server provides a reverse proxy service that connects the COD
 
 Performing an update consists of the following steps:
 
-1. Replace the existing source tree at `/srv/CODERS_Website-main/` with a new one.
+1. Copy `/srv/CODERS_Website-main/` to `/srv/CODERS_Website-main-OLD/`
 
-2. Run `dnf update` to update the system packages.
+2. Replace the existing source tree at `/srv/CODERS_Website-main/` with a new one.
 
-3. Run `systemctl restart coders` to restart the service.
+3. Run `dnf update` to update the system packages.
+
+4. Run `systemctl restart coders` to restart the service.
 
 ## Further Reading & Resources
 
