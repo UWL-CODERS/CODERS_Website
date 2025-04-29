@@ -74,9 +74,9 @@ Performing an update consists of the following steps:
 
 1. Replace the existing source tree at `/srv/CODERS_Website-main/` with a new one.
 
-2. Running `dnf update` to update the system packages.
+2. Run `dnf update` to update the system packages.
 
-3. Running `systemctl restart coders` to restart the service.
+3. Run `systemctl restart coders` to restart the service.
 
 ## Further Reading & Resources
 
