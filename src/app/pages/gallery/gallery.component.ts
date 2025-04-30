@@ -59,12 +59,12 @@ export class GalleryComponent implements OnInit {
         'Kids\' College | April 2025',
         'Volunteering to Teach 6-8th Graders the Wonderful World of Computer Science!',
         [
-          { src: 'assets/images/Kids College Pictures/IMG_0875.png', alt: 'Brendan Teaching Students How To Think Critically', caption: 'Brendan Teaching Students How To Think Critically', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_6891.png', alt: 'Students Discussing to Solve the Maze', caption: 'Students Discussing to Solve the Maze', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_6895.png', alt: 'Students Attempting to Solve A Puzzle', caption: 'Students Attempting to Solve A Puzzle', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_0878.png', alt: 'A Group of Students Solved The Puzzle!', caption: 'A Group of Students Solved The Puzzle!', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_6889.png', alt: 'Zheyi and Jack Presenting Facts of CS Majors', caption: 'Zheyi and Jack Presenting Topics of CS', event: 'Kids\' College | April 2025' },
-          { src: 'assets/images/Kids College Pictures/IMG_6899.png', alt: 'Jack Handing Out Candy to The Winners', caption: 'Jack Handing Out Candy to The Winners', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_0875.png', alt: 'Brendan Teaching Students How To Think Critically', caption: 'Brendan Teaching Students How To Think Critically', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_6891.png', alt: 'Students Discussing to Solve the Maze', caption: 'Students Discussing to Solve the Maze', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_6895.png', alt: 'Students Attempting to Solve A Puzzle', caption: 'Students Attempting to Solve A Puzzle', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_0878.png', alt: 'A Group of Students Solved The Puzzle!', caption: 'A Group of Students Solved The Puzzle!', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_6889.png', alt: 'Zheyi and Jack Presenting Facts of CS Majors', caption: 'Zheyi and Jack Presenting Topics of CS', event: 'Kids\' College | April 2025' },
+          { src: 'assets/images/KidsCollege/IMG_6899.png', alt: 'Jack Handing Out Candy to The Winners', caption: 'Jack Handing Out Candy to The Winners', event: 'Kids\' College | April 2025' },
         ],
         [
           {
