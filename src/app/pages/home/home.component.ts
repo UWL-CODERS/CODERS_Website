@@ -67,7 +67,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       description: "Weekly Coding Sessions with Free Cookies!",
     },
     {
-      image: "assets/images/Kids College Pictures/IMG_6887.png",
+      image: "assets/images/KidsCollege/IMG_6887.png",
       title: "Help Us Build the Future",
       description: "Work On Real Projects That Impact Our Community",
     },
@@ -78,7 +78,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       icon: "pi pi-code",
       title: "Coding Workshops",
       description: "Volunteer and On-Campus hands-on coding sessions covering a variety of topics",
-      image: "assets/images/Kids College Pictures/IMG_6923.png",
+      image: "assets/images/KidsCollege/IMG_6923.png",
       techStack: ["Python", "Java", "Code.org", "Scratch", "Git", "Terminal"],
     },
     {
