@@ -5,12 +5,17 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./components/layout/layout.component').then(m => m.LayoutComponent),
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
-      { path: 'opportunities', loadComponent: () => import('./pages/opportunities/opportunities.component').then(m => m.OpportunitiesComponent) },
-      { path: 'projects', loadComponent: () => import('./pages/projects/projects.component').then(m => m.ProjectsComponent) },
-      { path: 'gallery', loadComponent: () => import('./pages/gallery/gallery.component').then(m => m.GalleryComponent) },
-      { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) }
+        { path: '', redirectTo: 'home', pathMatch: 'full' },
+        { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
+        { path: 'opportunities', loadComponent: () => import('./pages/opportunities/opportunities.component').then(m => m.OpportunitiesComponent) },
+        { path: 'projects', loadComponent: () => import('./pages/projects/projects.component').then(m => m.ProjectsComponent) },
+        { path: 'gallery', loadComponent: () => import('./pages/gallery/gallery.component').then(m => m.GalleryComponent) },
+        { path: 'about', loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent) }
     ],
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
