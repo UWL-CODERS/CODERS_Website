@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { Project } from '../../models/project.model';
 import { SeoService } from '../../services/seo.service';
@@ -11,7 +11,7 @@ import { PageMeta } from '../../models/meta.model';
     styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
-    constructor(private seoService: SeoService) { }
+    private seoService = inject(SeoService);
 
     ngOnInit(): void {
         const pageMeta: PageMeta = {

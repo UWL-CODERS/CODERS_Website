@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from "@angular/core";
 import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component';
 import { SeoService } from '../../services/seo.service';
 import { PageMeta } from '../../models/meta.model';
@@ -42,13 +42,13 @@ interface Event {
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private seoService = inject(SeoService);
+
   @ViewChild("bannerSlider") bannerSlider!: ElementRef<HTMLElement>
   @ViewChild("prevSlideBtn") prevSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("nextSlideBtn") nextSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("sliderDots") sliderDots!: ElementRef<HTMLElement>
-  @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // ViewChild to access LogoTransitionComponent
-
-  constructor(private seoService: SeoService) {}
+  @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent;
 
   private currentSlide = 0
   private slideInterval: any

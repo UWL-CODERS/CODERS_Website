@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PageMeta } from '../../models/meta.model';
 import { SeoService } from '../../services/seo.service';
 
@@ -8,7 +8,7 @@ import { SeoService } from '../../services/seo.service';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent {
-  constructor(private seoService: SeoService) { }
+  private seoService = inject(SeoService);
 
   selectedImage: any = null;
 

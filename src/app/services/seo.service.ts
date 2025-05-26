@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { PageMeta } from '../models/meta.model';
@@ -7,6 +7,10 @@ import { PageMeta } from '../models/meta.model';
   providedIn: 'root'
 })
 export class SeoService {
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  private router = inject(Router);
+
   private readonly siteName = 'CODERS Club';
   private readonly defaultPageTitle = 'Official Website';
   private readonly defaultDescription = 'The official website of the CODERS Club at UW-La Crosse. Learn, code, and connect with fellow tech enthusiasts.';
@@ -15,12 +19,6 @@ export class SeoService {
   private readonly defaultTwitterCard = 'summary_large_image';
   private readonly defaultOgType = 'website';
   private readonly defaultKeywords = 'CODERS Club, UWL, University of Wisconsin La Crosse, coding club, programming community, computer science, student organization, tech community, coding workshops, volunteer opportunities';
-
-  constructor(
-    private titleService: Title,
-    private metaService: Meta,
-    private router: Router
-  ) { }
 
   public setPageMeta(config: Partial<PageMeta>): void {
     const title = config.title ? `${this.siteName} | ${config.title}` : `${this.siteName} | ${this.defaultPageTitle}`;

@@ -9,7 +9,7 @@ import { SeoService } from '../../services/seo.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements AfterViewInit {
-  constructor(private seoService: SeoService) { }
+  private seoService = inject(SeoService);
 
   private platformId = inject<Object>(PLATFORM_ID);
 

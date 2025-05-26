@@ -1,5 +1,5 @@
 // opportunities.component.ts
-import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef, inject } from '@angular/core';
 import { PageMeta } from '../../models/meta.model';
 import { SeoService } from '../../services/seo.service';
 
@@ -455,7 +455,6 @@ class CardCarousel extends DraggingEvent {
   }
 }
 
-
 // --- Angular Component ---
 @Component({
   selector: 'app-opportunities',
@@ -463,7 +462,7 @@ class CardCarousel extends DraggingEvent {
   styleUrls: ['./opportunities.component.scss']
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy {
-  constructor(private seoService: SeoService) { }
+  private seoService = inject(SeoService);
 
   ngOnInit(): void {
     const pageMeta: PageMeta = {
