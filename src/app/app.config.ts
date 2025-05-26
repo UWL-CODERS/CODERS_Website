@@ -1,27 +1,15 @@
-import { ApplicationConfig, inject, Injectable, provideExperimentalZonelessChangeDetection } from '@angular/core';
-import { provideClientHydration, Title, withIncrementalHydration } from '@angular/platform-browser';
-import { provideRouter, withPreloading, PreloadAllModules, RouterStateSnapshot, TitleStrategy } from '@angular/router';
+import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { provideClientHydration, withIncrementalHydration } from '@angular/platform-browser';
+import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import { CODERS_Preset } from '../presets/coders.preset';
 
-@Injectable({ providedIn: 'root' })
-export class PageTitleStrategy extends TitleStrategy {
-  private readonly title = inject(Title);
-  override updateTitle(routerState: RouterStateSnapshot) {
-    const title = this.buildTitle(routerState);
-    if (title !== undefined) {
-      this.title.setTitle(`CODERS Club | ${title}`);
-    }
-  }
-}
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    { provide: TitleStrategy, useClass: PageTitleStrategy },
     provideClientHydration(withIncrementalHydration()),
     provideAnimationsAsync(),
     providePrimeNG({
