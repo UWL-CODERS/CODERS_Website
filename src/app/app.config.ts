@@ -7,7 +7,7 @@ import { providePrimeNG } from 'primeng/config';
 import { CODERS_Preset } from '../presets/coders.preset';
 
 @Injectable({ providedIn: 'root' })
-export class TemplatePageTitleStrategy extends TitleStrategy {
+export class PageTitleStrategy extends TitleStrategy {
   private readonly title = inject(Title);
   override updateTitle(routerState: RouterStateSnapshot) {
     const title = this.buildTitle(routerState);
@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
+    { provide: TitleStrategy, useClass: PageTitleStrategy },
     provideClientHydration(withIncrementalHydration()),
     provideAnimationsAsync(),
     providePrimeNG({
