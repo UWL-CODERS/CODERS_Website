@@ -2,8 +2,6 @@
   <div class="container">
     <div class="social-links">
       Follow us on
-      <!-- <a href="javascript:void(0)"><span class="pi pi-facebook icon"></span></a>
-      <a href="javascript:void(0)"><span class="pi pi-twitter icon"></span></a> -->
       <a href="https://www.instagram.com/uwlcoders/" target="_blank"><span class="pi pi-instagram icon"></span></a>
       <a href="https://discord.gg/UGupy2CVVq" target="_blank"><span class="pi pi-discord icon"></span></a>
       <a href="https://github.com/UWL-CODERS" target="_blank"><span class="pi pi-github icon"></span></a>
@@ -12,7 +10,7 @@
       target="_blank">
       <div class="event-bar">
         <div class="container">
-          Check Out Our Upcoming Events HERE!
+          Check Out Our Upcoming Events! <span class="pi pi-external-link icon"></span>
         </div>
       </div>
     </a>
@@ -27,7 +25,7 @@
   <section class="main-header">
     <div class="container">
       <div class="logo">
-        <a (click)="navigateAndReload('/home')">
+        <a (click)="navigateAndReload('/')">
           <img src="assets/images/Logos/headerlogo.png" alt="CODERS Club logo">
         </a>
       </div>
@@ -42,16 +40,9 @@
       <nav class="main-nav" [class.menu-open]="isMenuOpen" [class.menu-closing]="isMenuClosing">
         <ul>
           <li>
-            <a (click)="!isActiveRoute('/home') && navigateAndReload('/home')" [class.disabled]="isActiveRoute('/home')"
-              [attr.aria-disabled]="isActiveRoute('/home') ? 'true' : null">
+            <a (click)="!isActiveRoute('/') && navigateAndReload('/')" [class.disabled]="isActiveRoute('/')"
+              [attr.aria-disabled]="isActiveRoute('/') ? 'true' : null">
               Home
-            </a>
-          </li>
-          <li>
-            <a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
-              [class.disabled]="isActiveRoute('/projects')"
-              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
-              Projects
             </a>
           </li>
           <li>
@@ -59,6 +50,13 @@
               [class.disabled]="isActiveRoute('/opportunities')"
               [attr.aria-disabled]="isActiveRoute('/opportunities') ? 'true' : null">
               Opportunities
+            </a>
+          </li>
+          <li>
+            <a (click)="!isActiveRoute('/projects') && navigateAndReload('/projects')"
+              [class.disabled]="isActiveRoute('/projects')"
+              [attr.aria-disabled]="isActiveRoute('/projects') ? 'true' : null">
+              Projects
             </a>
           </li>
           <li>
