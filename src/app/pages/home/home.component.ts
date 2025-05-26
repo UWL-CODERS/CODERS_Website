@@ -1,6 +1,7 @@
-
-import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component';
+import { SeoService } from '../../services/seo.service';
+import { PageMeta } from '../../models/meta.model';
 
 interface BannerSlide {
   image: string
@@ -40,12 +41,14 @@ interface Event {
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("bannerSlider") bannerSlider!: ElementRef<HTMLElement>
   @ViewChild("prevSlideBtn") prevSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("nextSlideBtn") nextSlideBtn!: ElementRef<HTMLButtonElement>
   @ViewChild("sliderDots") sliderDots!: ElementRef<HTMLElement>
   @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // ViewChild to access LogoTransitionComponent
+
+  constructor(private seoService: SeoService) {}
 
   private currentSlide = 0
   private slideInterval: any
@@ -145,6 +148,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       tags: ["Conceptual", "Games", "Code.org"],
     },
   ]
+
+  ngOnInit(): void {
+    // Set default SEO metadata for home page - explicitly set title and description to undefined to use defaults
+    const pageMeta: Partial<PageMeta> = {
+      title: undefined,
+      description: undefined,
+      keywords: undefined
+    };
+    this.seoService.setPageMeta(pageMeta);
+  }
 
   ngAfterViewInit(): void {
     this.initBannerSlider()

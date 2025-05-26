@@ -1,5 +1,7 @@
 // opportunities.component.ts
 import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { PageMeta } from '../../models/meta.model';
+import { SeoService } from '../../services/seo.service';
 
 // --- Interfaces (for better type definition) ---
 
@@ -461,6 +463,17 @@ class CardCarousel extends DraggingEvent {
   styleUrls: ['./opportunities.component.scss']
 })
 export class OpportunitiesComponent implements AfterViewInit, OnDestroy {
+  constructor(private seoService: SeoService) { }
+
+  ngOnInit(): void {
+    const pageMeta: PageMeta = {
+      title: 'Opportunities',
+      description: 'Explore our community outreach initiatives, campus events, and volunteer opportunities.',
+      keywords: 'opportunities, community outreach, campus events, volunteer work, student activities, community service'
+    };
+    this.seoService.setPageMeta(pageMeta);
+  }
+
 
   @ViewChildren('carouselContainer') carouselContainers!: QueryList<ElementRef<HTMLElement>>;
   private carouselInstances: CardCarousel[] = [];

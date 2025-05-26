@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PageMeta } from '../../models/meta.model';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-pictures',
-  imports: [],
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent {
+  constructor(private seoService: SeoService) { }
+
   selectedImage: any = null;
 
   // Events array to be initialized in ngOnInit
@@ -18,6 +21,12 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const pageMeta: PageMeta = {
+      title: 'Gallery',
+      description: 'Browse through our collection of photos from various club events, workshops, and activities.',
+      keywords: 'gallery, photos, events, volunteer work, programming workshops, computer science club, CODERS, UWL, community service'
+    };
+    this.seoService.setPageMeta(pageMeta);
     this.events = [
 
       // Volunteer Work
@@ -25,9 +34,9 @@ export class GalleryComponent implements OnInit {
         'Volunteer Work at Boys\' and Girls\' Club',
         'Weekly Sessions of Volunteering Dedicated to Teach Computer Science Concepts.',
         [
-          { src: 'assets/images/Boys_And_Girls/IMG_6750.png', alt: 'Andree Helping A Student Improve their Problem-Solving Skills', caption: 'Andree Helping A Student Improve their Problem-Solving Skills', event: 'UWL | Boys and Girls Club'},
-          { src: 'assets/images/Boys_And_Girls/IMG_6737.png', alt: 'Luke Checking A Student\'s Code', caption: 'Luke Checking Code', event: 'UWL | Boys and Girls Club'},
-          { src: 'assets/images/Boys_And_Girls/IMG_6745.png', alt: 'Andree Guiding A Student on How to Solve a Coding Problem', caption: 'Andree Guiding A Student on How to Solve a Coding Problem', event: 'UWL | Boys and Girls Club'},
+          { src: 'assets/images/Boys_And_Girls/IMG_6750.png', alt: 'Andree Helping A Student Improve their Problem-Solving Skills', caption: 'Andree Helping A Student Improve their Problem-Solving Skills', event: 'UWL | Boys and Girls Club' },
+          { src: 'assets/images/Boys_And_Girls/IMG_6737.png', alt: 'Luke Checking A Student\'s Code', caption: 'Luke Checking Code', event: 'UWL | Boys and Girls Club' },
+          { src: 'assets/images/Boys_And_Girls/IMG_6745.png', alt: 'Andree Guiding A Student on How to Solve a Coding Problem', caption: 'Andree Guiding A Student on How to Solve a Coding Problem', event: 'UWL | Boys and Girls Club' },
         ],
         [
           {
@@ -79,9 +88,9 @@ export class GalleryComponent implements OnInit {
         'All of Our Past Events',
         'A Variety of Volunteer Opportunities Both On and Off Campus!',
         [
-          { src: 'assets/images/TrickOrTreat24/IMG_6144.jpg', alt: 'Friends Handing Out Candy', caption: 'Friends Handing Out Candy', event: 'Enchanted Forest Trick Or Treat Trail | October 2024'},
+          { src: 'assets/images/TrickOrTreat24/IMG_6144.jpg', alt: 'Friends Handing Out Candy', caption: 'Friends Handing Out Candy', event: 'Enchanted Forest Trick Or Treat Trail | October 2024' },
           { src: 'assets/images/Other/IMG_7388.png', alt: 'The CODERS Math and Science Career Forum Booth', caption: 'The CODERS Math and Science Career Forum Booth', event: 'Math and Science Career Forum | November 2024' },
-          { src: 'assets/images/TrickOrTreat24/IMG_6146.jpg', alt: 'Jack being Jack', caption: 'Jack Being Jack', event: 'Enchanted Forest Trick Or Treat Trail | October 2024'},
+          { src: 'assets/images/TrickOrTreat24/IMG_6146.jpg', alt: 'Jack being Jack', caption: 'Jack Being Jack', event: 'Enchanted Forest Trick Or Treat Trail | October 2024' },
         ],
         [
           {

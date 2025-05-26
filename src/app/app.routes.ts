@@ -11,11 +11,11 @@ export const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-        { path: '', title: 'Home', component: HomeComponent },
-        { path: 'opportunities', title: 'Opportunities', component: OpportunitiesComponent },
-        { path: 'projects', title: 'Projects', component: ProjectsComponent },
-        { path: 'gallery', title: 'Gallery', component: GalleryComponent },
-        { path: 'about', title: 'About Us', component: AboutComponent },
+        { path: '', component: HomeComponent },
+        { path: 'opportunities', component: OpportunitiesComponent },
+        { path: 'projects', component: ProjectsComponent },
+        { path: 'gallery', component: GalleryComponent },
+        { path: 'about', component: AboutComponent },
         { path: '**', component: HomeComponent }
     ],
   }
