@@ -1,13 +1,16 @@
 import { Component, AfterViewInit, ElementRef, PLATFORM_ID, inject, viewChild } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { PageMeta } from '../../models/meta.model';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about',
-  imports: [],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements AfterViewInit {
+  private seoService = inject(SeoService);
+
   private platformId = inject<Object>(PLATFORM_ID);
 
   readonly slider = viewChild.required<ElementRef<HTMLElement>>('slider');
@@ -17,6 +20,15 @@ export class AboutComponent implements AfterViewInit {
 
   private currentSlide = 0;
   private slideInterval: any;
+
+  ngOnInit(): void {
+    const pageMeta: PageMeta = {
+      title: 'About Us',
+      description: 'Meet the talented creators behind our website. Each of them brings a unique set of skills and creativity to our platform.',
+      keywords: 'about us, team, developers, UWL coders, programming community, web development, coding club, tech team, software development'
+    };
+    this.seoService.setPageMeta(pageMeta);
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -32,30 +44,30 @@ export class AboutComponent implements AfterViewInit {
         console.error('Required elements not found');
         return;
       }
-  
+
       const slider = sliderValue.nativeElement;
       const dotsContainer = sliderDots.nativeElement;
-  
+
       const slides = slider.querySelectorAll('.slide');
       const totalSlides = slides.length;
-  
+
       this.createDots(totalSlides, dotsContainer);
       this.updateSlider();
-  
+
       // Remove these lines:
       // nextSlide.addEventListener('click', () => this.nextSlide());
       // prevSlide.addEventListener('click', () => this.prevSlide());
-  
+
       this.startAutoSlide();
-  
+
       slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
       slider.addEventListener('mouseleave', () => this.startAutoSlide());
-  
+
       if (typeof window !== 'undefined') {
         window.addEventListener('keydown', (e) => this.handleKeyNavigation(e));
       }
     }
-  }  
+  }
 
   private createDots(totalSlides: number, dotsContainer: HTMLElement): void {
     for (let i = 0; i < totalSlides; i++) {
@@ -73,7 +85,7 @@ export class AboutComponent implements AfterViewInit {
     if (sliderValue && sliderDots) {
       const slider = sliderValue.nativeElement;
       const dotsContainer = sliderDots.nativeElement;
-      
+
       slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
 
       const dots = dotsContainer.querySelectorAll('.dot');
@@ -95,7 +107,7 @@ export class AboutComponent implements AfterViewInit {
       this.updateSlider();
     }
   }
-  
+
   public prevSlide(): void {
     const slider = this.slider();
     if (slider) {
@@ -104,7 +116,7 @@ export class AboutComponent implements AfterViewInit {
       this.updateSlider();
     }
   }
-  
+
 
   goToSlide(index: number): void {
     this.currentSlide = index;

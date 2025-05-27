@@ -1,6 +1,7 @@
-
-import { type AfterViewInit, Component, type ElementRef, type OnDestroy, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, inject, viewChild } from "@angular/core";
 import { LogoTransitionComponent } from '../../components/logo-transition/logo-transition.component';
+import { SeoService } from '../../services/seo.service';
+import { PageMeta } from '../../models/meta.model';
 
 interface BannerSlide {
   image: string
@@ -40,12 +41,14 @@ interface Event {
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
-  @ViewChild("bannerSlider") bannerSlider!: ElementRef<HTMLElement>
-  @ViewChild("prevSlideBtn") prevSlideBtn!: ElementRef<HTMLButtonElement>
-  @ViewChild("nextSlideBtn") nextSlideBtn!: ElementRef<HTMLButtonElement>
-  @ViewChild("sliderDots") sliderDots!: ElementRef<HTMLElement>
-  @ViewChild(LogoTransitionComponent) logoTransition!: LogoTransitionComponent; // ViewChild to access LogoTransitionComponent
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private seoService = inject(SeoService);
+
+  readonly bannerSlider = viewChild.required<ElementRef<HTMLElement>>("bannerSlider");
+  readonly prevSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>("prevSlideBtn");
+  readonly nextSlideBtn = viewChild.required<ElementRef<HTMLButtonElement>>("nextSlideBtn");
+  readonly sliderDots = viewChild.required<ElementRef<HTMLElement>>("sliderDots");
+  readonly logoTransition = viewChild.required(LogoTransitionComponent);
 
   private currentSlide = 0
   private slideInterval: any
@@ -146,9 +149,19 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     },
   ]
 
+  ngOnInit(): void {
+    // Set default SEO metadata for home page - explicitly set title and description to undefined to use defaults
+    const pageMeta: Partial<PageMeta> = {
+      title: undefined,
+      description: undefined,
+      keywords: undefined
+    };
+    this.seoService.setPageMeta(pageMeta);
+  }
+
   ngAfterViewInit(): void {
     this.initBannerSlider()
-    this.logoTransition.startAnimation(); // Start the logo transition
+    this.logoTransition().startAnimation(); // Start the logo transition
   }
 
   ngOnDestroy(): void {
@@ -156,13 +169,15 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   private initBannerSlider(): void {
-    if (!this.bannerSlider || !this.prevSlideBtn || !this.nextSlideBtn || !this.sliderDots) {
+    const bannerSlider = this.bannerSlider();
+    const sliderDots = this.sliderDots();
+    if (!bannerSlider || !this.prevSlideBtn() || !this.nextSlideBtn() || !sliderDots) {
       console.error("Required elements not found")
       return
     }
 
-    const slider = this.bannerSlider.nativeElement
-    const dotsContainer = this.sliderDots.nativeElement
+    const slider = bannerSlider.nativeElement
+    const dotsContainer = sliderDots.nativeElement
     const totalSlides = this.bannerSlides.length
 
     this.createDots(totalSlides, dotsContainer)
@@ -188,8 +203,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   private updateSlider(): void {
-    const slider = this.bannerSlider.nativeElement
-    const dotsContainer = this.sliderDots.nativeElement
+    const slider = this.bannerSlider().nativeElement
+    const dotsContainer = this.sliderDots().nativeElement
 
     slider.style.transform = `translateX(-${this.currentSlide * 100}%)`
 

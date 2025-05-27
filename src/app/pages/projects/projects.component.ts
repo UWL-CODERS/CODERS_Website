@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { Project } from '../../models/project.model';
+import { SeoService } from '../../services/seo.service';
+import { PageMeta } from '../../models/meta.model';
 
 @Component({
     selector: 'app-projects',
@@ -9,6 +11,17 @@ import { Project } from '../../models/project.model';
     styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
+    private seoService = inject(SeoService);
+
+    ngOnInit(): void {
+        const pageMeta: PageMeta = {
+            title: 'Projects',
+            description: 'Check out the projects our members have been working on. Contact an executive to showcase your work!',
+            keywords: 'CODERS Club, UWL, student projects, web development, programming, computer science'
+        };
+        this.seoService.setPageMeta(pageMeta);
+    }
+
     projectData: Project[] = [
         {
             title: 'CODERS Website',

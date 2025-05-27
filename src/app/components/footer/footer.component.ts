@@ -13,8 +13,6 @@ export class FooterComponent {
   private pageTransition = inject(PageTransitionService);
   private isAnimating = false;
 
-  email: string = 'info@codersclub.com';
-
   navigateAndReload(route: string) {
     if (this.isAnimating) return;
     this.isAnimating = true;
