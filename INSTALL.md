@@ -42,46 +42,6 @@ ng serve
 
 This will compile the project and start a local development server. You should be able to access the application in your browser at `http://localhost:4200`.
 
-## Deployment
-
-### 1. Fresh Deployment
-
-Our production service runs on Rocky Linux 9.5 within the department's [OpenStack](https://cloud.cs.uwlax.edu) infrastructure.
-The IP address of this instance is 138.49.184.127, and the login credentials are maintained by the CODERS leadership.
-Completing a fresh deployment consists of:
-
-1. Building a Rocky Linux instance in OpenStack according to the [department instructions](https://www.cs.uwlax.edu/currentstudents/technology/openstack). The subsequent steps assume you have a shell on the instance and execute any commands with administrative privileges, whether directly as root or by running `sudo`.
-
-2. Set the host's hostname to `coders-prime.cs.uwlax.edu` by editing `/etc/hostname`.
-
-3. Install the Node.js dependencies by running `dnf module install nodejs:18` and `dnf install npm`.
-
-4. Copy the source tree of the website to `/home/rocky/`. The directory containing the source must be named `CODERS_Website-main`. For example, a correct copy will lead to the existence of this file at `/home/rocky/CODERS_Website-main/INSTALL.md`.
-
-5. Copy the file `coders.service` to `/lib/systemd/system/`. This provides the systemd service definition used to run the service.
-
-6. Run `systemctl start coders`. This starts the service for the current boot.
-
-7. Run `systemctl enable coders`. This configures systemd to start the service on each system boot. From this point on, systemd will automatically start the service when the computer restarts.
-
-8. Perform a system update with `dnf update`.
-
-### 2. Internet Availability
-
-The department web server provides a reverse proxy service that connects the CODERS website to the URL [https://coders.cs.uwlax.edu](https://coders.cs.uwlax.edu). Professor Petullo maintains this, and it requires that he configure both the web and DNS servers accordingly.
-
-### 3. Updates
-
-Performing an update consists of the following steps:
-
-1. Copy `/home/rocky/CODERS_Website-main/` to `/home/rocky/CODERS_Website-main-OLD/`. Note that the purpose of this is to quickly recover from a failed update. Earlier history is recorded in Git.
-
-2. Replace the existing source tree at `/home/rocky/CODERS_Website-main/` with a new one.
-
-3. Run `dnf update` to update the system packages.
-
-4. Run `systemctl restart coders` to restart the service.
-
 ## Further Reading & Resources
 
 See the [Further Reading & Resources](README.md/#further-reading--resources) section in the main README for a comprehensive list of learning materials.
