@@ -1,23 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, it, expect } from 'vitest';
+import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection, provideCheckNoChangesConfig } from '@angular/core';
 import { LogoCubeComponent } from './logo-cube.component';
 
-describe('LogoCubeComponent', () => {
-  let component: LogoCubeComponent;
-  let fixture: ComponentFixture<LogoCubeComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [LogoCubeComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(LogoCubeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+describe('LogoCubeComponent (minimal)', () => {
+  it('should create', async () => {
+    TestBed.configureTestingModule({
+      imports: [LogoCubeComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideCheckNoChangesConfig({ exhaustive: true, interval: 100 })
+      ]
+    });
+    const fixture = TestBed.createComponent(LogoCubeComponent);
+    await fixture.whenStable();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

@@ -1,25 +1,19 @@
-// Gallery spec: Testing component logic and functionality
-
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, beforeEach, it, expect } from 'vitest';
+import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection, provideCheckNoChangesConfig } from '@angular/core';
 import { GalleryComponent } from './gallery.component';
 
-describe('GalleryComponent', () => {
-  let component: GalleryComponent;
-  let fixture: ComponentFixture<GalleryComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [GalleryComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(GalleryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+describe('GalleryComponent (minimal)', () => {
+  it('should create', async () => {
+    TestBed.configureTestingModule({
+      imports: [GalleryComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideCheckNoChangesConfig({ exhaustive: true, interval: 100 })
+      ]
+    });
+    const fixture = TestBed.createComponent(GalleryComponent);
+    await fixture.whenStable();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

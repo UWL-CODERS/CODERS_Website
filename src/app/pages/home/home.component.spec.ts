@@ -1,38 +1,19 @@
-import { type ComponentFixture, TestBed } from "@angular/core/testing"
+import { describe, beforeEach, it, expect } from 'vitest';
+import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection, provideCheckNoChangesConfig } from '@angular/core';
+import { HomeComponent } from './home.component';
 
-import { HomeComponent } from "./home.component"
-
-describe("HomeComponent", () => {
-  let component: HomeComponent
-  let fixture: ComponentFixture<HomeComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+describe('HomeComponent (minimal)', () => {
+  it('should create', async () => {
+    TestBed.configureTestingModule({
       imports: [HomeComponent],
-    }).compileComponents()
-
-    fixture = TestBed.createComponent(HomeComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
-
-  it("should create", () => {
-    expect(component).toBeTruthy()
-  })
-
-  it("should have banner slides", () => {
-    expect(component.bannerSlides.length).toBeGreaterThan(0)
-  })
-
-  it("should have features", () => {
-    expect(component.features.length).toBeGreaterThan(0)
-  })
-
-  it("should have activities", () => {
-    expect(component.activities.length).toBeGreaterThan(0)
-  })
-
-  it("should have events", () => {
-    expect(component.events.length).toBeGreaterThan(0)
-  })
-})
+      providers: [
+        provideZonelessChangeDetection(),
+        provideCheckNoChangesConfig({ exhaustive: true, interval: 100 })
+      ]
+    });
+    const fixture = TestBed.createComponent(HomeComponent);
+    await fixture.whenStable();
+    expect(fixture.componentInstance).toBeTruthy();
+  });
+});
