@@ -1,23 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { describe, it, expect } from 'vitest';
+import { TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection, provideCheckNoChangesConfig } from '@angular/core';
 import { CarouselComponent } from './carousel.component';
 
-describe('CarouselComponent', () => {
-  let component: CarouselComponent;
-  let fixture: ComponentFixture<CarouselComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [CarouselComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(CarouselComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
+describe('CarouselComponent (minimal)', () => {
+  it('should create', async () => {
+    TestBed.configureTestingModule({
+      imports: [CarouselComponent],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideCheckNoChangesConfig({ exhaustive: true, interval: 100 })
+      ]
+    });
+    const fixture = TestBed.createComponent(CarouselComponent);
+    await fixture.whenStable();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

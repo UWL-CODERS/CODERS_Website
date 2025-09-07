@@ -21,7 +21,7 @@
     "@angular/platform-server": "^20.2.4",
     "@angular/router": "^20.2.4",
     "@angular/ssr": "^20.2.2",
-    "@primeng/themes": "^19.1.2",
+    "@primeng/themes": "^20.1.1",
     "express": "^5.1.0",
     "gsap": "^3.13.0",
     "primeicons": "^7.0.0",
@@ -34,14 +34,9 @@
     "@angular/cli": "^20.2.2",
     "@angular/compiler-cli": "^20.2.4",
     "@types/express": "^5.0.2",
-    "@types/jasmine": "~5.1.7",
     "@types/node": "^22.15.21",
-    "jasmine-core": "~5.7.1",
-    "karma": "~6.4.4",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.1",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.8.3"
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "vitest": "^3.2.4"
   }
 }

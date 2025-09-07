@@ -43,11 +43,13 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 ### Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Angular v20 now supports experimental Vitest integration. To run unit tests with Vitest, type the following command:
 
 ```bash
 ng test
 ```
+
+This will run your unit tests using Vitest, with watch mode and browser testing support.
 
 ### Running end-to-end tests
 
