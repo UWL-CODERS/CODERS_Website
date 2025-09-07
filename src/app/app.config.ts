@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideClientHydration, withIncrementalHydration } from '@angular/platform-browser';
 import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -8,7 +8,7 @@ import { CODERS_Preset } from '../presets/coders.preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideClientHydration(withIncrementalHydration()),
     provideAnimationsAsync(),
