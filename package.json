@@ -18,7 +18,7 @@
     "@angular/forms": "^20.2.4",
     "@angular/platform-browser": "^20.2.4",
     "@angular/platform-browser-dynamic": "^20.2.4",
-    "@angular/platform-server": "^20.2.4",
+    "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.2.4",
     "@angular/ssr": "^20.2.2",
     "@primeng/themes": "^20.1.1",
