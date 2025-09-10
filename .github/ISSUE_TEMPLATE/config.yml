@@ -1,8 +1,5 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
-  - name: Security issue disclosure
-    url: https://github.com/UWL-CODERS/website/blob/main/SECURITY.md
-    about: Report a security issue in the CODERS Club website
   - name: Development Guide
     url: https://github.com/UWL-CODERS/website/blob/main/DEVELOPMENT.md
     about: Learn how to contribute or develop for the CODERS Club website

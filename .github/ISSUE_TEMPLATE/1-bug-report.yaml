@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in the UWL CODERS website
+description: Report a bug in the CODERS Club website
 
 body:
   - type: dropdown
