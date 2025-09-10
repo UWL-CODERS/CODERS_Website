@@ -7,9 +7,9 @@ body:
     attributes:
       label: Is this a regression?
       options:
-        - Yes
-        - No
-        - Unsure
+        - 'Yes'
+        - 'No'
+        - 'Unsure'
     validations:
       required: true
 
