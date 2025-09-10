@@ -65,7 +65,7 @@ Ready to contribute?
 
 If you encounter issues, have questions, or need assistance with this project, here are several ways to get support:
 
-- For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/CODERS_Website/issues).
+- For bug reports, feature requests, or specific technical questions related to the codebase, please [open an issue](https://github.com/UWL-CODERS/website/issues).
 - Join our [CODERS Club Discord server](https://discord.gg/UGupy2CVVq) for general discussion, quick questions, and community interaction.
 - For specific inquiries not suitable for public forums, you can reach out to Brendan Lambrecht at lambrecht5083@uwlax.edu.
 
@@ -73,8 +73,8 @@ If you encounter issues, have questions, or need assistance with this project, h
 
 Thanks to these amazing people who have contributed to this project:
 
-<a href="https://github.com/UWL-CODERS/CODERS_Website/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=UWL-CODERS/CODERS_Website" />
+<a href="https://github.com/UWL-CODERS/website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=UWL-CODERS/website" />
 </a>
 
 [img-install]: https://img.shields.io/badge/Installation-black?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9ImZlYXRoZXIgZmVhdGhlci1kb3dubG9hZCI+PHBhdGggZD0iTTIxIDE1djRhMiAyIDAgMCAxLTIgMkg1YTIgMiAwIDAgMS0yLTJ2LTQiPjwvcGF0aD48cG9seWxpbmUgcG9pbnRzPSI3IDEwIDEyIDE1IDE3IDEwIj48L3BvbHlsaW5lPjxsaW5lIHgxPSIxMiIgeTE9IjE1IiB4Mj0iMTIiIHkyPSIzIj48L2xpbmU+PC9zdmc+
@@ -87,6 +87,6 @@ Thanks to these amazing people who have contributed to this project:
 [url-help]: <#getting-help>
 
 [img-discord]: <https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fdiscord.com%2Fapi%2Finvites%2FUGupy2CVVq%3Fwith_counts%3Dtrue&query=%24.approximate_member_count&style=for-the-badge&label=Discord&color=5865F2&logoColor=white&labelColor=black&logo=discord>
-[img-github]: <https://img.shields.io/github/stars/UWL-CODERS/CODERS_Website?style=for-the-badge&label=Stars&color=white&logoColor=white&labelColor=black&logo=github>
+[img-github]: <https://img.shields.io/github/stars/UWL-CODERS/website?style=for-the-badge&label=Stars&color=white&logoColor=white&labelColor=black&logo=github>
 [url-discord]: <https://discord.gg/UGupy2CVVq>
-[url-github]: <https://github.com/UWL-CODERS/CODERS_Website>
+[url-github]: <https://github.com/UWL-CODERS/website>

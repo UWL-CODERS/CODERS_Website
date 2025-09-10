@@ -21,7 +21,7 @@ These instructions allow for the maintenance of the CODERS website. These are *n
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/UWL-CODERS/CODERS_Website.git
+git clone https://github.com/UWL-CODERS/website.git
 ```
 
 ### 2. Install Dependencies

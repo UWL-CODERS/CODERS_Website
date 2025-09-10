@@ -175,7 +175,7 @@ git clone <repository_url>
 Clone this repository using the following command:
 
 ```bash
-git clone https://github.com/UWL-CODERS/CODERS_Website.git
+git clone https://github.com/UWL-CODERS/website.git
 ```
 
 ## Further Reading & Resources

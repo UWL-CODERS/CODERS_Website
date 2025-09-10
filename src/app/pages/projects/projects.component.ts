@@ -26,8 +26,8 @@ export class ProjectsComponent {
         {
             title: 'CODERS Website',
             description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-            externalUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
+            imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/website/refs/heads/main/src/assets/images/Logos/logo.png',
+            externalUrl: 'https://github.com/UWL-CODERS/website',
             tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
             button: 'View Project'
         },
@@ -53,8 +53,8 @@ export class ProjectsComponent {
     //     {
     //         title: 'CODERS Website',
     //         description: 'This website, which you are currently viewing, was developed by the UWL CODERS Club and is built using a range of modern web technologies.',
-    //         imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/CODERS_Website/refs/heads/main/src/assets/images/Logos/logo.png',
-    //         externalUrl: 'https://github.com/UWL-CODERS/CODERS_Website',
+    //         imageUrl: 'https://raw.githubusercontent.com/UWL-CODERS/website/refs/heads/main/src/assets/images/Logos/logo.png',
+    //         externalUrl: 'https://github.com/UWL-CODERS/website',
     //         tags: ['TypeScript', 'HTML', 'SCSS', 'Angular'],
     //         button: 'View Research'
     //     },
