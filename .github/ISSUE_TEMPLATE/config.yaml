@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security issue disclosure
+    url: https://github.com/UWL-CODERS/website/blob/main/SECURITY.md
+    about: Report a security issue in the CODERS Club website
+  - name: Development Guide
+    url: https://github.com/UWL-CODERS/website/blob/main/DEVELOPMENT.md
+    about: Learn how to contribute or develop for the CODERS Club website
+  - name: General Support
+    url: https://github.com/UWL-CODERS/website?tab=readme-ov-file#getting-help
+    about: Ask questions or request help for the CODERS Club website

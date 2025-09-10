@@ -1,0 +1,60 @@
+name: Bug Report
+description: Report a bug in the UWL CODERS website
+
+body:
+  - type: dropdown
+    id: is-regression
+    attributes:
+      label: Is this a regression?
+      options:
+        - Yes
+        - No
+        - Unsure
+    validations:
+      required: true
+
+  - type: input
+    id: affected-part
+    attributes:
+      label: What page or component is affected?
+      placeholder: e.g. Home page, Footer, Gallery, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      placeholder: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction
+    attributes:
+      label: Steps or link to reproduce
+      placeholder: Paste a link or describe steps to reproduce the issue
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Exception or error output (if any)
+      render: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment details (run `ng version`)
+      render: true
+      placeholder: |
+        Angular CLI: <version>
+        Node: <version>
+        Package Manager: <npm/yarn/pnpm> <version>
+        OS: <your OS>
+
+        ...other relevant packages...
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?

@@ -1,0 +1,35 @@
+name: Feature Request
+description: Suggest a new feature or improvement for the CODERS Club website
+
+body:
+  - type: input
+    id: affected-part
+    attributes:
+      label: What page or component would this feature affect?
+      placeholder: e.g. Home page, Footer, Gallery, etc.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like to see?
+      placeholder: Describe your idea or the problem it solves.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: How should it work?
+      placeholder: Describe how you imagine the feature working.
+
+  - type: textarea
+    id: alternatives-considered
+    attributes:
+      label: Have you considered any alternatives?
+      placeholder: List any other approaches or features you thought about.
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
+      placeholder: Add any extra context or screenshots.
