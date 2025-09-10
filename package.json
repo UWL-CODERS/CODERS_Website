@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "^20.2.4",
     "@angular/platform-server": "^20.2.4",
     "@angular/router": "^20.2.4",
-    "@angular/ssr": "^20.2.2",
+    "@angular/ssr": "^20.3.0",
     "@primeng/themes": "^20.1.1",
     "express": "^5.1.0",
     "gsap": "^3.13.0",
