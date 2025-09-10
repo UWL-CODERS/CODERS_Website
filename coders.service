@@ -1,9 +1,9 @@
 [Unit]
-Description=CODERS website
+Description=CODERS Club Website
 
 [Service]
-WorkingDirectory=/home/rocky/CODERS_Website-main
-ExecStart=/usr/bin/node /home/rocky/CODERS_Website-main/node_modules/@angular/cli/bin/ng.js serve --host 138.49.184.127 --port 8443
+WorkingDirectory=/home/rocky/website-main
+ExecStart=/usr/bin/node /home/rocky/website-main/node_modules/@angular/cli/bin/ng.js serve --host 138.49.184.127 --port 8443
 
 [Install]
 WantedBy=multi-user.target
