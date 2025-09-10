@@ -1,5 +1,5 @@
 {
-  "name": "coders-website",
+  "name": "uwl-coders-website",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:CODERS_Website": "node dist/coders-website/server/server.mjs"
+    "serve:ssr:uwl-coders-website": "node dist/coders-website/server/server.mjs"
   },
   "private": true,
   "dependencies": {

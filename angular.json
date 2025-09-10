@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "CODERS_Website": {
+    "uwl-coders-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "CODERS_Website:build:production"
+              "buildTarget": "uwl-coders-website:build:production"
             },
             "development": {
-              "buildTarget": "CODERS_Website:build:development"
+              "buildTarget": "uwl-coders-website:build:development"
             }
           },
           "defaultConfiguration": "development"
