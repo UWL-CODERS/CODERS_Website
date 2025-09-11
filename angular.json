@@ -81,6 +81,9 @@
             "buildTarget": "::development",
             "runner": "vitest"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
